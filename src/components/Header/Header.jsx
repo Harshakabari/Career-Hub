@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "../../assets/logo.png";
+import { RiMenu3Fill } from "react-icons/ri";
 
 const Header = () => {
   return (
@@ -10,7 +11,7 @@ const Header = () => {
         </a>
 
         <nav>
-          <ul className="flex gap-6">
+          <ul className="gap-6 hidden md:flex">
             <li><a href="home">Home</a></li>
             <li><a href="about">About Us</a></li>
             <li><a href="postjob">Post Job</a></li>
@@ -18,7 +19,9 @@ const Header = () => {
           </ul>
         </nav>
 
-        <button className="bg-[#2277AE] rounded-md p-1 px-4" type="button">Login/Register</button>
+        <button className="bg-[#2277AE] rounded-md p-1 px-4 hidden md:block" type="button">Login/Register</button>
+        <RiMenu3Fill class="block md:hidden"/>
+
       </div>
     </>
   );
