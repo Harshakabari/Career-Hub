@@ -4,7 +4,7 @@ import Logo from "../../assets/logo.png";
 const Header = () => {
   return (
     <>
-      <div className="py-4 px-10   flex justify-between items-center">
+      <div className="py-4 px-10 flex justify-between items-center">
         <a href="/">
           <img className="h-12" src={Logo} alt="" />
         </a>
@@ -20,8 +20,6 @@ const Header = () => {
 
         <button className="bg-blue-700 rounded-md p-1 px-3" type="button">Login/Register</button>
       </div>
-
-
     </>
   );
 };
