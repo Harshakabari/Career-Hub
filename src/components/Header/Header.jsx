@@ -5,9 +5,9 @@ import { RiMenu3Fill } from "react-icons/ri";
 const Header = () => {
   return (
     <>
-      <div className="py-4 px-12 flex justify-between items-center">
+      <div className=" bg-[#060C23] py-4 px-12 flex justify-between items-center">
         <a href="/">
-          <img className="h-12" src={Logo} alt="" />
+          <img className="h-10 " src={Logo} alt="" />
         </a>
 
         <nav>
@@ -20,7 +20,7 @@ const Header = () => {
         </nav>
 
         <button className="bg-[#2277AE] rounded-md p-1 px-4 hidden md:block" type="button">Login/Register</button>
-        <RiMenu3Fill class="block md:hidden"/>
+        <RiMenu3Fill class="block md:hidden text-3xl "/>
 
       </div>
     </>
