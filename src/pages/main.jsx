@@ -20,20 +20,20 @@ const main = () => {
 
       {/*=========== Search bar ============ */}
       <div className="text-black p-4 rounded-lg w-max bg-slate-200 m-auto">
-        <Form className="flex items-center gap-4">
+        <Form className="flex items-center gap-4 h-[50px] ">
 
           <FormGroup className="flex gap-3 items-center form__group form__group-fast ">
-            <IoSearch />
-            <input className='p-2 px-3 rounded-md' type="text" placeholder="job title or keyword" />
+            <IoSearch className='mt-3 ml-[10px] mr-[-50px] z-10 border-transparent bg-slate-300 rounded-lg border-2 h-8 w-8 p-[7px]' />
+            <input className='p-2 mt-3 px-3 pl-[45px] rounded-md' type="text" placeholder="Job title or keyword" />
           </FormGroup>
 
-          <FormGroup className="flex gap-3 items-center form__group form__group-fast ">
-            <IoLocationOutline />
-            <input className='p-2 px-3 rounded-md' type="text" placeholder="Location" />
+          <FormGroup className="flex mt-3 gap-3 items-center form__group form__group-fast ">
+            <IoLocationOutline className=' mr-[-50px] z-10 border-transparent bg-slate-300 rounded-lg border-2 h-8 w-8 p-[7px]'/>
+            <input className='p-2 px-3 pl-[45px] rounded-md' type="text" placeholder="Location" />
           </FormGroup>
 
           <button
-            className="bg-[#2e94b3] text-white rounded-md p-2 px-6"
+            className="bg-[#2e94b3] text-white rounded-md p-2 px-12"
             type="button"
           >
             Search
