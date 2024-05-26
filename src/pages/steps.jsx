@@ -5,10 +5,11 @@ const steps = () => {
     <>
       {/* // main div */}
       <div className="text-black">
-        <h3 className="text-5xl flex justify-center">Follow Easy 3 step</h3>
+        <span className="text-4xl text-orange-400 flex justify-center mt-4">How it works?</span>
+        <h3 className="text-6xl text-blue-950 flex justify-center mt-4">Follow Easy 3 step</h3>
 
         {/* // All card */}
-        <div className="flex justify-center items-center gap-4 m-14">
+        <div className="flex justify-center items-center gap-4 m-8">
 
           {/* // card 1 */}
           <div className="relative h-[350px] w-[300px] m-[20px] p-1 bg-gray-300 overflow-hidden rounded-3xl">
