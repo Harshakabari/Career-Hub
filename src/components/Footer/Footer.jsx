@@ -1,5 +1,8 @@
 import React from "react";
 import logo from "../../assets/logo.png";
+import { IoLocationOutline } from "react-icons/io5";
+import { MdOutlineEmail } from "react-icons/md";
+import { FaPhoneAlt } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -99,10 +102,10 @@ const Footer = () => {
             <div>
               <h2 className="mb-6 text-sm font-semibold uppercase ">Contact</h2>
 
-              <h3 className="flex mb-2">
-                <span>
+              <h3 className="flex items-center mb-2">
+                <span className="mr-2">
                   {" "}
-                  <i class="ri-map-pin-line"></i>
+                  <IoLocationOutline />
                 </span>
                 Address:
                 <address className="mx-3 text-gray-400">
@@ -110,13 +113,15 @@ const Footer = () => {
                 </address>
               </h3>
 
-              <h3 className="flex mb-2">
-                <span> Email: </span>
+              <h3 className="flex items-center mb-2">
+                <span className="mr-2"> <MdOutlineEmail /> </span>
+                Email:
                 <p className="mx-3 text-gray-400">jobmaster1212@gmail.com</p>
               </h3>
 
-              <h3 className="flex">
-                <span> Phone: </span>
+              <h3 className="flex items-center">
+                <span className="mr-2"> <FaPhoneAlt /> </span>
+                Phone: 
                 <p className="mx-3 text-gray-400">+91 8547963258</p>
               </h3>
             </div>
