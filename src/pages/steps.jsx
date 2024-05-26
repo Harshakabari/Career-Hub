@@ -12,7 +12,7 @@ const steps = () => {
         <div className="flex justify-center items-center gap-4 m-8">
 
           {/* // card 1 */}
-          <div className="relative h-[350px] w-[300px] m-[20px] p-1 bg-gray-300 overflow-hidden rounded-3xl">
+          <div className="relative shadow-2xl h-[350px] w-[300px] m-[20px] p-1 bg-gray-300 overflow-hidden rounded-3xl hover:scale-105 ease-in duration-500">
             <div className="relative h-full w-full bg-white z-[99] pl-5 pt-8 pr-5 rounded-3xl">
               <div className="">
                 <h5 className="text-2xl font-semibold text-[#2277AE] mb-3">
@@ -29,7 +29,7 @@ const steps = () => {
           </div>
 
           {/* // card 2 */}
-          <div className="relative h-[350px] w-[300px] m-[20px] p-1 bg-gray-300 overflow-hidden rounded-3xl">
+          <div className="relative shadow-2xl h-[350px] w-[300px] m-[20px] p-1 bg-gray-300 overflow-hidden rounded-3xl hover:scale-105 ease-in duration-500">
             <div className="relative h-full w-full bg-white z-[99] pl-5 pt-8 pr-5 rounded-3xl">
               <div className="">
                 <h5 className="text-2xl font-semibold text-[#2277AE] mb-3">
@@ -44,7 +44,7 @@ const steps = () => {
           </div>
 
           {/* // card 3 */}
-          <div className="relative h-[350px] w-[300px] m-[20px] p-1 bg-gray-300 overflow-hidden rounded-3xl">
+          <div className="relative shadow-2xl h-[350px] w-[300px] m-[20px] p-1 bg-gray-300 overflow-hidden rounded-3xl hover:scale-105 ease-in duration-500">
             <div className="relative h-full w-full bg-white z-[99] pl-5 pt-8 pr-5 rounded-3xl">
               <div className="">
                 <h5 className="text-2xl font-semibold text-[#2277AE] mb-3">
