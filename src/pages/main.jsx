@@ -1,5 +1,5 @@
 import React from 'react'
-import Ractangle from '../assets/Rectangle.png';
+import Ractangle from '../assets/Rectangle2.png';
 import { Form, FormGroup } from 'reactstrap';
 import { IoSearch } from "react-icons/io5";
 import { IoLocationOutline } from "react-icons/io5";
@@ -11,7 +11,7 @@ const main = () => {
     <>
       <div>
         <img
-          className="w-dvw h-[400px]"
+          className="w-dvw h-[550px] divide-rose-50 "
           src={Ractangle}
           alt="Ractangle-image"
         />
@@ -19,7 +19,7 @@ const main = () => {
       </div>
 
       {/*=========== Search bar ============ */}
-      <div className="text-black p-4 rounded-lg w-max bg-slate-200 m-auto">
+      <div className="text-black p-4 rounded-lg mt-4 w-max bg-slate-200 m-auto">
         <Form className="flex items-center gap-4 h-[50px] ">
 
           <FormGroup className="flex gap-3 items-center form__group form__group-fast ">

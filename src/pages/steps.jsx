@@ -5,7 +5,7 @@ const steps = () => {
     <>
       {/* // main div */}
       <div className="text-black">
-        <span className="text-4xl text-orange-400 flex justify-center mt-4">How it works?</span>
+        <span className="text-4xl text-orange-400 flex justify-center mt-20">How it works?</span>
         <h3 className="text-6xl text-blue-950 flex justify-center mt-4">Follow Easy 3 step</h3>
 
         {/* // All card */}
