@@ -3,6 +3,7 @@ import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import Main from '../pages/main.jsx';
 import Steps from '../pages/steps.jsx';
+import FAQS from '../pages/faqs.jsx';
 
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
       <Header />
       <Main />
       <Steps />
+      <FAQS />
       <Footer />
     </div>
   )
