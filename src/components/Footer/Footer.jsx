@@ -11,18 +11,18 @@ const Footer = () => {
               <a href="https://flowbite.com/">
                 <img src={logo} className="h-10 me-3" alt="FlowBite Logo" />
               </a>
-              <p className="w-96">
+              <p className="w-96 text-gray-200">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Corporis, fugit sint. Accusamus eos distinctio reprehenderit.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+            <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
               <div>
-                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                <h2 className="mb-6 text-sm font-semibold uppercase ">
                   Discover
                 </h2>
-                <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                <ul className="text-gray-400 font-medium">
                   <li className="mb-4">
                     <a href="https://flowbite.com/" className="hover:underline">
                       Home
@@ -50,10 +50,10 @@ const Footer = () => {
               </div>
 
               <div>
-                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                <h2 className="mb-6 text-sm font-semibold uppercase ">
                   Follow us
                 </h2>
-                <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                <ul className="text-gray-400 font-medium">
                   <li className="mb-4">
                     <a
                       href="https://github.com/themesberg/flowbite"
@@ -74,10 +74,8 @@ const Footer = () => {
               </div>
 
               <div>
-                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                  Help
-                </h2>
-                <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                <h2 className="mb-6 text-sm font-semibold uppercase">Help</h2>
+                <ul className="text-gray-400 font-medium">
                   <li className="mb-4">
                     <a href="#" className="hover:underline">
                       Support
@@ -99,32 +97,32 @@ const Footer = () => {
             </div>
 
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Contact
-              </h2>
-            
+              <h2 className="mb-6 text-sm font-semibold uppercase ">Contact</h2>
+
               <h3 className="flex mb-2">
-                <span> <i class="ri-map-pin-line"></i></span>
+                <span>
+                  {" "}
+                  <i class="ri-map-pin-line"></i>
+                </span>
                 Address:
-                <address className="mx-3">Ahmedabad, Gujarat</address>
+                <address className="mx-3 text-gray-400">
+                  Ahmedabad, Gujarat
+                </address>
               </h3>
 
-              <h3 className="flex mb-2"> 
+              <h3 className="flex mb-2">
                 <span> Email: </span>
-                <p className="mx-3">jobmaster1212@gmail.com</p>
+                <p className="mx-3 text-gray-400">jobmaster1212@gmail.com</p>
               </h3>
 
               <h3 className="flex">
                 <span> Phone: </span>
-                <p className="mx-3">+91 8547963258</p>
+                <p className="mx-3 text-gray-400">+91 8547963258</p>
               </h3>
-
-
-
             </div>
           </div>
 
-          <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+          <hr className="my-6 border-gray-100 sm:mx-auto lg:my-8" />
         </div>
       </footer>
     </>
