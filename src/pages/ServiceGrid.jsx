@@ -3,7 +3,7 @@ import ServiceCard from "./ServiceCard";
 
 const ServiceGrid = () => {
   return (
-    <div className="h-dvh min-h-screen w-full bg-gray-800 pt-8 px-24">
+    <div className="pb-6 min-h-screen w-full bg-gray-800 pt-8 px-24">
       <h2 className="pb-4 text-center font-bold text-5xl">Job Category</h2>
       <p className="pb-8 text-center text-lg text-gray-300">
         Find a job should not be a full-time endeavor. Tell us <br />
