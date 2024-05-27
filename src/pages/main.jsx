@@ -11,7 +11,7 @@ const main = () => {
     <>
       <div>
         <img
-          className="w-dvw h-[550px] divide-rose-50 "
+          className="w-dvw h-[400px] divide-rose-50 "
           src={Ractangle}
           alt="Ractangle-image"
         />
