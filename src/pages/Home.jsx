@@ -4,6 +4,7 @@ import Footer from '../components/Footer/Footer';
 import Main from '../pages/main.jsx';
 import Steps from '../pages/steps.jsx';
 import FAQS from '../pages/faqs.jsx';
+import ServiceGrid from './ServiceGrid.jsx';
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
       <Header />
       <Main />
       <Steps />
+      <ServiceGrid />
       <FAQS />
       <Footer />
     </div>
