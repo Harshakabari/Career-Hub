@@ -1,45 +1,43 @@
-import React from 'react';
-import ServiceCard from './ServiceCard';
+import React from "react";
+import ServiceCard from "./ServiceCard";
 
 const ServiceGrid = () => {
   return (
-    <div className="h-full min-h-screen w-full bg-gray-800 pt-8 px-24">
-        <h2 className='pb-6 text-center font-bold text-5xl'>Job Category</h2>
-        <p className='pb-16 text-center text-lg text-gray-300'>Find a job should not be a full-time endeavor. Tell us <br />
-            what you're searching for, and we will find you job</p>
-      <div className="grid gap-14 md:grid-cols-3 md:gap-5">
+    <div className="h-dvh min-h-screen w-full bg-gray-800 pt-8 px-24">
+      <h2 className="pb-4 text-center font-bold text-5xl">Job Category</h2>
+      <p className="pb-8 text-center text-lg text-gray-300">
+        Find a job should not be a full-time endeavor. Tell us <br />
+        what you're searching for, and we will find you job
+      </p>
+      <div className="grid gap-14 md:grid-cols-3 md:gap-8">
         <ServiceCard
           icon={
-            <svg
-            viewBox="0 0 64 64"
-            fill="currentColor"
-            className='h-8 w-10'
-          >
-            <path
-              fill="none"
-              stroke="currentColor"
-              strokeMiterlimit={10}
-              strokeWidth={2}
-              d="M23 57h18v6H23zM19 47h26v10H19zM41 47v-4l7-13L32 1 16 30l7 13v4"
-            />
-            <path
-              fill="none"
-              stroke="currentColor"
-              strokeMiterlimit={10}
-              strokeWidth={2}
-              d="M36 28.875 A4 4 0 0 1 32 32.875 A4 4 0 0 1 28 28.875 A4 4 0 0 1 36 28.875 z"
-            />
-            <path
-              fill="none"
-              stroke="currentColor"
-              strokeMiterlimit={10}
-              strokeWidth={2}
-              d="M32 1v24"
-            />
-          </svg>
+            <svg viewBox="0 0 64 64" fill="currentColor" className="h-8 w-10">
+              <path
+                fill="none"
+                stroke="currentColor"
+                strokeMiterlimit={10}
+                strokeWidth={2}
+                d="M23 57h18v6H23zM19 47h26v10H19zM41 47v-4l7-13L32 1 16 30l7 13v4"
+              />
+              <path
+                fill="none"
+                stroke="currentColor"
+                strokeMiterlimit={10}
+                strokeWidth={2}
+                d="M36 28.875 A4 4 0 0 1 32 32.875 A4 4 0 0 1 28 28.875 A4 4 0 0 1 36 28.875 z"
+              />
+              <path
+                fill="none"
+                stroke="currentColor"
+                strokeMiterlimit={10}
+                strokeWidth={2}
+                d="M32 1v24"
+              />
+            </svg>
           }
           title="Graphic Design"
-          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo iure inventore amet modi accusantium vero perspiciatis, incidunt dicta sed aspernatur!"
+          description="You will be expected to lead the entire Graphic Design strategy."
           bgColor="bg-teal-400"
           shadowColor="shadow-teal-500"
         />
@@ -78,7 +76,7 @@ const ServiceGrid = () => {
             </svg>
           }
           title="UI/Ux Design"
-          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo iure inventore amet modi accusantium vero perspiciatis, incidunt dicta sed aspernatur!"
+          description="You will be expected to lead the entire UI/Ux Design strategy."
           bgColor="bg-orange-400"
           shadowColor="shadow-orange-500"
         />
@@ -97,8 +95,63 @@ const ServiceGrid = () => {
             </svg>
           }
           title="Development"
-          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo iure inventore amet modi accusantium vero perspiciatis, incidunt dicta sed aspernatur!"
+          description="You will be expected to lead the entire Web Application strategy."
           bgColor="bg-purple-400"
+          shadowColor="shadow-purple-500"
+        />
+        <ServiceCard
+          icon={
+            <svg viewBox="0 0 64 64" fill="currentColor" className="h-8 w-10">
+              <path
+                fill="none"
+                stroke="currentColor"
+                strokeMiterlimit={10}
+                strokeWidth={2}
+                d="M1 7h62v50H1zM1 15h62M10 11H6M18 11h-4M26 11h-4M6 25h27M6 33h27M6 41h27"
+              />
+              <path
+                fill="none"
+                stroke="currentColor"
+                strokeMiterlimit={10}
+                strokeWidth={2}
+                d="M38 25h19v16H38z"
+              />
+            </svg>
+          }
+          title="Web Application"
+          description="You will be expected to lead the entire Web Application strategy."
+          bgColor="bg-pink-400"
+          shadowColor="shadow-purple-500"
+        />
+        <ServiceCard
+          icon={
+            <svg
+              viewBox="0 0 640 512"
+              fill="currentColor"
+              className="h-10 w-8 text-white"
+            >
+              <path d="M64 64C28.7 64 0 92.7 0 128v256c0 35.3 28.7 64 64 64h512c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64zm32 64h224c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32v-64c0-17.7 14.3-32 32-32zM64 368c0-8.8 7.2-16 16-16h256c8.8 0 16 7.2 16 16s-7.2 16-16 16H80c-8.8 0-16-7.2-16-16zm320 0c0-8.8 7.2-16 16-16h160c8.8 0 16 7.2 16 16s-7.2 16-16 16H400c-8.8 0-16-7.2-16-16zM80 320c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16zm80-16c0 8.8-7.2 16-16 16s-16-7.2-16-16 7.2-16 16-16 16 7.2 16 16zm48 16c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16zm80-16c0 8.8-7.2 16-16 16s-16-7.2-16-16 7.2-16 16-16 16 7.2 16 16zm48 16c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16z" />
+            </svg>
+          }
+          title="Digital marketing"
+          description="You will be expected to lead the entire Digital marketing strategy."
+          bgColor="bg-green-400"
+          shadowColor="shadow-purple-500"
+        />
+        <ServiceCard
+          icon={
+            <svg fill="none" viewBox="0 0 15 15" className="h-8 w-8">
+            <path
+              fill="currentColor"
+              fillRule="evenodd"
+              d="M4 2.5a.5.5 0 01.5-.5h6a.5.5 0 01.5.5v10a.5.5 0 01-.5.5h-6a.5.5 0 01-.5-.5v-10zM4.5 1A1.5 1.5 0 003 2.5v10A1.5 1.5 0 004.5 14h6a1.5 1.5 0 001.5-1.5v-10A1.5 1.5 0 0010.5 1h-6zM6 11.65a.35.35 0 100 .7h3a.35.35 0 100-.7H6z"
+              clipRule="evenodd"
+            />
+          </svg>
+          }
+          title="Mobile App Design"
+          description="You will be expected to lead the entire Mobile App strategy."
+          bgColor="bg-blue-400"
           shadowColor="shadow-purple-500"
         />
       </div>

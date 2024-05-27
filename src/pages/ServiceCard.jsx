@@ -2,7 +2,7 @@ import React from 'react';
 
 const ServiceCard = ({ icon, title, description, bgColor, shadowColor }) => {
   return (
-    <div className="rounded-xl bg-white px-6 text-center shadow-xl">
+    <div className="rounded-xl bg-white px-6 pb-8 mt-6 text-center shadow-2xl">
       <div
         className={`mx-auto mt-4 flex h-16 w-16 -translate-y-12 transform items-center justify-center rounded-full ${bgColor} shadow-lg ${shadowColor}/40`}
       >
