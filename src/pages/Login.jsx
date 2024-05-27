@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -8,7 +9,7 @@ const Login = () => {
         <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
           
           <div className="flex flex-col items-center">
-            <h1 className="text-2xl xl:text-3xl font-extrabold">Sign up</h1>
+            <h1 className="text-2xl xl:text-3xl font-extrabold">Login</h1>
             <div className="w-full flex-1 mt-8">
               <div className="flex flex-col items-center">
                 <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-2 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
@@ -32,7 +33,7 @@ const Login = () => {
                       />
                     </svg>
                   </div>
-                  <span className="ml-4">Sign Up with Google</span>
+                  <span className="ml-4">Login with Google</span>
                 </button>
 
                 <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5">
@@ -44,13 +45,13 @@ const Login = () => {
                       />
                     </svg>
                   </div>
-                  <span className="ml-4">Sign Up with GitHub</span>
+                  <span className="ml-4">Login with GitHub</span>
                 </button>
               </div>
 
               <div className="my-12 border-b text-center">
                 <div className="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
-                  Or sign up with e-mail
+                  Or Login with e-mail
                 </div>
               </div>
 
@@ -78,9 +79,9 @@ const Login = () => {
                     <circle cx="8.5" cy="7" r="4" />
                     <path d="M20 8v6M23 11h-6" />
                   </svg>
-                  <span className="ml-3">Sign Up</span>
+                  <span className="ml-3">Login</span>
                 </button>
-                <p className='text-center mt-2'>Already have an account?<a className='text-indigo-800 font-semibold mx-2 hover:underline' href="/">login</a></p>
+                <p className='text-center mt-2'>Don't have an account?<Link className='text-indigo-800 font-semibold mx-2 hover:underline' to="/Register">Sign up</Link></p>
                 <p className="mt-6 text-xs text-gray-600 text-center">
                   I agree to abide by templatana's
                   <a
