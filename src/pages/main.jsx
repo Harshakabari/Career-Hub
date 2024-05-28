@@ -24,12 +24,12 @@ const main = () => {
 
           <FormGroup className="flex gap-3 items-center form__group form__group-fast ">
             <IoSearch className='mt-3 ml-[10px] mr-[-50px] z-10 border-transparent bg-slate-300 rounded-lg border-2 h-8 w-8 p-[7px]' />
-            <input className='p-2 mt-3 px-3 pl-[45px] rounded-md' type="text" placeholder="Job title or keyword" />
+            <input className='p-2 mt-3 px-3 pl-[45px] rounded-md outline-none ' type="text" placeholder="Job title or keyword" />
           </FormGroup>
 
           <FormGroup className="flex mt-3 gap-3 items-center form__group form__group-fast ">
             <IoLocationOutline className=' mr-[-50px] z-10 border-transparent bg-slate-300 rounded-lg border-2 h-8 w-8 p-[7px]'/>
-            <input className='p-2 px-3 pl-[45px] rounded-md' type="text" placeholder="Location" />
+            <input className='p-2 px-3 pl-[45px] rounded-md outline-none' type="text" placeholder="Location" />
           </FormGroup>
 
           <button

@@ -1,10 +1,11 @@
 // Importing necessary modules and packages
 const express = require("express");
 const app = express();
-
 const database = require("./Config/Database");
+const userRoutes = require("./routes/user");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const cookieParser = require('cookieparser')
 
 // Setting up port number
 const PORT = process.env.PORT || 4000;
@@ -18,28 +19,25 @@ database.connect();
 // Middlewares
 app.use(express.json());
 // app.use(cookieParser());
-app.use(
-	cors({
-		origin: "*",
-		credentials: true,
-	})
-);
-app.use(
-	fileUpload({
-		useTempFiles: true,
-		tempFileDir: "/tmp/",
-	})
-);
+// app.use(
+// 	cors({
+// 		origin: "*",
+// 		credentials: true,
+// 	})
+// );
+// // app.use(
+// 	fileUpload({
+// 		useTempFiles: true,
+// 		tempFileDir: "/tmp/",
+// 	})
+// );
 
 // // Connecting to cloudinary
 // cloudinaryConnect();
 
 // // Setting up routes
-// app.use("/api/v1/auth", userRoutes);
-// app.use("/api/v1/profile", profileRoutes);
-// app.use("/api/v1/course", courseRoutes);
-// app.use("/api/v1/payment", paymentRoutes);
-// app.use("/api/v1/reach", contactUsRoute);
+app.use("/api/v1/auth", userRoutes);
+
 
 // Testing the server
 app.get("/", (req, res) => {
