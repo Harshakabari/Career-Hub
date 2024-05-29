@@ -1,4 +1,4 @@
-import { useState } from "react"
+import React, { useState } from "react";
 import { toast } from "react-hot-toast"
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 import { useDispatch } from "react-redux"
@@ -50,9 +50,9 @@ function SignupForm() {
 
     // Setting signup data to state
     // To be used after otp verification
-    dispatch(setSignupData(signupData))
+    // dispatch(setSignupData(signupData))
     // Send OTP to user for verification
-    dispatch(sendOtp(formData.email, navigate))
+    // dispatch(sendOtp(formData.email, navigate))
 
     // Reset
     setFormData({
