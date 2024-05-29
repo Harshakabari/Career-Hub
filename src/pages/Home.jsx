@@ -5,6 +5,7 @@ import Main from '../pages/main.jsx';
 import Steps from '../pages/steps.jsx';
 import FAQS from '../pages/faqs.jsx';
 import ServiceGrid from './ServiceGrid.jsx';
+import Testimonials from '../components/Testimonials/Testimonials.jsx';
 
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
       <Steps />
       <ServiceGrid />
       <FAQS />
+      <Testimonials />
       <Footer />
     </div>
   )
