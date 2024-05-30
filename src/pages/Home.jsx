@@ -6,6 +6,7 @@ import Steps from '../pages/steps.jsx';
 import FAQS from '../pages/faqs.jsx';
 import ServiceGrid from './ServiceGrid.jsx';
 import Testimonials from '../components/Testimonials/Testimonials.jsx';
+import Newsletter from './Newsletter.jsx';
 
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
       <ServiceGrid />
       <FAQS />
       <Testimonials />
+      <Newsletter />
       <Footer />
     </div>
   )

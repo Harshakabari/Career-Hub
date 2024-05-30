@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import FAQImg from "../assets/faq.png";
+import FAQImg from "../assets/faq11.png";
 
 const faqItems = [
     {
@@ -93,7 +93,7 @@ const faqs = () => {
 
   return (
     <>
-      <section className=" bg-slate-100 py-16 px-28 flex gap-6 items-center justify-between">
+      <section className=" bg-slate-100 py-16 px-28 flex  items-center justify-between">
         <div>
           <div className=" mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-16">
@@ -116,7 +116,7 @@ const faqs = () => {
         </div>
 
         <div>
-            <img className="h-[450px]" src={FAQImg} alt="" />
+            <img className="h-[530px] w-[550px]  mt-24" src={FAQImg} alt="" />
         </div>
       </section>
     </>
