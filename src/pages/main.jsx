@@ -26,13 +26,13 @@ const Main = () => {
 
         {/* ================== content ================== */}
         <div className='text-white'>
-        <img className='mx-auto my-4 h-80 w-96 pt-24' src={job} alt="" />
+        <img className='mx-auto my-1 h-80 w-96 pt-20' src={job} alt="" />
          <h2 className='text-6xl text-center '> Make Your Dream true <br /> with 
          <span className='text-blue-500'> Jobmaster</span> 
          </h2> 
         <div className='flex justify-center items-center py-4 gap-4'> 
-         <button className=' bg-[#2277AE] rounded-md py-2 px-4' type="button">What you Looking for</button>
-         <button className='bg-white text-[#2277AE] rounded-md p-2 px-4' type="button">Explore Job Page</button>
+         <button className=' bg-[#2277AE] hover:text-[#2277AE] hover:bg-white rounded-md py-2 px-4' type="button">What you Looking for</button>
+         <button className='bg-white hover:bg-[#2277AE] hover:text-white text-[#2277AE] rounded-md p-2 px-4' type="button">Explore Job Page</button>
          </div>
          
         </div>
