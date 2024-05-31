@@ -1,5 +1,5 @@
 import React from 'react'
-import Ractangle from '../assets/Rectangle2.png';
+// import Ractangle from '../assets/Rectangle2.png';
 import { Form, FormGroup } from 'reactstrap';
 import { IoSearch } from "react-icons/io5";
 import { IoLocationOutline } from "react-icons/io5";
@@ -10,11 +10,11 @@ const main = () => {
   return (
     <>
       <div>
-        <img
+        {/* <img
           className="w-dvw h-[400px] divide-rose-50 "
           src={Ractangle}
           alt="Ractangle-image"
-        />
+        /> */}
         {/* <img src={job} alt="job-image" /> */}
       </div>
 
