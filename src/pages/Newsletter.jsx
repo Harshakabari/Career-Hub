@@ -15,21 +15,21 @@ const Newsletter = () => {
                                 <input 
                                     type="email" 
                                     placeholder='Enter your email' 
-                                    className="border-none text-base text-gray-800 w-full focus:outline-none"
+                                    className="border-none px-3 text-base text-gray-800 w-full focus:outline-none"
                                     required
                                 />
-                                <button className="btn newsletter__btn bg-[#FF6347] text-black py-2 px-6 text-lg">
+                                <button className="btn newsletter__btn bg-[#2277AE] text-white rounded-md py-2 px-6 text-lg">
                                     Subscribe
                                 </button>
                             </form>
 
-                            <p className="text-gray-800 text-base md:text-lg">Subscribe now to stay updated with the latest job postings and career advice. Be the first to know about exclusive job opportunities tailored to your skills and interests, helping you to advance your career and seize the best opportunities available.</p>
+                            <p className="text-gray-800 text-base pt-3 md:text-lg">Subscribe now to stay updated with the latest job postings and career advice. Be the first to know about exclusive job opportunities tailored to your skills and interests, helping you to advance your career and seize the best opportunities available.</p>
                         </div>
                     </Col>
 
                     <Col>
                         <div className="newsletter__img hidden md:block">
-                            <img src={maleTourist} alt="" className="w-[75rem] h-[300px]" />
+                            <img src={maleTourist} alt="" className="w-[76rem] h-[340px]" />
                         </div>
                     </Col>
                 </Row>

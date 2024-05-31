@@ -102,7 +102,7 @@ const faqs = () => {
               </h3>
             </div>
 
-            <div className="accordion-group w-[800px]">
+            <div className="accordion-group w-[720px]">
               {faqItems.map((item, index) => (
                 <AccordionItem
                   key={item.id}
@@ -116,7 +116,7 @@ const faqs = () => {
         </div>
 
         <div>
-            <img className="h-[530px] w-[550px]  mt-24" src={FAQImg} alt="" />
+            <img className="h-[530px] w-[590px]  mt-24" src={FAQImg} alt="" />
         </div>
       </section>
     </>
