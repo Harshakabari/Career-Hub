@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import FAQImg from "../assets/faq11.png";
+import FAQImg from "../assets/jobfaq.svg";
 
 const faqItems = [
     {
@@ -93,7 +93,7 @@ const faqs = () => {
 
   return (
     <>
-      <section className=" bg-slate-100 py-16 px-28 flex  items-center justify-between">
+      <section className=" bg-slate-100 py-16 px-28 flex gap-4 items-center justify-between">
         <div>
           <div className=" mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-16">

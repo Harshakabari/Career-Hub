@@ -1,9 +1,12 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import maleTourist from '../assets/male-tourist.png';
+import Scroll from '../components/Scroll_Images/Scroll';
 
 const Newsletter = () => {
     return (
+        <>
+        <Scroll />
         <section className='newsletter bg-blue-100 pt-6'>
             <Container>
                 <Row className='flex gap-7 px-28'>
@@ -35,6 +38,7 @@ const Newsletter = () => {
                 </Row>
             </Container>
         </section>
+        </>
     )
 }
 

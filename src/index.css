@@ -174,3 +174,18 @@
     }
   }
   
+
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-10 * 10rem));
+    }
+  }
+  
+  .track {
+    width: calc(10 * 10rem);
+    animation: scroll 15s linear infinite;
+  }
