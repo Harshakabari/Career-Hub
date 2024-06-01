@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { toast } from "react-hot-toast"
+// import { toast } from "react-hot-toast"
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
-import { useDispatch } from "react-redux"
-import { useNavigate } from "react-router-dom"
+// import { useDispatch } from "react-redux"
+// import { useNavigate } from "react-router-dom"
 
 // import { sendOtp } from "../../../services/operations/authAPI"
 // import { setSignupData } from "../../../slices/authSlice"
@@ -11,8 +11,8 @@ import { useNavigate } from "react-router-dom"
 
 
 function SignupForm() {
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+  // const navigate = useNavigate()
+  // const dispatch = useDispatch()
 
 
   const [formData, setFormData] = useState({

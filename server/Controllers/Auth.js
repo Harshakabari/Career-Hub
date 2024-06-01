@@ -18,6 +18,7 @@ exports.signup = async (req, res) => {
       email,
       password,
       confirmPassword,
+      accountType,
       otp,
     } = req.body
     // Check if All Details are there or not
@@ -27,6 +28,7 @@ exports.signup = async (req, res) => {
       !email ||
       !password ||
       !confirmPassword ||
+      !accountType ||
       !otp
     ) {
       return res.status(403).send({
@@ -77,6 +79,7 @@ exports.signup = async (req, res) => {
       firstName,
       lastName,
       email,
+      accountType,
       password: hashedPassword,
     })
 
@@ -124,12 +127,11 @@ exports.login = async (req, res) => {
     // Generate JWT token and Compare Password
     if (await bcrypt.compare(password, user.password)) {
       const token = jwt.sign(
-        { email: user.email, id: user._id, role: user.role },
-        process.env.JWT_SECRET,
-        {
-          expiresIn: "24h",
+        { email: user.email, id: user._id, accountType: user.accountType },
+          process.env.JWT_SECRET,{
+          expiresIn: "100h",
         }
-      )
+      );
 
       // Save token to user document in database
       user.token = token
