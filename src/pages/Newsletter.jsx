@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import maleTourist from '../assets/male-tourist.png';
+import maleTourist from '../assets/jobfaq.svg';
 import Scroll from '../components/Scroll_Images/Scroll';
 
 const Newsletter = () => {

@@ -53,9 +53,9 @@ const Scroll = () => {
 
   return (
     <>
-      <div className="relative flex items-center w-full h-32 overflow-hidden bg-gray-200 wrapper">
+      <div className="relative flex items-center w-full h-32 overflow-hidden  wrapper">
         <div className="absolute top-0 left-0 z-10 w-40 h-full bg-gradient-to-r from-gray-200"></div>
-        <div className="absolute top-0 right-0 z-10 w-40 h-full bg-gradient-to-l from-gray-200 transform rotate-180"></div>
+        <div className="absolute top-0 right-0 z-10 w-40 h-full bg-gradient-to-l from-gray-200 transform rotate-200"></div>
         <div className="flex track object-contain ">
           {logos.map((logo, index) => (
             <div key={index} className="flex-shrink-0 w-40 logo">
