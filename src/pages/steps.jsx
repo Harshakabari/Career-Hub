@@ -79,7 +79,7 @@ const steps = () => {
         {/* // All card */}
         <div className="flex justify-center items-center gap-4 m-8">
           {/* // card 1 */}
-          <div className="relative shadow-2xl mb-[-5px] h-[320px] w-[300px] m-[20px] p-1 bg-gray-300 overflow-hidden rounded-3xl hover:scale-105 ease-in duration-300">
+          <div className="relative shadow-2xl mb-[-5px] h-[320px] w-[300px] m-[20px] p-1 -z-50 bg-gray-300 overflow-hidden rounded-3xl hover:scale-105 ease-in duration-300">
             <div className="relative h-full w-full bg-white z-[99] pl-5 pt-8 pr-5 rounded-3xl">
               <div className="flex items-center gap-1 justify-between mx-5 mb-9">
                 <svg
@@ -110,7 +110,7 @@ const steps = () => {
                   <path d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm7.283 4.002V12H7.971V5.338h-.065L6.072 6.656V5.385l1.899-1.383h1.312z" />
                 </svg>
               </div>
-              <div className="">
+              <div>
                 <h5 className="text-2xl font-semibold text-[#2277AE] mb-3">
                   Register
                 </h5>
@@ -125,7 +125,7 @@ const steps = () => {
           </div>
 
           {/* // card 2 */}
-          <div className="relative shadow-2xl h-[320px] w-[300px] m-[20px] p-1 bg-gray-300 overflow-hidden rounded-3xl hover:scale-105 ease-in duration-300">
+          <div className="relative shadow-2xl h-[320px] w-[300px] m-[20px] p-1 -z-50 bg-gray-300 overflow-hidden rounded-3xl hover:scale-105 ease-in duration-300">
             <div className="relative h-full w-full bg-white z-[99] pl-5 pt-8 pr-5 rounded-3xl">
               <div className="flex items-center gap-1 justify-between mx-5 mb-9">
                 <svg
@@ -160,7 +160,7 @@ const steps = () => {
           </div>
 
           {/* // card 3 */}
-          <div className="relative shadow-2xl h-[320px] w-[300px] m-[20px] p-1 bg-gray-300 overflow-hidden rounded-3xl hover:scale-105 ease-in duration-300">
+          <div className="relative shadow-2xl h-[320px] w-[300px] m-[20px] p-1 -z-50 bg-gray-300 overflow-hidden rounded-3xl hover:scale-105 ease-in duration-300">
             <div className="relative h-full w-full bg-white z-[99] pl-5 pt-8 pr-5 rounded-3xl">
               <div className="flex items-center gap-1 justify-between mx-5 mb-9">
                 <svg
