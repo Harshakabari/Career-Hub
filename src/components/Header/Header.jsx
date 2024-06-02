@@ -1,38 +1,31 @@
-import React, {useState} from "react";
-import Logo from "../../assets/logo.png";
-// import { RiMenu3Fill } from "react-icons/ri";
-// import { Link } from 'react-router-dom';
-
+import React, { useState, useEffect } from 'react';
+import Logo from '../../assets/logo.png'; // Make sure to update the path to your logo file
 
 const Header = () => {
-
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <>
-      {/* <div className=" bg-[#060C23] py-4 px-12 flex justify-between items-center">
-        <a href="/">
-          <img className="h-10 " src={Logo} alt="" />
-        </a>
-
-        <nav>
-          <ul className="gap-6 hidden md:flex">
-            <li><a href="home">Home</a></li>
-            <li><a href="about">About Us</a></li>
-            <li><a href="postjob">Post Job</a></li>
-            <li><a href="findjob">Find Job</a></li>
-          </ul>
-        </nav>
-
-        <button className="bg-[#2277AE] rounded-md p-1 px-4 hidden md:block" type="button"><Link to="/login">Login/Register</Link></button>
-        <RiMenu3Fill class="block md:hidden text-3xl "/>
-
-      </div> */}
-
-<header>
+    <header className={`sticky top-0 z-50 ${scrolled ? 'bg-opacity-90 backdrop-blur-lg' : 'bg-opacity-100'} transition duration-300 ease-in-out`}>
       <nav className="bg-[#060C23] border-gray-200 px-4 lg:px-6 py-2.5">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
           <a href="https://flowbite.com" className="flex items-center">
@@ -41,7 +34,6 @@ const Header = () => {
               className="mr-3 h-6 sm:h-9"
               alt="Flowbite Logo"
             />
-            
           </a>
           <div className="flex items-center lg:order-2">
             <a
@@ -130,13 +122,11 @@ const Header = () => {
                   Contact
                 </a>
               </li>
-              
             </ul>
           </div>
         </div>
       </nav>
     </header>
-    </>
   );
 };
 

@@ -27,7 +27,7 @@ const Main = () => {
         {/* ================== content ================== */}
         <div className='text-white'>
         <img className='mx-auto my-1 h-80 w-96 pt-20' src={job} alt="" />
-         <h2 className='text-6xl text-center '> Make Your Dream true <br /> with 
+         <h2 className='text-6xl text-center '> Get Your Dream Job <br /> with 
          <span className='text-blue-500'> Jobmaster</span> 
          </h2> 
         <div className='flex justify-center items-center py-4 gap-4'> 
