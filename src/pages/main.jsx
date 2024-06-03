@@ -3,6 +3,7 @@ import { Form, FormGroup } from 'reactstrap';
 import { IoSearch } from "react-icons/io5";
 import { IoLocationOutline } from "react-icons/io5";
 import job from '../assets/JOBimage.png';
+import { Link } from 'react-router-dom';
 
 const Main = () => {
   return (
@@ -32,7 +33,7 @@ const Main = () => {
          </h2> 
         <div className='flex justify-center items-center py-4 gap-4'> 
          <button className=' bg-[#2277AE] hover:text-[#2277AE] hover:bg-white rounded-md py-2 px-4' type="button">What you Looking for</button>
-         <button className='bg-white hover:bg-[#2277AE] hover:text-white text-[#2277AE] rounded-md p-2 px-4' type="button">Explore Job Page</button>
+         <button className='bg-white hover:bg-[#2277AE] hover:text-white text-[#2277AE] rounded-md p-2 px-4' type="button"><Link to="/job"> Explore Job Page </Link></button>
          </div>
          
         </div>
