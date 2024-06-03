@@ -197,7 +197,10 @@ const JobPost = () => {
   };
 
   return (
+    <>
+
     <div className="container mx-auto py-8 px-4 md:px-6 lg:px-8 text-white">
+    <h3 className="text-white bg-black text-center font-bold text-4xl py-2 mb-4 rounded-lg">Job Listing</h3>
       <div className="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-8">
         <div className="bg-white dark:bg-gray-950 rounded-lg shadow-md p-6">
           <h2 className="text-lg font-bold mb-4">Filters</h2>
@@ -312,6 +315,7 @@ const JobPost = () => {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
