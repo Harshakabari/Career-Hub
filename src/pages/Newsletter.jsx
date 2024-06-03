@@ -9,7 +9,7 @@ const Newsletter = () => {
         <Scroll />
         <section className='newsletter bg-blue-100 pt-6'>
             <Container>
-                <Row className='flex gap-7 px-28'>
+                <Row className='flex gap-7 px-28 w-dvw'>
                     <Col className='text-black'>
                         <div className="newsletter__content py-12">
                             <h2 className="text-2xl md:text-3xl lg:text-4xl mb-4">Subscribe now to get useful job information.</h2>
@@ -32,7 +32,7 @@ const Newsletter = () => {
 
                     <Col>
                         <div className="newsletter__img hidden md:block">
-                            <img src={maleTourist} alt="" className="w-[76rem] h-[340px]" />
+                            <img src={maleTourist} alt="" className="w-[78rem] h-[340px]" />
                         </div>
                     </Col>
                 </Row>
