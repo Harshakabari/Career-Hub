@@ -29,9 +29,9 @@ function Template({ title, description1, description2, image, formType }) {
       ) : ( */}{
         <div className="mx-auto flex w-11/12 max-w-maxContent lg:w-[1000px] lg:pl-10 flex-col-reverse bg-slate-200 rounded-2xl shadow-xl justify-around gap-y-12 py-12 md:flex-row md:gap-y-0 md:gap-x-12">
           <div className="mx-auto w-11/12 max-w-[450px] md:mx-0 lg:-mr-10">
-            <h1 className="text-[1.875rem] font-semibold leading-[2.375rem] text-richblack-5">
+            <h2 className="text-[1.79rem] font-semibold leading-[2.375rem] text-richblack-5">
               {title}
-            </h1>
+            </h2>
             <p className="mt-4 text-[1.125rem] leading-[1.625rem]">
               <span className="text-richblack-100">{description1}</span>{" "}
               <span className="font-edu-sa font-bold italic text-blue-100">

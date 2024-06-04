@@ -83,7 +83,7 @@ function SignupForm() {
               value={firstName}
               onChange={handleOnChange}
               placeholder="Enter first name"
-              className="form-style w-full"
+              className="form-style w-full py-1 px-2 rounded-md"
             />
           </label>
           <label>
@@ -97,7 +97,7 @@ function SignupForm() {
               value={lastName}
               onChange={handleOnChange}
               placeholder="Enter last name"
-              className="form-style w-full"
+              className="form-style w-full  py-1 px-2 rounded-md"
             />
           </label>
         </div>
@@ -112,7 +112,7 @@ function SignupForm() {
             value={email}
             onChange={handleOnChange}
             placeholder="Enter email address"
-            className="form-style w-full"
+            className="form-style w-full py-1 px-2 rounded-md"
           />
         </label>
         <div className="flex gap-x-4">
@@ -127,7 +127,7 @@ function SignupForm() {
               value={password}
               onChange={handleOnChange}
               placeholder="Enter Password"
-              className="form-style w-full !pr-10"
+              className="form-style w-full !pr-10  py-1 px-2 rounded-md"
             />
             <span
               onClick={() => setShowPassword((prev) => !prev)}
@@ -151,7 +151,7 @@ function SignupForm() {
               value={confirmPassword}
               onChange={handleOnChange}
               placeholder="Confirm Password"
-              className="form-style w-full !pr-10"
+              className="form-style w-full !pr-10  py-1 px-2 rounded-md"
             />
             <span
               onClick={() => setShowConfirmPassword((prev) => !prev)}
@@ -167,7 +167,7 @@ function SignupForm() {
         </div>
         <button
           type="submit"
-          className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900"
+          className="mt-6 rounded-[8px] bg-neutral-100 hover:bg-blue-500 hover:text-white py-[8px] px-[12px] font-medium text-richblack-900"
         >
           Create Account
         </button>
