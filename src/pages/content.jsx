@@ -3,10 +3,11 @@ import jobdesc from "../assets/content-image.png";
 import { LuArrowBigRightDash } from "react-icons/lu";
 import background from "../assets/bac-removebg.png";
 
+
 const content = () => {
   return (
     <>
-      <div className="grid grid-cols-2 gap-8 bg-slate-00 py px-48 h-[550px] items-center">
+      <div className="grid lg:grid-cols-2 lg:gap-8 lg:px-48 h-[550px] items-center">
         <div>
           <img
             className="h-[450px] w-[450px]"

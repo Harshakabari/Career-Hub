@@ -54,6 +54,8 @@
   }
   /*End Animations*/
   /*
+
+
   -- Start BackGround Animation 
   */
   .area {
@@ -188,4 +190,33 @@
   .track {
     width: calc(10 * 10rem);
     animation: scroll 15s linear infinite;
+  }
+
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .slide-up {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  }
+  
+  .transition-transform {
+    transform: translateY(20px);
+  }
+  
+  /* Ensure initial state is hidden and positioned for sliding up */
+  .opacity-0 {
+    opacity: 0;
   }
