@@ -7,7 +7,7 @@ const contact = () => {
         <>
             <Header />
             <div className="relative">
-                <div className="area absolute inset-0 mt-[-16px]">
+                <div className="area absolute inset-0 ">
                     <ul className="circles">
                         <li></li>
                         <li></li>
@@ -21,7 +21,7 @@ const contact = () => {
                         <li></li>
                     </ul>
                 </div>
-                <div className="max-w-screen-lg mx-auto p-5">
+                <div className="max-w-screen-lg mx-auto p-5 h-full bg-[#060C23]">
                     <div className="grid grid-cols-1 md:grid-cols-12 border">
                         <div className=" md:col-span-4 p-10 text-white">
                             <h3 className="mt-4 text-xl font-semibold leading-7 font-regular uppercase">

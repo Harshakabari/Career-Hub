@@ -14,7 +14,7 @@ const Footer = () => {
               <a href="https://flowbite.com/">
                 <img src={logo} className="h-10 me-3" alt="FlowBite Logo" />
               </a>
-              <p className="w-96 text-gray-300 my-2">
+              <p className="lg:w-96 text-gray-300 my-2">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Corporis, fugit sint. Accusamus eos distinctio reprehenderit.
               </p>
