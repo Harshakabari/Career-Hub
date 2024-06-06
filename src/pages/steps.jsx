@@ -5,9 +5,9 @@ const steps = () => {
   return (
     <>
       {/* // counting */}
-      <div className="grid grid-cols-3 w-[55dvw] mx-auto h-24 rounded-3xl mt-20 align-content-center justify-center bg-slate-200 text-black">
+      <div className="grid lg:grid-cols-3  lg:mx-60 md:mx-36 mx-6 lg:h-24 py-4 rounded-3xl lg:mt-20 mt-10 align-content-center justify-center bg-slate-200 text-black">
         {/* // counting 1 */}
-        <div className="flex gap-5 justify-center  items-center">
+        <div className="flex gap-5 justify-center pb-2 items-center">
           <svg
             class="svg-icon border-slate-400 shadow-lg shadow-slate-400 border-2 rounded-[5px] p-[7px] bg-white h-11 w-11"
             viewBox="0 0 1024 1024"
@@ -31,7 +31,7 @@ const steps = () => {
         </div>
 
         {/* // counting 2 */}
-        <div className="flex gap-5 justify-center  items-center">
+        <div className="flex gap-5 justify-center pb-2 -ml-6 items-center">
           <svg
             class="svg-icon border-slate-400 shadow-lg shadow-slate-400 border-2 rounded-[5px] p-[6px] bg-white text-orange-400 h-11 w-11"
             viewBox="0 0 1024 1024"
@@ -69,15 +69,15 @@ const steps = () => {
 
       {/* // main div */}
       <div className="text-black">
-        <span className="text-4xl text-orange-400 flex justify-center mt-20">
+        <span className="lg:text-4xl text-3xl text-orange-400 flex justify-center mt-20">
           How it works?
         </span>
-        <h3 className="text-6xl text-blue-950 flex justify-center mt-4">
+        <h3 className="lg:text-6xl text-4xl text-blue-950 flex justify-center mt-4">
           Follow Easy 3 step
         </h3>
 
         {/* // All card */}
-        <div className="flex justify-center items-center gap-4 m-8">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-center items-center gap-4 m-8 mx-auto lg:px-40 px-8">
           {/* // card 1 */}
           <div className="relative shadow-2xl mb-[-5px] h-[320px] w-[300px] m-[20px] p-1 -z-50 bg-gray-300 overflow-hidden rounded-3xl hover:scale-105 ease-in duration-300">
             <div className="relative h-full w-full bg-white z-[99] pl-5 pt-8 pr-5 rounded-3xl">

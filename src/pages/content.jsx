@@ -7,23 +7,23 @@ import background from "../assets/bac-removebg.png";
 const content = () => {
   return (
     <>
-      <div className="grid lg:grid-cols-2 lg:gap-8 lg:px-48 h-[550px] items-center">
+      <div className="grid lg:grid-cols-2 md:grid-cols-1 lg:h-[550px] h-[1200px] lg:mt-0 -mt-40 lg:gap-8 lg:px-48 items-center">
         <div>
           <img
-            className="h-[450px] w-[450px]"
+            className=" lg:h-[450px] w-[450px]"
             src={jobdesc}
             alt="jobdesc-image"
           />
         </div>
-        <div className="mt-24">
+        <div className="lg:mt-24 -mt-56 p-4">
           <div className="text-black relative">
             <img
-              className="absolute left-10 -top-52"
+              className="absolute lg:left-10 -top-52"
               src={background}
               alt=""
               srcset=""
             />
-            <h3 className="font-semibold text-5xl absolute -top-60">
+            <h3 className="font-semibold lg:text-5xl text-4xl absolute -top-60">
               Live Life On Your Own Terms.
             </h3>
             <ul className="text-lg text-slate-600 py-6 leading-8 absolute -top-36">

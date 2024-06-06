@@ -100,7 +100,7 @@ const Footer = () => {
             </div>
 
             <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase ">Contact</h2>
+              <h2 className="mb-6 text-sm font-semibold uppercase lg:mt-0 md:mt-0 mt-8 ">Contact</h2>
 
               <h3 className="flex items-center mb-2">
                 <span className="mr-2">

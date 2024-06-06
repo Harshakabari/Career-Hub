@@ -9,7 +9,7 @@ const Newsletter = () => {
         <Scroll />
         <section className='newsletter bg-blue-100 pt-6'>
             <Container>
-                <Row className='flex gap-7 px-28 w-dvw'>
+                <Row className='flex gap-7 lg:px-28 md:px-14 px-6 w-dvw'>
                     <Col className='text-black'>
                         <div className="newsletter__content py-12">
                             <h2 className="text-2xl md:text-3xl lg:text-4xl mb-4">Subscribe now to get useful job information.</h2>
@@ -26,7 +26,7 @@ const Newsletter = () => {
                                 </button>
                             </form>
 
-                            <p className="text-gray-800 text-base pt-3 md:text-lg">Subscribe now to stay updated with the latest job postings and career advice. Be the first to know about exclusive job opportunities tailored to your skills and interests, helping you to advance your career and seize the best opportunities available.</p>
+                            <p className="text-gray-800 text-sm pt-3 md:text-lg">Subscribe now to stay updated with the latest job postings and career advice. Be the first to know about exclusive job opportunities tailored to your skills and interests, helping you to advance your career and seize the best opportunities available.</p>
                         </div>
                     </Col>
 

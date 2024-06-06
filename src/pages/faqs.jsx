@@ -93,16 +93,16 @@ const faqs = () => {
 
   return (
     <>
-      <section className=" bg-slate-100 py-16 px-28 flex gap-4 items-center justify-between">
+      <section className=" bg-slate-100 py-16 px-28 flex lg:flex-row md:flex-col-reverse flex-col-reverse  gap-4 items-center justify-between">
         <div>
           <div className=" mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-16">
-              <h3 className="text-5xl font-manrope text-center font-bold text-blue-950 leading-[3.25rem]">
+              <h3 className="lg:text-5xl md:text-3xl text-2xl font-manrope text-center font-bold text-blue-950 leading-[3.25rem]">
                 Frequently asked questions
               </h3>
             </div>
 
-            <div className="accordion-group w-[720px]">
+            <div className="accordion-group lg:w-[720px] md:w-[520px] w-[360px]">
               {faqItems.map((item, index) => (
                 <AccordionItem
                   key={item.id}
@@ -116,7 +116,7 @@ const faqs = () => {
         </div>
 
         <div>
-            <img className="h-[530px] w-[590px]  mt-24" src={FAQImg} alt="" />
+            <img className="lg:h-[530px] lg:w-[590px] md:h-[430px] md:w-[490px] h-72 w-96 lg:mt-24" src={FAQImg} alt="FAQ-image" />
         </div>
       </section>
     </>
