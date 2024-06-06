@@ -29,11 +29,11 @@ const Main = () => {
         <div className='text-white'>
         <img className='mx-auto my-1 h-80 w-[550px] pt-20' src={job} alt="" />
          <h2 className='text-6xl text-center '> Get Your Dream Job <br /> with 
-         <span className='text-blue-500'> Jobmaster</span> 
+         <span className='text-blue-500/100 '> Jobmaster</span> 
          </h2> 
         <div className='flex justify-center items-center py-6 gap-4'> 
-         <button className=' bg-[#2277AE] hover:text-[#2277AE] hover:bg-white rounded-md py-2 px-4' type="button">What you Looking for</button>
-         <button className='bg-white hover:bg-[#2277AE] hover:text-white text-[#2277AE] rounded-md p-2 px-4' type="button"><Link to="/job"> Explore Job Page </Link></button>
+         <button className=' bg-[#2277AE] hover:text-[#2277AE] hover:bg-white rounded-md font-semibold py-2 px-4' type="button">Hire Telent</button>
+         <button className='bg-white hover:bg-[#2277AE] hover:text-white text-[#2277AE] font-semibold rounded-md p-2 px-4' type="button"><Link to="/job"> Explore Job Page </Link></button>
          </div>
          
         </div>
@@ -49,7 +49,7 @@ const Main = () => {
               <IoLocationOutline className='mr-[-50px] z-10 border-transparent bg-slate-300 rounded-lg border-2 h-8 w-8 p-[7px]'/>
               <input className='p-2 px-3 pl-[45px] rounded-md outline-none' type="text" placeholder="Location" />
             </FormGroup>
-            <button className="bg-[#2e94b3] text-white rounded-md p-2 px-12" type="submit">
+            <button className="items-center px-10 py-2.5 text-sm font-medium text-center text-white bg-[#2277AE] rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800" type="submit">
               Search
             </button>
           </Form>

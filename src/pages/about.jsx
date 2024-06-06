@@ -42,7 +42,7 @@ const About = () => {
           <h2 ref={line1Ref} className="uppercase tracking-widest font-bold backdrop-blur-md bg-slate-200 p-2 rounded-md px-16 text-gray-800 text-5xl opacity-0 transition-transform duration-700">About Jobmaster</h2>
         </div>
         
-      </div>
+      </div >
       <div className="absolute top-0 left-0 m-8">
         <img src={Img} alt="Logo 1" className="animate-float h-6" />
       </div>
@@ -64,7 +64,7 @@ const About = () => {
       
     </div>
 
-    <div className='flex flex-col px-20 py-10 justify-center '>
+    <div ref={line2Ref} className='flex flex-col px-20 py-10 justify-center opacity-0 transition-transform duration-700'>
         {/* <img className='mt-12' src={MenImg} alt="men-image" /> */}
         {/* <div className='lg:pr-28 px-5 mt-12 text-lg'> */}
             <img className='mx-auto w-[950px]' src={AboutImg} alt="" />

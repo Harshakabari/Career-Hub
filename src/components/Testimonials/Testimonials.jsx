@@ -12,7 +12,7 @@ const Testimonials = () => {
             <div className="mb-12 space-y-5 md:mb-16 md:text-center">
                 
                 <h1 className="mb-5 text-3xl font-semibold text-white md:text-center md:text-5xl">
-                What our fans say about us
+                What our clients say about us
                 </h1>
                 <p className="text-xl text-gray-100 md:text-center md:text-2xl">
                     Here's what others have to say about us.
