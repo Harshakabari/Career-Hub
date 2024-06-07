@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Logo from '../../assets/logo.png'; // Make sure to update the path to your logo file
+import Logo from '../../assets/Logo (2).png'; // Make sure to update the path to your logo file
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -31,7 +31,7 @@ const Header = () => {
           <a href="/" className="flex items-center">
             <img
               src={Logo}
-              className="mr-3 h-6 sm:h-9"
+              className="mr-3 h-12 "
               alt="Logo"
             />
           </a>

@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/Logo (2).png";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
@@ -11,8 +11,8 @@ const Footer = () => {
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <div className="md:flex md:justify-between">
             <div className="mb-6 md:mb-0">
-              <a href="https://flowbite.com/">
-                <img src={logo} className="h-10 me-3" alt="FlowBite Logo" />
+              <a href="/">
+                <img src={logo} className="h-14 me-3" alt="FlowBite Logo" />
               </a>
               <p className="lg:w-96 text-gray-300 my-2">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.

@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
-import Img from '../assets/Google.png';
+import Img from '../assets/instagram.svg';
 import Header from '../components/Header/Header';
-import MenImg from "../assets/men.png";
+// import MenImg from "../assets/men.png";
 import AboutImg from "../assets/about.png";
 import Footer from "../components/Footer/Footer"
 
