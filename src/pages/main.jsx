@@ -5,6 +5,7 @@ import { IoLocationOutline } from "react-icons/io5";
 import job from '../assets/jobs.png';
 import { Link } from 'react-router-dom';
 
+
 const Main = () => {
   return (
     <>
@@ -29,11 +30,11 @@ const Main = () => {
         <div className='text-white'>
         <img className='mx-auto my-1 h-80 w-[550px] pt-20' src={job} alt="" />
          <h2 className='lg:text-6xl md:text-4xl text-3xl text-center '> Get Your Dream Job <br /> with 
-         <span className='text-blue-500/100 '> Jobmaster</span> 
+         <span className='text-[#057FBB] '> Career Hub</span>
          </h2> 
         <div className='flex justify-center items-center py-6 gap-4'> 
          <button className=' bg-[#2277AE] hover:text-[#2277AE] hover:bg-white rounded-md font-semibold py-2 px-4' type="button">Hire Telent</button>
-         <button className='bg-white hover:bg-[#2277AE] hover:text-white text-[#2277AE] font-semibold rounded-md p-2 px-4' type="button"><Link to="/job"> Explore Job Page </Link></button>
+         <button className='bg-white hover:bg-[#2277AE] hover:text-white text-[#2277AE] font-semibold rounded-md p-2 px-4' type="button"><Link to="/job"> Explore Job</Link></button>
          </div>
          
         </div>

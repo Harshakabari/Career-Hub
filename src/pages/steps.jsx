@@ -1,6 +1,7 @@
 import React from "react";
 import CountUp from "react-countup";
 
+
 const steps = () => {
   return (
     <>
@@ -66,7 +67,7 @@ const steps = () => {
           </div>
         </div>
       </div>
-
+      
       {/* // main div */}
       <div className="text-black">
         <span className="lg:text-4xl text-3xl text-orange-400 flex justify-center mt-20">
@@ -79,7 +80,7 @@ const steps = () => {
         {/* // All card */}
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-center items-center gap-4 m-8 mx-auto lg:px-40 px-8">
           {/* // card 1 */}
-          <div className="relative shadow-2xl mb-[-5px] h-[320px] w-[300px] m-[20px] p-1 -z-50 bg-gray-300 overflow-hidden rounded-3xl hover:scale-105 ease-in duration-300">
+          <div className="   relative shadow-2xl h-[320px] w-[300px] m-[20px] p-1 -z-50 bg-gray-300 overflow-hidden rounded-3xl hover:scale-105 ease-in duration-300">
             <div className="relative h-full w-full bg-white z-[99] pl-5 pt-8 pr-5 rounded-3xl">
               <div className="flex items-center gap-1 justify-between mx-5 mb-9">
                 <svg
