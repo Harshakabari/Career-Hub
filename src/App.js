@@ -7,6 +7,9 @@ import Signup from './pages/Signup';
 import JOB from "./pages/job_Post";
 import Contact from "./pages/contact";
 import About from "./pages/about";
+import Jobform from "./pages/PostForm";
+
+
 
 
 function App() {
@@ -20,6 +23,8 @@ function App() {
         <Route path='/job' element={<JOB />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/about' element={<About />} />
+        <Route path='/postform' element={<Jobform />} />
+
       </Routes>
     </BrowserRouter>
     </>
