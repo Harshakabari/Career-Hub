@@ -13,6 +13,7 @@ function Signup() {
       description2="Secure future-proof your career."
       image={signupImg}
       formType="signup"
+      
     />
     <Footer />
     </>

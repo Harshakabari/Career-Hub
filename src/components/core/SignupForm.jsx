@@ -71,8 +71,8 @@ function SignupForm() {
     <div>
       {/* Form */}
       <form onSubmit={handleOnSubmit} className="flex w-full flex-col gap-y-4 ">
-        <div className="flex gap-x-4 w-full">
-          <label className="w-full">
+        <div className="md:flex lg:flex block gap-x-4 w-full">
+          <label className="w-full ">
             <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5 relative">
               First Name <sup className="text-red-500 text-lg absolute -top-1">*</sup>
             </p>
@@ -115,7 +115,7 @@ function SignupForm() {
             className="form-style w-full py-1 px-2 rounded-md"
           />
         </label>
-        <div className="flex gap-x-4">
+        <div className="md:flex lg:flex block gap-x-4">
           <label className="relative">
             <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5 relative">
               Create Password <sup className="text-red-500 text-lg absolute -top-1">*</sup>
@@ -155,7 +155,7 @@ function SignupForm() {
             />
             <span
               onClick={() => setShowConfirmPassword((prev) => !prev)}
-              className="absolute right-3 top-[30px] z-[10] cursor-pointer"
+              className="absolute right-3 top-[55px] md:top-[30px] lg:top-[30px] z-[10] cursor-pointer "
             >
               {showConfirmPassword ? (
                 <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />

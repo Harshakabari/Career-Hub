@@ -7,7 +7,7 @@ function Template({ title, description1, description2, image, formType }) {
   // const { loading } = useSelector((state) => state.auth)
 
   return (
-    <div className="relative">
+    <div className="relative text-white">
         {/* Background Animation */}
         <div className="area absolute inset-0 mt-[-16px]">
           <ul className="circles">
@@ -40,14 +40,14 @@ function Template({ title, description1, description2, image, formType }) {
             </p>
             {formType === "signup" ? <SignupForm /> : <LoginForm />}
           </div>
-          <div className="relative mx-auto w-11/12 max-w-[450px] md:mx-0 lg:ml-10">
+          <div className="relative mx-auto w-11/12 max-w-[450px] md:mx-0 lg:ml-10 -mt-[70px] md:mt-0 lg:mt-0`">
             <img
               src={image}
               alt="Students"
               width={558}
               height={504}
               loading="lazy"
-              className="absolute -top-4 right-4 z-10"
+              className="absolute -top-4 right-4 z-10 hidden md:block lg:block"
             />
           </div>
         </div>
