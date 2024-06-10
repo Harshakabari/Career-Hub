@@ -1,191 +1,145 @@
 import React from "react";
+import { useForm, FormProvider } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import CustomForm from "../components/CustomForm/Customform";  // Adjust the path as needed
 
-const PostForm = () => {
+const formSchema = z.object({
+  companyName: z.string().min(1, {
+    message: "Company name is required.",
+  }),
+  companyDescription: z.string().min(1, {
+    message: "Company description is required.",
+  }),
+  jobTitle: z.string().min(1, {
+    message: "Job title is required.",
+  }),
+  jobDescription: z.string().min(1, {
+    message: "Job description is required.",
+  }),
+  location: z.string().min(1, {
+    message: "Location is required.",
+  }),
+  role: z.string({
+    required_error: "Role is required.",
+  }),
+  experience: z.string({
+    required_error: "Experience level is required.",
+  }),
+  salary: z.string().transform((value) => Number(value)).refine((value) => !isNaN(value) && value >= 0, {
+    message: "Salary must be a positive number.",
+  }),
+  skills: z.string().min(1, {
+    message: "Skills are required.",
+  }),
+  createdAt: z.string().min(1, {
+    message: "Created date is required.",
+  }),
+});
+
+const fields = [
+  {
+    name: "companyName",
+    label: "Company Name",
+    placeholder: "Acme Inc",
+    input: "input",
+  },
+  {
+    name: "companyDescription",
+    label: "Company Description",
+    placeholder: "Describe your company",
+    input: "textarea",
+  },
+  {
+    name: "jobTitle",
+    label: "Job Title",
+    placeholder: "Software Engineer",
+    input: "input",
+  },
+  {
+    name: "jobDescription",
+    label: "Job Description",
+    placeholder: "Describe the job responsibilities",
+    input: "textarea",
+  },
+  {
+    name: "location",
+    label: "Location",
+    placeholder: "San Francisco, CA",
+    input: "input",
+  },
+  {
+    name: "role",
+    label: "Role",
+    placeholder: "Select role",
+    options: [
+      { value: "full-time", text: "Full-Time" },
+      { value: "part-time", text: "Part-Time" },
+      { value: "contract", text: "Contract" },
+      { value: "internship", text: "Internship" },
+    ],
+    input: "select",
+  },
+  {
+    name: "experience",
+    label: "Experience",
+    placeholder: "Select experience level",
+    options: [
+      { value: "entry-level", text: "Entry-Level" },
+      { value: "mid-level", text: "Mid-Level" },
+      { value: "senior-level", text: "Senior-Level" },
+    ],
+    input: "select",
+  },
+  {
+    name: "salary",
+    type: "number",
+    label: "Salary",
+    placeholder: "$50,000 - $80,000",
+    input: "input",
+  },
+  {
+    name: "skills",
+    label: "Skills",
+    placeholder: "List the required skills",
+    input: "textarea",
+  },
+  {
+    name: "createdAt",
+    type: "date",
+    label: "Created At",
+    input: "input",
+  },
+];
+
+const Page = () => {
+  const methods = useForm({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      companyName: "",
+      companyDescription: "",
+      jobTitle: "",
+      jobDescription: "",
+      location: "",
+      role: "",
+      experience: "",
+      salary: "",
+      skills: "",
+      createdAt: "",
+    },
+    mode: "all",
+  });
+
+  const onSubmit = (values) => {
+    console.log(JSON.stringify(values, null, 2)); // Logging form data to console
+    methods.reset(); // Resetting the form after submission
+  };
+
   return (
-    <>
-      <div className="w-full mx-auto max-w-2xl text-black bg-white shadow-md rounded-lg overflow-hidden">
-        <div className="p-6">
-          <h2 className="text-2xl font-bold">Post a New Job Listing</h2>
-          <p className="text-gray-600">
-            Fill out the form below to create a new job posting.
-          </p>
-        </div>
-        <div className="p-6 border-t border-gray-200">
-          <form className="grid gap-6">
-            <div className="grid grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label
-                  htmlFor="company-name"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Company Name
-                </label>
-                <input
-                  id="company-name"
-                  type="text"
-                  placeholder="Acme Inc"
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
-                />
-              </div>
-              <div className="space-y-2">
-                <label
-                  htmlFor="company-description"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Company Description
-                </label>
-                <textarea
-                  id="company-description"
-                  placeholder="Describe your company"
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
-                ></textarea>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label
-                  htmlFor="job-title"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Job Title
-                </label>
-                <input
-                  id="job-title"
-                  type="text"
-                  placeholder="Software Engineer"
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
-                />
-              </div>
-              <div className="space-y-2">
-                <label
-                  htmlFor="job-description"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Job Description
-                </label>
-                <textarea
-                  id="job-description"
-                  placeholder="Describe the job responsibilities"
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
-                ></textarea>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label
-                  htmlFor="location"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Location
-                </label>
-                <input
-                  id="location"
-                  type="text"
-                  placeholder="San Francisco, CA"
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
-                />
-              </div>
-              <div className="space-y-2">
-                <label
-                  htmlFor="role"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Role
-                </label>
-                <select
-                  id="role"
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
-                >
-                  <option value="" disabled selected>
-                    Select role
-                  </option>
-                  <option value="full-time">Full-Time</option>
-                  <option value="part-time">Part-Time</option>
-                  <option value="contract">Contract</option>
-                  <option value="internship">Internship</option>
-                </select>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label
-                  htmlFor="experience"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Experience
-                </label>
-                <select
-                  id="experience"
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
-                >
-                  <option value="" disabled selected>
-                    Select experience level
-                  </option>
-                  <option value="entry-level">Entry-Level</option>
-                  <option value="mid-level">Mid-Level</option>
-                  <option value="senior-level">Senior-Level</option>
-                </select>
-              </div>
-              <div className="space-y-2">
-                <label
-                  htmlFor="salary"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Salary
-                </label>
-                <input
-                  id="salary"
-                  type="number"
-                  placeholder="$50,000 - $80,000"
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
-                />
-              </div>
-            </div>
-            <div className="space-y-2">
-              <label
-                htmlFor="skills"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Skills
-              </label>
-              <textarea
-                id="skills"
-                placeholder="List the required skills"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
-              ></textarea>
-            </div>
-            <div className="space-y-2">
-              <label
-                htmlFor="created-at"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Created At
-              </label>
-              <input
-                id="created-at"
-                type="date"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
-              />
-            </div>
-            <div className="flex justify-end gap-4">
-              <button
-                type="button"
-                className="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-blue-500"
-              >
-                Cancel
-              </button>
-              <button
-                type="submit"
-                className="px-4 py-2 bg-blue-500 text-white rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-500"
-              >
-                Post Job
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </>
+    <FormProvider {...methods}>
+      <CustomForm form={methods} fields={fields} onSubmit={methods.handleSubmit(onSubmit)} />
+    </FormProvider>
   );
 };
 
-export default PostForm;
+export default Page;
