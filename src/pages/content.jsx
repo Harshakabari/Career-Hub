@@ -18,7 +18,7 @@ const content = () => {
         <div className="lg:mt-24 -mt-56 p-4">
           <div className="text-black relative">
             <img
-              className="absolute lg:left-10 -top-52"
+              className="absolute lg:left-10 lg:-top-40 opacity-70 -top-24 "
               src={background}
               alt=""
               srcset=""
@@ -26,7 +26,7 @@ const content = () => {
             <h3 className="font-semibold lg:text-5xl text-4xl absolute -top-60">
               Live Life On Your Own Terms.
             </h3>
-            <ul className="text-lg text-slate-600 py-6 leading-8 absolute -top-36">
+            <ul className="text-lg text-slate-600 py-6 leading-8 absolute tracking-wide	-top-36">
               <li className="flex ">
                 <LuArrowBigRightDash className="w-[32px] text-2xl mt-1" />
                 Don't let work schedule run your life.

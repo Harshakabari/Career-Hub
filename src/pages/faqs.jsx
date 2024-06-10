@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import FAQImg from "../assets/FAQ (2).png";
+import FAQImg from "../assets/FAQ.png";
 
 const faqItems = [
     {
@@ -116,7 +116,7 @@ const faqs = () => {
         </div>
 
         <div>
-            <img className="lg:h-[530px] lg:w-[590px] md:h-[430px] md:w-[490px] h-72 w-96 lg:mt-24" src={FAQImg} alt="FAQ-image" />
+            <img className="lg:h-[530px] lg:w-[590px] md:h-[430px] md:w-[490px] lg:mt-24" src={FAQImg} alt="FAQ-image" />
         </div>
       </section>
     </>
