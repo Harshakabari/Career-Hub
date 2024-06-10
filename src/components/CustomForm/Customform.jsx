@@ -11,11 +11,11 @@ const CustomForm = ({ fields, onSubmit }) => {
 
   return (
     <>
-      <div className="px-28 py-5 bg-indigo-900 text-white">
+      <div className="py-5 bg-[#060C23] text-white">
         <h2 className="text-4xl text-center">Post a New Job</h2>
         <p className="text-lg mt-3 text-center">Fill out the form below to post a new job opening.</p>
       </div>
-      <form className="grid gap-6 px-28 py-5" onSubmit={handleSubmit(onSubmit)}>
+      <form className="grid gap-6 lg:px-28 px-6 py-5" onSubmit={handleSubmit(onSubmit)}>
         {fields.map((field) => (
           <div key={field.name} className="space-y-2">
             <label
