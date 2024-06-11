@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import CustomForm from "../components/CustomForm/Customform";  // Adjust the path as needed
+import Modal from "react-modal";
+import { Link } from "react-router-dom";
+import CustomForm from "../components/CustomForm/Customform"; // Adjust the path as needed
 
 const formSchema = z.object({
   companyName: z.string().min(1, {
@@ -20,15 +22,18 @@ const formSchema = z.object({
   location: z.string().min(1, {
     message: "Location is required.",
   }),
-  role: z.string({
-    required_error: "Role is required.",
+  role: z.enum(["full-time", "part-time", "contract", "internship"], {
+    errorMap: () => ({ message: "Role is required." }),
   }),
-  experience: z.string({
-    required_error: "Experience level is required.",
+  experience: z.enum(["entry-level", "mid-level", "senior-level"], {
+    errorMap: () => ({ message: "Experience level is required." }),
   }),
-  salary: z.string().transform((value) => Number(value)).refine((value) => !isNaN(value) && value >= 0, {
-    message: "Salary must be a positive number.",
-  }),
+  salary: z
+    .string()
+    .transform((value) => Number(value))
+    .refine((value) => !isNaN(value) && value >= 0, {
+      message: "Salary must be a positive number.",
+    }),
   skills: z.string().min(1, {
     message: "Skills are required.",
   }),
@@ -130,15 +135,50 @@ const Page = () => {
     mode: "all",
   });
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const onSubmit = (values) => {
     console.log(JSON.stringify(values, null, 2)); // Logging form data to console
     methods.reset(); // Resetting the form after submission
+    setIsModalOpen(true); // Open modal on successful submission
   };
 
   return (
-    <FormProvider {...methods}>
-      <CustomForm form={methods} fields={fields} onSubmit={methods.handleSubmit(onSubmit)} />
-    </FormProvider>
+    <>
+      <FormProvider {...methods}>
+        <CustomForm form={methods} fields={fields} onSubmit={methods.handleSubmit(onSubmit)} />
+      </FormProvider>
+
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={() => setIsModalOpen(false)}
+        className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75"
+        overlayClassName="fixed inset-0 bg-gray-800 bg-opacity-75"
+      >
+        <div className="bg-white p-6 rounded shadow-lg max-w-md mx-auto animate-fade-in">
+          <h2 className="text-2xl font-bold mb-4">Job Posted Successfully</h2>
+          <p className="mb-4">Thank you for posting the job. It has been successfully added.</p>
+          <button onClick={() => setIsModalOpen(false)} className="bg-blue-500 text-white py-2 px-4 rounded">
+            <Link to="/">Close</Link>
+          </button>
+        </div>
+      </Modal>
+
+      <style jsx>{`
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        .animate-fade-in {
+          animation: fade-in 0.5s ease-in-out;
+        }
+      `}</style>
+    </>
   );
 };
 

@@ -9,6 +9,7 @@ import Contact from "./pages/contact";
 import About from "./pages/about";
 import Jobform from "./pages/PostForm";
 import Blog from "./pages/blog";
+import JobApplicationForm from './components/JobApplicationForm/JobApplicationForm';
 
 
 
@@ -26,7 +27,7 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/postform' element={<Jobform />} />
         <Route path='/blog' element={<Blog />} />
-
+        <Route path='/jobappllicationform' element={<JobApplicationForm />} />
       </Routes>
     </BrowserRouter>
     </>

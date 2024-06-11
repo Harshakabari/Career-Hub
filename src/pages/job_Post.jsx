@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from "react";
+import { Link } from "react-router-dom";
 
 // Define the components directly within the same file for simplicity
 
@@ -307,7 +308,7 @@ const JobPost = () => {
                   <p className="mb-4">{job.description}</p>
                 </CardContent>
                 <CardFooter>
-                  <Button>Apply</Button>
+                  <Button><Link to="/jobappllicationform">Apply</Link></Button>
                 </CardFooter>
               </Card>
             ))}
