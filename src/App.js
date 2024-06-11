@@ -8,6 +8,7 @@ import JOB from "./pages/job_Post";
 import Contact from "./pages/contact";
 import About from "./pages/about";
 import Jobform from "./pages/PostForm";
+import Blog from "./pages/blog";
 
 
 
@@ -24,6 +25,7 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/about' element={<About />} />
         <Route path='/postform' element={<Jobform />} />
+        <Route path='/blog' element={<Blog />} />
 
       </Routes>
     </BrowserRouter>
