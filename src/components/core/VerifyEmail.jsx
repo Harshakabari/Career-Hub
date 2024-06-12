@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
 import { RxCountdownTimer } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
-import { sendOtp, signUp } from "../services/operations/authAPI";
+import { sendOtp, signUp } from "../../operations/authAPI";
 import { useNavigate } from "react-router-dom";
 
 function VerifyEmail() {
@@ -18,12 +18,13 @@ function VerifyEmail() {
     if (!signupData) {
       navigate("/signup");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  
   }, []);
 
   const handleVerifyAndSignup = (e) => {
     e.preventDefault();
     const {
+
       firstName,
       lastName,
       email,

@@ -30,11 +30,6 @@ const userSchema = new mongoose.Schema(
         image: {
              type: String,
         },
-        accountType: {
-            type: String,
-            enum: ["Jobseeker", "Jobposter"],
-            required: true,
-        },
         jobs: [
             {
               type: mongoose.Schema.Types.ObjectId,

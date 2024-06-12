@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from './pages/Home'
 import './App.css';
 import Login from './pages/Login';
@@ -10,14 +10,16 @@ import About from "./pages/about";
 import Jobform from "./pages/PostForm";
 import Blog from "./pages/blog";
 import JobApplicationForm from './components/JobApplicationForm/JobApplicationForm';
-
+import OpenRoute from './components/core/OpenRoute';
+import Error from './components/core/Error.jsx';
+import VerifyEmail from './components/core/VerifyEmail.jsx'
+import UpdatePassword from './components/core/UpdatePassword.jsx'
+import ForgotPassword from './components/core/ForgotPassword.jsx'
 
 
 
 function App() {
   return (
-    <>
-    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path='/login' element={<Login />} />
@@ -28,9 +30,32 @@ function App() {
         <Route path='/postform' element={<Jobform />} />
         <Route path='/blog' element={<Blog />} />
         <Route path='/jobappllicationform' element={<JobApplicationForm />} />
+        <Route path="*" element={<Error />} />
+        <Route
+          path="verify-email"
+          element={
+            <OpenRoute>
+              <VerifyEmail/>
+            </OpenRoute>
+          }
+        />
+          <Route
+          path="forgot-password"
+          element={
+            <OpenRoute>
+              <ForgotPassword />
+            </OpenRoute>
+          }
+        />
+        <Route
+          path="update-password/:id"
+          element={
+            <OpenRoute>
+              <UpdatePassword />
+            </OpenRoute>
+          }
+        />
       </Routes>
-    </BrowserRouter>
-    </>
   );
 }
 

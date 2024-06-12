@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt")
 const User = require("../Models/user")
-const OTP = require("../models/OTP")
+const OTP = require("../Models/Otp")
 const jwt = require("jsonwebtoken")
 const otpGenerator = require("otp-generator")
 const mailSender = require("../utils/mailSender")
@@ -18,7 +18,6 @@ exports.signup = async (req, res) => {
       email,
       password,
       confirmPassword,
-      accountType,
       otp,
     } = req.body
     // Check if All Details are there or not
@@ -28,7 +27,6 @@ exports.signup = async (req, res) => {
       !email ||
       !password ||
       !confirmPassword ||
-      !accountType ||
       !otp
     ) {
       return res.status(403).send({
@@ -79,7 +77,6 @@ exports.signup = async (req, res) => {
       firstName,
       lastName,
       email,
-      accountType,
       password: hashedPassword,
     })
 
@@ -127,7 +124,7 @@ exports.login = async (req, res) => {
     // Generate JWT token and Compare Password
     if (await bcrypt.compare(password, user.password)) {
       const token = jwt.sign(
-        { email: user.email, id: user._id, accountType: user.accountType },
+        { email: user.email, id: user._id},
           process.env.JWT_SECRET,{
           expiresIn: "100h",
         }

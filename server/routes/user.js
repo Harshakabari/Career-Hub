@@ -12,7 +12,7 @@ const {
 const {
   resetPasswordToken,
   resetPassword,
-} = require("../controllers/resetPassword")
+} = require("../Controllers/resetPassword")
 
 const { auth } = require("../middlewares/auth")
 

@@ -48,9 +48,7 @@ exports.createjob = async (req, res) => {
       })
     }
     // Check if the user is an instructor
-    const jobposterDetails = await user.findById(userId, {
-      accountType: "Jobposter",
-    })
+
 
     if (!jobposterDetails) {
       return res.status(404).json({

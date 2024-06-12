@@ -1,8 +1,8 @@
 import { toast } from "react-hot-toast"
 
-import { setLoading, setToken } from "../../slices/authSlice"
-import { resetCart } from "../../slices/cartSlice"
-import { setUser } from "../../slices/profileSlice"
+import { setLoading, setToken } from "../slices/authSlice"
+// import { resetCart } from "../../slices/cartSlice"
+// import { setUser } from "../../slices/profileSlice"
 import { apiConnector } from "../apiConnector"
 import { endpoints } from "../apis"
 
@@ -37,13 +37,12 @@ export function sendOtp(email, navigate) {
       console.log("SENDOTP API ERROR............", error)
       toast.error("Could Not Send OTP")
     }
-    // dispatch(setLoading(false))
+    dispatch(setLoading(false))
     toast.dismiss(toastId)
   }
 }
 
 export function signUp(
-  accountType,
   firstName,
   lastName,
   email,
@@ -57,7 +56,6 @@ export function signUp(
     dispatch(setLoading(true))
     try {
       const response = await apiConnector("POST", SIGNUP_API, {
-        accountType,
         firstName,
         lastName,
         email,

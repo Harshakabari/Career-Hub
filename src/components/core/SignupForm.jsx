@@ -1,18 +1,17 @@
 import React, { useState } from "react";
-// import { toast } from "react-hot-toast"
+import { toast } from "react-hot-toast"
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
-// import { useDispatch } from "react-redux"
-// import { useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { useNavigate } from "react-router-dom"
 
-// import { sendOtp } from "../../../services/operations/authAPI"
-// import { setSignupData } from "../../../slices/authSlice"
-// import { ACCOUNT_TYPE } from "../../../utils/constants"
+import { sendOtp } from "../../operations/authAPI.js"
+import { setSignupData } from "../../slices/authSlice.js"
 
 
 
 function SignupForm() {
-  // const navigate = useNavigate()
-  // const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
 
   const [formData, setFormData] = useState({
@@ -50,9 +49,9 @@ function SignupForm() {
 
     // Setting signup data to state
     // To be used after otp verification
-    // dispatch(setSignupData(signupData))
+    dispatch(setSignupData(signupData))
     // Send OTP to user for verification
-    // dispatch(sendOtp(formData.email, navigate))
+    dispatch(sendOtp(formData.email, navigate))
 
     // Reset
     setFormData({
@@ -63,9 +62,6 @@ function SignupForm() {
       confirmPassword: "",
     })
   }
-
-  // data to pass to Tab component
-
 
   return (
     <div>

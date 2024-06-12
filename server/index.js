@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const database = require("./Config/Database");
 const userRoutes = require("./routes/user");
-const jobRoutes = require("./routes/job");
+// const jobRoutes = require("./routes/job");
 
 
 
@@ -25,12 +25,12 @@ database.connect();
 app.use(express.json());
 
 app.use(cookieParser());
-// app.use(
-// 	cors({
-// 		origin: "*",
-// 		credentials: true,
-// 	})
-// );
+app.use(
+	cors({
+		origin: "*",
+		credentials: true,
+	})
+);
 // // app.use(
 // 	fileUpload({
 // 		useTempFiles: true,
@@ -43,7 +43,7 @@ app.use(cookieParser());
 
 // // Setting up routes
 app.use("/api/v1/auth", userRoutes);
-app.use("/api/v1/auth", jobRoutes);
+// app.use("/api/v1/auth", jobRoutes);
 
 
 // Testing the server

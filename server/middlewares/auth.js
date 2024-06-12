@@ -43,37 +43,3 @@ exports.auth = async (req, res, next) => {
 	}
 };
 
-exports.isjobseeker = async (req, res, next) => {
-	try {
-		const userDetails = await User.findOne({ email: req.user.email });
-
-		if (userDetails.accountType !== "Jobseeker") {
-			return res.status(401).json({
-				success: false,
-				message: "This is a Protected Route for jobseeker",
-			});
-		}
-		next();
-	} catch (error) {
-		return res
-			.status(500)
-			.json({ success: false, message: `User Role Can't be Verified` });
-	}
-};
-exports.isjobposter = async (req, res, next) => {
-	try {
-		const userDetails = await User.findOne({ email: req.user.email });
-
-		if (userDetails.accountType !== "Jobposter") {
-			return res.status(401).json({
-				success: false,
-				message: "This is a Protected Route for jobposter",
-			});
-		}
-		next();
-	} catch (error) {
-		return res
-			.status(500)
-			.json({ success: false, message: `User Role Can't be Verified` });
-	}
-};
