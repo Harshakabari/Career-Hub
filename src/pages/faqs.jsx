@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import FAQImg from "../assets/faq.png";
+import FAQImg from "../assets/FAQ.png";
 
 const faqItems = [
     {
