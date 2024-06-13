@@ -45,7 +45,7 @@ function LoginForm() {
           value={email}
           onChange={handleOnChange}
           placeholder="Enter email address"
-          className="form-style w-full h-9 rounded-md pl-4"
+          className="form-style w-full h-9 rounded-md pl-4 text-gray-900"
         />
       </label>
       <label className="relative">
@@ -59,7 +59,7 @@ function LoginForm() {
           value={password}
           onChange={handleOnChange}
           placeholder="Enter Password"
-          className="form-style w-full !pr-10 h-9 rounded-md pl-4"
+          className="form-style w-full !pr-10 h-9 rounded-md pl-4 text-gray-900"
         />
         <span
           onClick={() => setShowPassword((prev) => !prev)}
