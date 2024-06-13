@@ -17,6 +17,9 @@ import UpdatePassword from './components/core/UpdatePassword.jsx'
 import ForgotPassword from './components/core/ForgotPassword.jsx'
 import MyProfile from './components/core/MyProfile.jsx'
 import Settings from './Settings'
+import PrivateRoute from "./operations/Auth/PrivateRoute.jsx"
+import Dashboard from "./pages/Dashboard.jsx"
+
 
 
 
@@ -57,8 +60,17 @@ function App() {
             </OpenRoute>
           }
         />
-        <Route path="dashboard/my-profile" element={<MyProfile />} />
-        <Route path="dashboard/Settings" element={<Settings />} />
+        <Route
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        >
+          {/* Route for all users */}
+          <Route path="dashboard/my-profile" element={<MyProfile />} />
+          <Route path="dashboard/Settings" element={<Settings />} />
+        </Route>
       </Routes>
   );
 }
