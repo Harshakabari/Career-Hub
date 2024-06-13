@@ -3,7 +3,7 @@ import Logo from '../../assets/Logo (2).png';
 import { NavbarLinks } from "../../Data/navbar-links.js"
 import ProfileDropdown from "../core/ProfileDropdown.jsx"
 import { AiOutlineMenu, AiOutlineShoppingCart } from "react-icons/ai"
-import { BsChevronDown } from "react-icons/bs"
+// import { BsChevronDown } from "react-icons/bs"
 import { useSelector } from "react-redux"
 import { Link, matchPath, useLocation } from "react-router-dom"
 
@@ -23,9 +23,9 @@ function Header() {
 
   return (
     <div
-      className="flex h-14 items-center justify-center bg-blue w-100vw border-b-richblack-700"
+      className="flex h-14 items-center justify-center bg-blue w-100vw border-b-richblack-700 "
     >
-      <div className="flex  items-center justify-between backdrop-blur-xl fixed bg-blue-200 z-30 ">
+      <div className="flex  items-center justify-between backdrop-blur-xl fixed w-dvw bg-blue-200 z-30 ">
         {/* Logo */}
         <Link to="/">
         <img src={Logo} className="mr-3 lg:h-14 h-12" loading='lazy' alt="Logo"/>
