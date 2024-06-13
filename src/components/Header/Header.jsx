@@ -25,7 +25,7 @@ function Header() {
     <div
       className="flex h-14 items-center justify-center bg-blue w-100vw border-b-richblack-700 "
     >
-      <div className="flex  items-center justify-between backdrop-blur-xl fixed w-dvw bg-blue-200 z-30 ">
+      <div className="flex  items-center justify-between backdrop-blur-xl fixed w-dvw bg-blue-300 z-30 ">
         {/* Logo */}
         <Link to="/">
         <img src={Logo} className="mr-3 lg:h-14 h-12" loading='lazy' alt="Logo"/>
