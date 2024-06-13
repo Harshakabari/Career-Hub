@@ -16,6 +16,7 @@ import VerifyEmail from './components/core/VerifyEmail.jsx'
 import UpdatePassword from './components/core/UpdatePassword.jsx'
 import ForgotPassword from './components/core/ForgotPassword.jsx'
 import MyProfile from './components/core/MyProfile.jsx'
+import Settings from './Settings'
 
 
 
@@ -57,7 +58,7 @@ function App() {
           }
         />
         <Route path="dashboard/my-profile" element={<MyProfile />} />
-        {/* <Route path="dashboard/Settings" element={<Settings />} /> */}
+        <Route path="dashboard/Settings" element={<Settings />} />
       </Routes>
   );
 }
