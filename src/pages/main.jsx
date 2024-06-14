@@ -1,12 +1,16 @@
 import React from 'react';
-import { Form, FormGroup } from 'reactstrap';
-import { IoSearch } from "react-icons/io5";
-import { IoLocationOutline } from "react-icons/io5";
-import job from '../assets/jobs.png';
+// import { Form, FormGroup } from 'reactstrap';
+// import { IoSearch } from "react-icons/io5";
+// import { IoLocationOutline } from "react-icons/io5";
+// import job from '../assets/jobs.png';
 import { Link } from 'react-router-dom';
+import Img1 from "../assets/BlogCard/blog1.webp";
+import Img2 from "../assets/BlogCard/blog2.jpg";
+import video from "../assets/video/jobvideo.mp4"
+import Counts from "../components/Counts/Counts"
 
 
-const Main = () => {
+const main = () => {
   return (
     <>
       <div className="relative -mt-10 lg:mt-0 md:mt-0">
@@ -25,39 +29,36 @@ const Main = () => {
             <li></li>
           </ul>
         </div>
-
-        {/* ================== content ================== */}
-        <div className='text-white'>
-        <img className='mx-auto my-1 h-80 w-[550px] pt-20' src={job} alt="" />
-         <h2 className='lg:text-6xl md:text-4xl text-3xl text-center '> Get Your Dream Job <br /> with 
-         <span className='text-[#057FBB] '> Career Hub</span>
-         </h2> 
-        <div className='flex justify-center items-center py-6 gap-4'> 
-         <button className=' bg-[#2277AE] hover:text-[#2277AE] hover:bg-white rounded-md font-semibold py-2 px-4' type="button"><Link to="/postform">Hire Telent</Link></button>
-         <button className='bg-white hover:bg-[#2277AE] hover:text-white text-[#2277AE] font-semibold rounded-md p-2 px-4' type="button" ><Link to="/job"> Explore Job</Link></button>
+    <div className="flex flex-row">
+      <div className="w-1/2 p-8 ml-12">
+        <h2 className="text-6xl mt-16 text-blue-950 font-bold mb-4">Make your next <br />hire with <br /> JobMaster</h2>
+        <p className="text-gray-600 text-[1.4rem] py-3">We can help you expand your reach and get your jobs <br />  in front of the right candidates.</p>
+        <div className='flex  items-center py-6 gap-4'> 
+         <button className=' bg-blue-500 text-white hover:text-blue-900 hover:bg-white rounded-md font-semibold py-2 px-4 text-xl border hover:border-blue-900' type="button"><Link to="/postform">Hire Telent</Link></button>
+         <button className='bg-white hover:bg-blue-500 border border-blue-900 hover:text-white text-blue-900 hover:border-none font-semibold rounded-md p-2 px-4 text-xl' type="button" ><Link to="/job"> Explore Job</Link></button>
          </div>
-         
-        </div>
-
-        {/*=========== Search bar ============ */}
-        <div className="text-black p-4 rounded-lg mt-10 w-max bg-slate-200 m-auto relative z-10">
-          <Form className="grid lg:grid-cols-3 md:grid-cols-2 -mt-3 items-center justify-center gap-4 lg:h-[50px]">
-            <FormGroup className="flex gap-3 items-center form__group form__group-fast">
-              <IoSearch className='mt-3 ml-[10px] mr-[-50px] z-10 border-transparent bg-slate-300 rounded-lg border-2 h-8 w-8 p-[7px]' />
-              <input className='p-2 mt-3 px-3 pl-[45px] rounded-md outline-none' type="text" placeholder="Job title or keyword" required />
-            </FormGroup>
-            <FormGroup className="flex mt-3 gap-3 ml-2 lg:ml-0 md:ml-0 items-center form__group form__group-fast">
-              <IoLocationOutline className='mr-[-50px] z-10 border-transparent bg-slate-300 rounded-lg border-2 h-8 w-8 p-[7px]'/>
-              <input className='p-2 px-3 pl-[45px] rounded-md outline-none' type="text" placeholder="Location" />
-            </FormGroup>
-            <button className="items-center md:col-span-2 lg:col-span-1 px-10 py-2.5 text-sm font-medium text-center text-white bg-[#2277AE] rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800" type="submit">
-              Search
-            </button>
-          </Form>
-        </div>
+         {/* <SearchBar /> */}
+         <Counts />
       </div>
+      <div className="w-1/3 p-8 flex flex-col space-y-4 ml-32 ">
+        <img
+          src={Img1}
+          alt=""
+          className="-ml-20 w-[400px] h-52 object-cover border-blue-900 border rounded-lg"
+        />
+        <video src={video} alt="video" controls className="w-[400px] h-52 border-blue-900 border object-cover rounded-lg" />   
+
+        <img
+          src={Img2}
+          alt=""
+          className="ml-20 w-[400px] h-52 object-cover  border-blue-900 border rounded-lg"
+        />
+      </div>
+    </div>
+    
+    </div>
     </>
   );
 }
 
-export default Main;
+export default main;
