@@ -29,9 +29,9 @@ const main = () => {
             <li></li>
           </ul>
         </div>
-    <div className="flex flex-row">
+    <div className="flex flex-row ">
       <div className="w-1/2 p-8 ml-12">
-        <h2 className="text-6xl mt-16 text-blue-950 font-bold mb-4">Make your next <br />hire with <br /> JobMaster</h2>
+        <h2 className="text-6xl mt-16  text-blue-950 font-bold mb-4">Make your next <br />hire with <br /> JobMaster</h2>
         <p className="text-gray-600 text-[1.4rem] py-3">We can help you expand your reach and get your jobs <br />  in front of the right candidates.</p>
         <div className='flex  items-center py-6 gap-4'> 
          <button className=' bg-blue-500 text-white hover:text-blue-900 hover:bg-white rounded-md font-semibold py-2 px-4 text-xl border hover:border-blue-900' type="button"><Link to="/postform">Hire Telent</Link></button>
