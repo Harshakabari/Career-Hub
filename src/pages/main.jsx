@@ -1,8 +1,4 @@
 import React from 'react';
-// import { Form, FormGroup } from 'reactstrap';
-// import { IoSearch } from "react-icons/io5";
-// import { IoLocationOutline } from "react-icons/io5";
-// import job from '../assets/jobs.png';
 import { Link } from 'react-router-dom';
 import Img1 from "../assets/BlogCard/blog1.webp";
 import Img2 from "../assets/BlogCard/blog2.jpg";
@@ -31,6 +27,7 @@ const main = () => {
         </div>
     <div className="flex flex-row ">
       <div className="w-1/2 p-8 ml-12">
+      <img src="" alt="" />
         <h2 className="text-6xl mt-16  text-blue-950 font-bold mb-4">Make your next <br />hire with <br /> JobMaster</h2>
         <p className="text-gray-600 text-[1.4rem] py-3">We can help you expand your reach and get your jobs <br />  in front of the right candidates.</p>
         <div className='flex  items-center py-6 gap-4'> 

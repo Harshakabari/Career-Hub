@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import maleTourist from '../assets/jobfaq.svg';
+import maleTourist from '../assets/newsletter.jpg';
 import Scroll from '../components/Scroll_Images/Scroll';
 
 const Newsletter = () => {
@@ -9,8 +9,8 @@ const Newsletter = () => {
         <Scroll />
         <section className='newsletter bg-blue-100 pt-6'>
             <Container>
-                <Row className='flex gap-7 lg:px-28 md:px-14 px-6 w-dvw'>
-                    <Col className='text-black'>
+                <Row className='flex gap-7 lg:px-28 md:px-14 px-6 py-2 w-dvw'>
+                    <Col className='text-black pr-8'>
                         <div className="newsletter__content py-12">
                             <h2 className="text-2xl md:text-3xl lg:text-4xl mb-4">Subscribe now to get useful job information.</h2>
 
@@ -31,8 +31,8 @@ const Newsletter = () => {
                     </Col>
 
                     <Col>
-                        <div className="newsletter__img hidden md:block">
-                            <img src={maleTourist} alt="" className="w-[78rem] h-[340px]" />
+                        <div className="newsletter__img hidden md:block ">
+                            <img src={maleTourist} alt="" className="w-[60rem] h-[320px] mix-blend-multiply	" />
                         </div>
                     </Col>
                 </Row>
