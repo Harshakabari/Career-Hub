@@ -11,14 +11,14 @@ exports.createjob = async (req, res) => {
     // Get all required fields from request body
     let {
       companyName,
-      jobtitle,
-      skill,
-      jobdescription,
+      companyDescription,
+      jobTitle,
+      jobDescription,
       location,
       role,
-      experiance,
+      experience,
       salary,
-      category
+      skills
     } = req.body
     // Get thumbnail image from request files
     // const thumbnail = req.files.thumbnailImage
@@ -32,15 +32,15 @@ exports.createjob = async (req, res) => {
 
     // Check if any of the required fields are missing
     if (
+      !companyName||
+      !companyDescription||
+      !jobTitle||
+      !jobDescription||
+      !location||
       !role||
-      !companyName ||
-      !jobtitle ||
-      !jobdescription ||
-      !location ||
-      !experiance ||
-      !category ||
-      !salary ||
-      !skill      
+      !experience||
+      !salary||
+      !skills
     ) {
       return res.status(400).json({
         success: false,
@@ -48,7 +48,7 @@ exports.createjob = async (req, res) => {
       })
     }
     // Check if the user is an instructor
-
+    const jobposterDetails = await user.findById(userId)
 
     if (!jobposterDetails) {
       return res.status(404).json({
@@ -74,17 +74,15 @@ exports.createjob = async (req, res) => {
     // Create a new course with the given details
     const newJob = await job.create({
       user: jobposterDetails._id,
-      role,
       companyName,
-      jobtitle ,
-      jobdescription,
+      companyDescription,
+      jobTitle,
+      jobDescription,
       location,
-      experiance,
-      category,
-      experiance,
-      salary ,
-      skill,
-      // category:categoryDetails._id,
+      role,
+      experience,
+      salary,
+      skills
     })
 
     // Add the new course to the User Schema of the Instructor
@@ -99,18 +97,6 @@ exports.createjob = async (req, res) => {
       },
       { new: true }
     )
-    // Add the new course to the Categories
-    // const categoryDetails2 = await category.findByIdAndUpdate(
-    //   { _id: category },
-    //   {
-    //     $push: {
-    //       jobs: newJob._id,
-    //     },
-    //   },
-    //   { new: true }
-    // )
-    // console.log("HEREEEEEEEE", categoryDetails2)
-    // Return the new course and a success message
     res.status(200).json({
       success: true,
       data: newJob,

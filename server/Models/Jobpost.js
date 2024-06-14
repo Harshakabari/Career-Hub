@@ -3,23 +3,20 @@ const { TbArrowUp } = require("react-icons/tb");
 
 // Define the Section schema
 const sectionSchema = new mongoose.Schema({
+
     companyName:{
         type:String,
         required:true
     },
-    // comapnyImg:{
-    //     type:String,
-    //     default:""
-    // },
-    companyDesc:{
+    companyDescription:{
         type:String,
     },
-    jobtitle:{
+    jobTitle:{
         type:String,
         required:true
     },
   
-    jobdescription: {
+    jobDescription: {
 		type: String,
         required:true
 	},
@@ -31,7 +28,7 @@ const sectionSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    experiance:{
+    experience:{
         type:String,
         required:true
     },
@@ -39,7 +36,7 @@ const sectionSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    skill:{
+    skills:{
         type:String,
         required:true
     },

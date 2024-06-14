@@ -109,12 +109,6 @@ const fields = [
     placeholder: "List the required skills",
     input: "textarea",
   },
-  {
-    name: "createdAt",
-    type: "date",
-    label: "Created At",
-    input: "input",
-  },
 ];
 
 const Page = () => {
@@ -130,7 +124,6 @@ const Page = () => {
       experience: "",
       salary: "",
       skills: "",
-      createdAt: "",
     },
     mode: "all",
   });
