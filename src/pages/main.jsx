@@ -13,9 +13,9 @@ import Counts from "../components/Counts/Counts"
 const main = () => {
   return (
     <>
-      <div className="relative -mt-10 lg:mt-0 md:mt-0">
+      <div className="relative  lg:mt-0 md:mt-0">
         {/* Background Animation */}
-        <div className="area absolute inset-0 mt-[-16px]">
+        <div className="area absolute inset-0  ">
           <ul className="circles">
             <li></li>
             <li></li>
@@ -40,7 +40,7 @@ const main = () => {
          {/* <SearchBar /> */}
          <Counts />
       </div>
-      <div className="w-1/3 p-8 flex flex-col space-y-4 ml-32 ">
+      <div className="w-1/3 p-8 flex flex-col space-y-4 ml-32">
         <img
           src={Img1}
           alt=""

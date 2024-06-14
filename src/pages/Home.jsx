@@ -12,7 +12,7 @@ import Content from './content.jsx';
 
 const Home = () => {
   return (
-    <div className='overflow-x-hidden text-white h-dvh w-dvw '>
+    <div className='overflow-x-hidden  text-white h-dvh w-dvw '>
       <Header />
       <Main />
       <Steps />

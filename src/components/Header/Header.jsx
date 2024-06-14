@@ -10,7 +10,8 @@ function Header() {
   const { token } = useSelector((state) => state.auth);
   const { user } = useSelector((state) => state.profile);
   const location = useLocation();
-  const [scrollY, setScrollY] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
+
 
   const matchRoute = (route) => {
     return matchPath({ path: route }, location.pathname);
@@ -18,7 +19,11 @@ function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -28,8 +33,8 @@ function Header() {
   }, []);
 
   return (
-    <div className={`flex h-14 items-center justify-center  border-b border-richblack-700 transition-all duration-300 ${scrollY > 0 ? 'bg-opacity-90 backdrop-blur-lg' : 'bg-transparent'}`}>
-      <div className="flex gap-80 items-center justify-center lg:fixed w-[1519px]  overflow-x-auto z-30 bg-white bg-opacity-70 backdrop-blur-lg transition-all duration-300">
+    <div className={`flex sticky top-0 z-50 transition duration-300 ease-in-out ${scrolled ? 'bg-white bg-opacity-100' : ''}`}>
+      <div className="flex px-20 items-center justify-between sticky w-full z-30 bg-[white] bg-opacity-70 backdrop-blur-lg transition-all duration-300">
         {/* Logo */}
         <Link to="/">
           <img src={Logo} className="mr-3 lg:h-14 h-12" loading='lazy' alt="Logo" />
