@@ -93,7 +93,7 @@ const faqs = () => {
 
   return (
     <>
-      <section className=" bg-slate-100 py-16 px-28 flex lg:flex-row md:flex-col-reverse flex-col-reverse  gap-4 items-center justify-between">
+      <section className=" bg-slate-100 py-16 px-24 flex lg:flex-row md:flex-col-reverse flex-col-reverse  gap-4 items-center justify-between">
         <div>
           <div className=" mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-16">
