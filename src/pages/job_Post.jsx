@@ -2,6 +2,11 @@ import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header/Header";
 import Searchbar from "../components/SearchBar/SearchBar";
+import Logo1 from "../assets/clogo1.png"
+import { SlLocationPin } from "react-icons/sl";
+import { IoTimeOutline } from "react-icons/io5";
+import { RiMoneyRupeeCircleLine } from "react-icons/ri";
+
 
 // Define the components directly within the same file for simplicity
 
@@ -28,7 +33,7 @@ const Input = ({ type, placeholder, value, onChange, className }) => (
 );
 
 const Card = ({ children }) => (
-  <div className="bg-white text-black rounded-lg shadow-lg shadow-zinc-300 hover:scale-105 duration-500 p-6">
+  <div className="bg-white text-black rounded-lg hover:shadow-lg hover:shadow-zinc-300 duration-700  p-6">
     {children}
   </div>
 );
@@ -210,7 +215,7 @@ const JobPost = () => {
   return (
     <>
     <Header />
-      <div className=" px-24 py-8 text-black">
+      <div className=" px-24 py-8 text-black ">
         <h3 className=" font-bold text-4xl py-2  rounded-lg">
           Find your <span className="text-blue-500">new job</span> today
         </h3>
@@ -322,7 +327,7 @@ const JobPost = () => {
             </div>
           </div>
           <div>
-            <div className="mb-6">
+            {/* <div className="mb-6">
               <Input
                 type="text"
                 placeholder="Search jobs..."
@@ -330,22 +335,37 @@ const JobPost = () => {
                 onChange={handleSearchChange}
                 className="w-full text-black border-black border-2 p-2 rounded-md"
               />
-            </div>
+            </div> */}
             <div className="grid grid-cols-1  gap-6">
               {filteredJobs.map((job) => (
                 <Card key={job.id}>
+                  <div className="flex gap-2">
+                    <img className="h-12" src={Logo1} alt="" />
                   <CardHeader>
                     <CardTitle>{job.title}</CardTitle>
                     <CardDescription>{job.company}</CardDescription>
                   </CardHeader>
+                  </div>
                   <CardContent>
-                    <p className="mb-4">{job.location}</p>
+                    <div className="mb-4 flex gap-8 text-gray-600">
+                    <p className="flex items-center gap-1"><SlLocationPin />
+                    {job.location}</p>
+                    <p className="flex items-center gap-1"><IoTimeOutline />
+                    {job.jobType}</p>
+                    <p className="flex items-center gap-1"><RiMoneyRupeeCircleLine />
+                    {job.salaryRange}</p>
+                    </div>
                     <p className="mb-4">{job.description}</p>
                   </CardContent>
                   <CardFooter>
+                    <div className="flex gap-8">
                     <Button>
                       <Link to="/jobappllicationform">Apply</Link>
                     </Button>
+                    <Button >
+                      <Link to="">View More</Link>
+                    </Button>
+                    </div>
                   </CardFooter>
                 </Card>
               ))}

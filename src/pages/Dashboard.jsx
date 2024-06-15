@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux"
 import { Outlet } from "react-router-dom"
-
 import Sidebar from "../dashboard/Sidebar"
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 
 function Dashboard() {
   const { loading: profileLoading } = useSelector((state) => state.profile)
@@ -16,7 +17,9 @@ function Dashboard() {
   }
 
   return (
-    <div className="relative flex min-h-[calc(100vh-3.5rem)]">
+    <>
+    <Header />
+    <div className="relative flex min-h-[calc(100vh-3.5rem)] mt-0">
       <Sidebar />
       <div className="h-[calc(100vh-3.5rem)] flex-1 overflow-auto">
         <div className="mx-auto w-11/12 max-w-[1000px] py-10">
@@ -24,6 +27,8 @@ function Dashboard() {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   )
 }
 

@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import { IoIosArrowBack } from "react-icons/io";
+
 
 // Set the app element for accessibility
 Modal.setAppElement('#root');
@@ -74,7 +78,11 @@ function JobApplicationForm() {
   };
 
   return (
-    <div>
+    <>
+    <Header />
+    <button className='flex items-center gap-1 bg-blue-500 px-2 py-1 pr-4 ml-2 mt-3 rounded-full text-white'> 
+    <Link className='flex items-center' to="/job"><IoIosArrowBack />back</Link></button>
+    <div className='m-6'>
       <form onSubmit={handleSubmit} className="space-y-6 p-6 bg-white rounded shadow-lg max-w-3xl mx-auto">
         <h1 className="text-2xl font-bold mb-4">Job Application Form</h1>
 
@@ -287,6 +295,8 @@ function JobApplicationForm() {
         }
       `}</style>
     </div>
+    <Footer />
+    </>
   );
 }
 
