@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema(
         jobs: [
             {
               type: mongoose.Schema.Types.ObjectId,
-              ref: "section`",
+              ref: "jobpost",
             },
         ],
     }

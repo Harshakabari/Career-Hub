@@ -43,7 +43,7 @@ app.use(
 
 // // Setting up routes
 app.use("/api/v1/auth", userRoutes);
-app.use("/api/v1/auth", jobRoutes);
+app.use("/api/v1/job", jobRoutes);
 
 
 // Testing the server

@@ -3,7 +3,7 @@ const user = require("../Models/user")
 
 // const { uploadImageToCloudinary } = require("../utils/imageUploader")
 // const { convertSecondsToDuration } = require("../utils/secToDuration")
-// Function to create a new course
+
 exports.createjob = async (req, res) => {
   try {
     // Get user ID from request object
@@ -73,7 +73,7 @@ exports.createjob = async (req, res) => {
     // console.log(thumbnailImage)
     // Create a new course with the given details
     const newJob = await job.create({
-      user: jobposterDetails._id,
+      jobadmin: jobposterDetails._id,
       companyName,
       companyDescription,
       jobTitle,
@@ -112,14 +112,14 @@ exports.createjob = async (req, res) => {
     })
   }
 }
-// Edit Course Details
+
 exports.editjob = async (req, res) => {
   try {
     const { jobid } = req.body
     const updates = req.body
-    const job = await job.findById(jobid)
+    const jobpost = await job.findById(jobid)
 
-    if (!job) {
+    if (!jobpost) {
       return res.status(404).json({ error: "job not found" })
     }
 
@@ -137,21 +137,18 @@ exports.editjob = async (req, res) => {
     // Update only the fields that are present in the request body
     for (const key in updates) {
       if (updates.hasOwnProperty(key)) {
-        if (key === "tag" || key === "instructions") {
-          course[key] = JSON.parse(updates[key])
-        } else {
-          course[key] = updates[key]
+        {
+          jobpost[key] = updates[key]
         }
       }
     }
 
-    await job.save()
+    await jobpost.save()
 
-    const updatedjob = await Course.findOne({
+    const updatedjob = await job.findOne({
       _id: jobid,
     })
-      .populate("Jobposter")
-      .populate("category")
+      .populate("jobadmin")
       .exec()
 
     res.json({
@@ -168,253 +165,92 @@ exports.editjob = async (req, res) => {
     })
   }
 }
-// // Get Course List
-// exports.getAllCourses = async (req, res) => {
-//   try {
-//     const allCourses = await Course.find(
-//       { status: "Published" },
-//       {
-//         courseName: true,
-//         price: true,
-//         thumbnail: true,
-//         instructor: true,
-//         ratingAndReviews: true,
-//         studentsEnrolled: true,
-//       }
-//     )
-//       .populate("instructor")
-//       .exec()
 
-//     return res.status(200).json({
-//       success: true,
-//       data: allCourses,
-//     })
-//   } catch (error) {
-//     console.log(error)
-//     return res.status(404).json({
-//       success: false,
-//       message: `Can't Fetch Course Data`,
-//       error: error.message,
-//     })
-//   }
-// }
-// // Get One Single Course Details
-// // exports.getCourseDetails = async (req, res) => {
-// //   try {
-// //     const { courseId } = req.body
-// //     const courseDetails = await Course.findOne({
-// //       _id: courseId,
-// //     })
-// //       .populate({
-// //         path: "instructor",
-// //         populate: {
-// //           path: "additionalDetails",
-// //         },
-// //       })
-// //       .populate("category")
-// //       .populate("ratingAndReviews")
-// //       .populate({
-// //         path: "courseContent",
-// //         populate: {
-// //           path: "subSection",
-// //         },
-// //       })
-// //       .exec()
-// //     // console.log(
-// //     //   "###################################### course details : ",
-// //     //   courseDetails,
-// //     //   courseId
-// //     // );
-// //     if (!courseDetails || !courseDetails.length) {
-// //       return res.status(400).json({
-// //         success: false,
-// //         message: `Could not find course with id: ${courseId}`,
-// //       })
-// //     }
+exports.getAlljobs = async (req, res) => {
+  try {
+    const alljobs = await job.find()
+      .populate('jobadmin') 
+      .exec();
 
-// //     if (courseDetails.status === "Draft") {
-// //       return res.status(403).json({
-// //         success: false,
-// //         message: `Accessing a draft course is forbidden`,
-// //       })
-// //     }
+    return res.status(200).json({
+      success: true,
+      data: alljobs,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      success: false,
+      message: `Can't Fetch job Data`,
+      error: error.message,
+    });
+  }
+};
 
-// //     return res.status(200).json({
-// //       success: true,
-// //       data: courseDetails,
-// //     })
-// //   } catch (error) {
-// //     return res.status(500).json({
-// //       success: false,
-// //       message: error.message,
-// //     })
-// //   }
-// // }
-// exports.getCourseDetails = async (req, res) => {
-//   try {
-//     const { courseId } = req.body
-//     const courseDetails = await Course.findOne({
-//       _id: courseId,
-//     })
-//       .populate({
-//         path: "instructor",
-//         populate: {
-//           path: "additionalDetails",
-//         },
-//       })
-//       .populate("category")
-//       .populate("ratingAndReviews")
-//       .populate({
-//         path: "courseContent",
-//         populate: {
-//           path: "subSection",
-//           select: "-videoUrl",
-//         },
-//       })
-//       .exec()
+exports.deletejob = async (req, res) => {
+  try {
+    const { jobid } = req.body  
 
-//     if (!courseDetails) {
-//       return res.status(400).json({
-//         success: false,
-//         message: `Could not find course with id: ${courseId}`,
-//       })
-//     }
+ 
 
-//     // if (courseDetails.status === "Draft") {
-//     //   return res.status(403).json({
-//     //     success: false,
-//     //     message: `Accessing a draft course is forbidden`,
-//     //   });
-//     // }
+    // Find the course
+    const jobpost = await job.findById(jobid)
+    if (!jobpost) {
+      return res.status(404).json({ message: "job not found" })
+    }
 
-//     let totalDurationInSeconds = 0
-//     courseDetails.courseContent.forEach((content) => {
-//       content.subSection.forEach((subSection) => {
-//         const timeDurationInSeconds = parseInt(subSection.timeDuration)
-//         totalDurationInSeconds += timeDurationInSeconds
-//       })
-//     })
-
-//     const totalDuration = convertSecondsToDuration(totalDurationInSeconds)
-
-//     return res.status(200).json({
-//       success: true,
-//       data: {
-//         courseDetails,
-//         totalDuration,
-//       },
-//     })
-//   } catch (error) {
-//     return res.status(500).json({
-//       success: false,
-//       message: error.message,
-//     })
-//   }
-// }
-// exports.getFullCourseDetails = async (req, res) => {
-//   try {
-//     const { courseId } = req.body
-//     const userId = req.user.id
-//     const courseDetails = await Course.findOne({
-//       _id: courseId,
-//     })
-//       .populate({
-//         path: "instructor",
-//         populate: {
-//           path: "additionalDetails",
-//         },
-//       })
-//       .populate("category")
-//       .populate("ratingAndReviews")
-//       .populate({
-//         path: "courseContent",
-//         populate: {
-//           path: "subSection",
-//         },
-//       })
-//       .exec()
-
-//     // if (courseDetails.status === "Draft") {
-//     //   return res.status(403).json({
-//     //     success: false,
-//     //     message: `Accessing a draft course is forbidden`,
-//     //   });
-//     // }
+    const userdata = await user.findOne({ jobs: jobid });
+    if (userdata) {
+      // Check if the jobs field exists and is an array
+      if (Array.isArray(userdata.jobs)) {
+        // Remove the job from the user's jobs array
+        userdata.jobs = userdata.jobs.filter(id => id.toString() !== jobid);
+        await userdata.save();
+      } else {
+        // Initialize the jobs array if it doesn't exist
+        userdata.jobs = [];
+      }
+    }
 
 
-// // Get a list of Course for a given Instructor
-// exports.getInstructorCourses = async (req, res) => {
-//   try {
-//     // Get the instructor ID from the authenticated user or request body
-//     const instructorId = req.user.id
+    await job.findByIdAndDelete(jobid)
 
-//     // Find all courses belonging to the instructor
-//     const instructorCourses = await Course.find({
-//       instructor: instructorId,
-//     }).sort({ createdAt: -1 })
 
-//     // Return the instructor's courses
-//     res.status(200).json({
-//       success: true,
-//       data: instructorCourses,
-//     })
-//   } catch (error) {
-//     console.error(error)
-//     res.status(500).json({
-//       success: false,
-//       message: "Failed to retrieve instructor courses",
-//       error: error.message,
-//     })
-//   }
-// }
-// // Delete the Course
-// exports.deleteCourse = async (req, res) => {
-//   try {
-//     const { courseId } = req.body
+    return res.status(200).json({
+      success: true,
+      message: "job deleted successfully",
+    })
+  } catch (error) {
+    console.error(error)
+    return res.status(500).json({
+      success: false,
+      message: "Server error",
+      error: error.message,
+    })
+  }
+};
 
-//     // Find the course
-//     const course = await Course.findById(courseId)
-//     if (!course) {
-//       return res.status(404).json({ message: "Course not found" })
-//     }
+exports.getuserjobs = async (req, res) => {
+  try {
+    // Get the job poster ID from the authenticated user
+    const jobposterid = req.user.id;
 
-//     // Unenroll students from the course
-//     const studentsEnrolled = course.studentsEnroled
-//     for (const studentId of studentsEnrolled) {
-//       await User.findByIdAndUpdate(studentId, {
-//         $pull: { courses: courseId },
-//       })
-//     }
+    // Find all jobs belonging to the job poster
+    const jobs = await job.find({
+      jobadmin: jobposterid, // Ensure this field matches the schema
+    }).sort({ createdAt: -1 });
 
-//     // Delete sections and sub-sections
-//     const courseSections = course.courseContent
-//     for (const sectionId of courseSections) {
-//       // Delete sub-sections of the section
-//       const section = await Section.findById(sectionId)
-//       if (section) {
-//         const subSections = section.subSection
-//         for (const subSectionId of subSections) {
-//           await SubSection.findByIdAndDelete(subSectionId)
-//         }
-//       }
+    // Return the job poster's jobs
+    res.status(200).json({
+      success: true,
+      data: jobs,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to retrieve user jobs",
+      error: error.message,
+    });
+  }
+};
 
-//       // Delete the section
-//       await Section.findByIdAndDelete(sectionId)
-//     }
-
-//     // Delete the course
-//     await Course.findByIdAndDelete(courseId)
-
-//     return res.status(200).json({
-//       success: true,
-//       message: "Course deleted successfully",
-//     })
-//   } catch (error) {
-//     console.error(error)
-//     return res.status(500).json({
-//       success: false,
-//       message: "Server error",
-//       error: error.message,
-//     })
-//   }
-// }

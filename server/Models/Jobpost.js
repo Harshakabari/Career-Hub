@@ -3,7 +3,10 @@ const { TbArrowUp } = require("react-icons/tb");
 
 // Define the Section schema
 const sectionSchema = new mongoose.Schema({
-
+    jobadmin:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "user",
+    },
     companyName:{
         type:String,
         required:true
