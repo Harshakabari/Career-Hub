@@ -34,14 +34,14 @@ function Header() {
 
   return (
     <div className={`flex sticky top-0 z-50 transition duration-300 ease-in-out ${scrolled ? 'bg-white bg-opacity-100' : ''}`}>
-      <div className="flex px-20 items-center justify-between sticky w-full z-30 bg-[white] bg-opacity-70 backdrop-blur-lg transition-all duration-300">
+      <div className="flex px-20 items-center justify-between sticky w-full z-30 bg-[white] bg-opacity-100 border-b-2 border-blue-100 backdrop-blur-lg transition-all duration-300">
         {/* Logo */}
         <Link to="/">
           <img src={Logo} className="mr-3 lg:h-14 h-12" loading='lazy' alt="Logo" />
         </Link>
         {/* Navigation links */}
         <nav className="hidden md:block">
-          <ul className="flex gap-x-6 text-richblack-25 text-lg font-semibold">
+          <ul className="flex gap-x-6 text-richblack-25 text-md font-semibold">
             {NavbarLinks.map((link, index) => (
               <li key={index}> 
                 <Link to={link?.path}>
@@ -52,9 +52,10 @@ function Header() {
               </li>
             ))}
           </ul>
+         
         </nav>
         {/* Login / Signup / Dashboard */}
-        <div className="hidden items-center gap-x-4 text-blue-900 text-lg font-semibold md:flex">
+        <div className="hidden items-center gap-x-4 text-blue-900 text-md font-semibold md:flex">
           {token == null && (
             <Link to="/login">
               <button className="  hover:bg-gray-50 focus:ring-4  focus:ring-gray-300 font-medium rounded-lg  px-4 lg:px-5 py-2 lg:py-2.5 mr-2  focus:outline-none ">
@@ -74,6 +75,7 @@ function Header() {
         <button className="mr-4 md:hidden">
           <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
         </button>
+        
       </div>
     </div>
   );

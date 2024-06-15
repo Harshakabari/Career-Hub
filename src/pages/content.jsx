@@ -2,6 +2,7 @@ import React from "react";
 import jobdesc from "../assets/content-image.png";
 import { LuArrowBigRightDash } from "react-icons/lu";
 import background from "../assets/bac-removebg.png";
+// import Blobimg from "../assets/blob.png";
 
 
 const content = () => {
@@ -23,6 +24,8 @@ const content = () => {
               alt=""
               srcset=""
             />
+            
+
             <h3 className="font-semibold lg:text-5xl text-4xl absolute -top-60">
               Live Life On Your Own Terms.
             </h3>
@@ -49,7 +52,9 @@ const content = () => {
               </li>
             </ul>
           </div>
+          
         </div>
+        
       </div>
     </>
   );

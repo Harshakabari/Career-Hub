@@ -8,6 +8,10 @@ export const NavbarLinks = [
     path: "/about",
   },
   {
+    title: "Find Jobs",
+    path: "/findJobs",
+  },
+  {
     title: "Blog",
    path:"/blog",
   },

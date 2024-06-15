@@ -43,7 +43,7 @@ const main = () => {
           alt=""
           className="-ml-20 w-[400px] h-52 object-cover border-blue-900 border rounded-lg"
         />
-        <video src={video} alt="video" controls className="w-[400px] h-52 border-blue-900 border object-cover rounded-lg" />   
+        <video src={video} alt="video" controls autoPlay loop playsInline className="w-[400px] h-52 border-blue-900 border object-cover rounded-lg" />   
 
         <img
           src={Img2}
