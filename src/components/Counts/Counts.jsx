@@ -24,7 +24,7 @@ const Counts = () => {
           </svg>
           <div>
             <h5 className="text-2xl mb-[-5px]  font-bold text-[#1F2937]">
-              <CountUp start={0} end={8000} duration={1.5} delay={0} />+
+              <CountUp start={0} end={8000} duration={3} delay={0} />+
             </h5>
             <p>Current Jobs</p>
           </div>
@@ -42,7 +42,7 @@ const Counts = () => {
           </svg>
           <div>
             <h5 className="text-2xl mb-[-5px] font-bold text-[#1F2937]">
-              <CountUp start={0} end={400} duration={1.5} delay={0} />+
+              <CountUp start={0} end={400} duration={3} delay={0} />+
             </h5>
             <p>Start-Ups</p>
           </div>
@@ -60,7 +60,7 @@ const Counts = () => {
           </svg>
           <div>
             <h5 className="text-2xl mb-[-5px] font-bold text-[#1F2937]">
-              <CountUp start={0} end={20000} duration={1.5} delay={0} />+
+              <CountUp start={0} end={20000} duration={3} delay={0} />+
             </h5>
             <p>Talents</p>
           </div>
