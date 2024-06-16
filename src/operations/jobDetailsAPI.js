@@ -74,7 +74,7 @@ export const addJobDetails = async (data, token) => {
     if (!response?.data?.success) {
       throw new Error("Could Not Add Job Details")
     }
-    toast.success("Job Details Added Successfully")
+    toast.success("Job Posted Successfully")
     result = response?.data?.data
   } catch (error) {
     console.log("CREATE JOB API ERROR............", error)
@@ -115,7 +115,7 @@ export const editjob = async (data, token) => {
     const response = await apiConnector("POST", EDIT_JOB_API, data, {
       Authorization: `Bearer ${token}`,
     })
-    console.log("EDIT COURSE API RESPONSE............", response)
+    console.log("EDIT JOB API RESPONSE............", response)
     if (!response?.data?.success) {
       throw new Error("Could Not Update Job Details")
     }
@@ -139,7 +139,7 @@ export const deletejob = async (data, token) => {
     if (!response?.data?.success) {
       throw new Error("Could Not Delete Job")
     }
-    toast.success("Course Deleted")
+    toast.success("Job Deleted")
   } catch (error) {
     console.log("DELETE JOB API ERROR............", error)
     toast.error(error.message)

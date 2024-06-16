@@ -51,7 +51,7 @@ const main = () => {
           alt=""
           className="ml-20 w-[400px] h-52 object-cover  border-blue-900 border rounded-lg"
         /> */}
-        <img className='h-[550px] w-[750px] mix-blend-multiply opacity-100 ' src={Mainimg} alt="" />
+        <img className='h-[400px] w-[700px] mix-blend-multiply opacity-100 ' src={Mainimg} alt="" />
       </div>
     </div>
     
