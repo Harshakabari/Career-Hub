@@ -33,7 +33,7 @@ const main = () => {
         <p className="text-gray-600 text-[1.4rem] py-3">We can help you expand your reach and get your jobs <br />  in front of the right candidates.</p>
         <div className='flex  items-center py-6 gap-4'> 
          <button className=' bg-blue-600 text-white hover:bg-blue-700  rounded-md font-semibold py-2 px-4 text-xl border shadow-lg hover:scale-105 duration-500' type="button"><Link to="/postform">Hire Telent</Link></button>
-         <button className='bg-white hover:bg-blue-600 border border-blue-900 hover:text-white text-blue-900 hover:border-none font-semibold rounded-md p-2 px-4 text-xl' type="button" ><Link to="/job"> Explore Job</Link></button>
+         <button className='bg-white hover:bg-blue-600 border border-blue-900 hover:text-white text-blue-900 hover:border-none hover:scale-105 duration-500 font-semibold rounded-md p-2 px-4 text-xl' type="button" ><Link to="/job"> Explore Job</Link></button>
          </div>
          {/* <SearchBar /> */}
          <Counts />
