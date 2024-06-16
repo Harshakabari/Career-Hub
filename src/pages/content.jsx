@@ -1,35 +1,35 @@
 import React from "react";
-import jobdesc from "../assets/content-image.png";
+import jobdesc from "../assets/mainbg.jpg";
 import { LuArrowBigRightDash } from "react-icons/lu";
-import background from "../assets/bac-removebg.png";
-// import Blobimg from "../assets/blob.png";
+import Blob from "../assets/blob.png";
+
 
 
 const content = () => {
   return (
     <>
-      <div className="grid lg:grid-cols-2 md:grid-cols-1 lg:h-[550px] h-[1200px] lg:mt-0 -mt-40 lg:gap-8 lg:px-48 items-center">
+      <div className="grid lg:grid-cols-2 md:grid-cols-1 lg:h-[550px] h-[1200px] lg:mt-0 -mt-40 lg:gap-8 lg:px-32 items-center relative">
         <div>
           <img
-            className=" lg:h-[450px] w-[450px]"
+            className=" lg:h-[570px] w-[570px] mix-blend-multiply"
             src={jobdesc}
             alt="jobdesc-image"
           />
         </div>
         <div className="lg:mt-24 -mt-56 p-4">
-          <div className="text-black relative">
+          <div className="text-black ">
             <img
-              className="absolute lg:left-10 lg:-top-40 opacity-70 -top-24 "
-              src={background}
+              className="absolute lg:top-2  lg:h-[750px] lg:w-[1000px] -z-10 opacity-40 -top-24 "
+              src={Blob}
               alt=""
               srcset=""
             />
             
 
-            <h3 className="font-semibold lg:text-5xl text-4xl absolute -top-60">
+            <h3 className="font-semibold lg:text-5xl text-4xl  -top-60">
               Live Life On Your Own Terms.
             </h3>
-            <ul className="text-lg text-slate-600 py-6 leading-8 absolute tracking-wide	-top-36">
+            <ul className="text-lg text-gray-700 py-6 leading-8 tracking-wide	-top-36">
               <li className="flex ">
                 <LuArrowBigRightDash className="w-[32px] text-2xl mt-1" />
                 Don't let work schedule run your life.
