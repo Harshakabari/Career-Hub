@@ -9,7 +9,7 @@ export const NavbarLinks = [
   },
   {
     title: "Find Jobs",
-    path: "/findJobs",
+    path: "/job",
   },
   {
     title: "Blog",

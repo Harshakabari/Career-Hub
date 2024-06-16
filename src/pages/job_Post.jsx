@@ -33,7 +33,7 @@ const Input = ({ type, placeholder, value, onChange, className }) => (
 );
 
 const Card = ({ children }) => (
-  <div className="bg-white text-black rounded-lg hover:shadow-lg hover:shadow-zinc-300 duration-700  p-6">
+  <div className="bg-white text-black rounded-lg hover:shadow-lg hover:shadow-zinc-300 duration-700 border-gray-300 border-2 p-6">
     {children}
   </div>
 );
@@ -225,7 +225,7 @@ const JobPost = () => {
         <Searchbar />
 
         <div className="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-8">
-          <div className="bg-white rounded-lg shadow-md p-6">
+          <div className="bg-white rounded-lg shadow-md p-6  border-gray-300 border-2">
             <h2 className="text-lg font-bold mb-4">Filters</h2>
             <div className="space-y-4">
               <div>
