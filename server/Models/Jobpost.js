@@ -29,10 +29,12 @@ const sectionSchema = new mongoose.Schema({
     },
     role:{
         type:String,
+        enum:["full-time", "part-time", "contract", "internship"],
         required:true
     },
     experience:{
         type:String,
+        enum:["entry-level", "mid-level", "senior-level"],
         required:true
     },
     salary:{
@@ -43,11 +45,6 @@ const sectionSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-        // category: {
-        //     type: mongoose.Schema.Types.ObjectId,
-        //     required: true,
-        //     ref: "Category",
-        // },
     createdAt: { type: Date, default: Date.now },
 });
 

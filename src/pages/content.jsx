@@ -22,7 +22,7 @@ const content = () => {
               className="absolute lg:top-2  lg:h-[750px] lg:w-[1000px] -z-10 opacity-40 -top-24 "
               src={Blob}
               alt=""
-              srcset=""
+              srcSet=""
             />
             
 

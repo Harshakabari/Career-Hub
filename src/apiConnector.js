@@ -1,13 +1,15 @@
-import axios from "axios";
+import axios from 'axios';
 
-export const axiosInstance = axios.create({});
-
-export const apiConnector = (method, url, bodyData, headers, params) => {
-  return axiosInstance({
-    method: `${method}`,
-    url: `${url}`,
-    data: bodyData ? bodyData : null,
-    headers: headers ? headers : null,
-    params: params ? params : null,
-  });
+export const apiConnector = async (method, url, data = null, headers = {}) => {
+  try {
+    const response = await axios({
+      method,
+      url,
+      data,
+      headers,
+    });
+    return response;
+  } catch (error) {
+    throw error.response ? error.response.data : new Error('Network Error');
+  }
 };

@@ -1,11 +1,12 @@
-import React, { useState, useMemo } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState, useMemo } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../components/Header/Header";
 import Searchbar from "../components/SearchBar/SearchBar";
 import Logo1 from "../assets/clogo1.png"
 import { SlLocationPin } from "react-icons/sl";
 import { IoTimeOutline } from "react-icons/io5";
 import { RiMoneyRupeeCircleLine } from "react-icons/ri";
+import { getAlljobs } from "../operations/jobDetailsAPI";
 
 
 // Define the components directly within the same file for simplicity
@@ -69,136 +70,153 @@ const JobPost = () => {
     salaryRange: [],
   });
 
-  const jobs = [
-    {
-      id: 1,
-      title: "Frontend Developer",
-      company: "Acme Inc",
-      location: "New York, NY",
-      description:
-        "We are looking for an experienced frontend developer to join our team. You should have a strong background in React, JavaScript, and CSS.",
-      jobType: "Full-time",
-      salaryRange: "80k - 120k",
-    },
-    {
-      id: 2,
-      title: "Backend Engineer",
-      company: "Globex Corporation",
-      location: "San Francisco, CA",
-      description:
-        "Our growing team is in need of a skilled backend engineer to design and implement scalable and efficient server-side solutions.",
-      jobType: "Full-time",
-      salaryRange: "100k - 150k",
-    },
-    {
-      id: 3,
-      title: "UI/UX Designer",
-      company: "Stark Industries",
-      location: "Seattle, WA",
-      description:
-        "We are seeking a talented UI/UX designer to join our product design team. You should have a strong portfolio and experience in user-centered design.",
-      jobType: "Full-time",
-      salaryRange: "70k - 100k",
-    },
-    {
-      id: 4,
-      title: "Data Analyst",
-      company: "Wayne Enterprises",
-      location: "Chicago, IL",
-      description:
-        "Our data team is looking for a skilled data analyst to help us derive insights from complex datasets and drive data-driven decision making.",
-      jobType: "Full-time",
-      salaryRange: "60k - 90k",
-    },
-    {
-      id: 5,
-      title: "DevOps Engineer",
-      company: "LexCorp",
-      location: "Boston, MA",
-      description:
-        "We are seeking a DevOps engineer to join our infrastructure team and help us automate and streamline our deployment and operations processes.",
-      jobType: "Full-time",
-      salaryRange: "90k - 130k",
-    },
-    {
-      id: 6,
-      title: "Frontend Developer",
-      company: "Acme Inc",
-      location: "New York, NY",
-      description:
-        "We are looking for an experienced frontend developer to join our team. You should have a strong background in React, JavaScript, and CSS.",
-      jobType: "Full-time",
-      salaryRange: "80k - 120k",
-    },
-    {
-      id: 7,
-      title: "Backend Engineer",
-      company: "Globex Corporation",
-      location: "San Francisco, CA",
-      description:
-        "Our growing team is in need of a skilled backend engineer to design and implement scalable and efficient server-side solutions.",
-      jobType: "Full-time",
-      salaryRange: "100k - 150k",
-    },
-    {
-      id: 8,
-      title: "Frontend Developer",
-      company: "Acme Inc",
-      location: "New York, NY",
-      description:
-        "We are looking for an experienced frontend developer to join our team. You should have a strong background in React, JavaScript, and CSS.",
-      jobType: "Full-time",
-      salaryRange: "80k - 120k",
-    },
-    {
-      id: 9,
-      title: "Backend Engineer",
-      company: "Globex Corporation",
-      location: "San Francisco, CA",
-      description:
-        "Our growing team is in need of a skilled backend engineer to design and implement scalable and efficient server-side solutions.",
-      jobType: "Full-time",
-      salaryRange: "100k - 150k",
-    },
-    {
-      id: 10,
-      title: "Frontend Developer",
-      company: "Acme Inc",
-      location: "New York, NY",
-      description:
-        "We are looking for an experienced frontend developer to join our team. You should have a strong background in React, JavaScript, and CSS.",
-      jobType: "Full-time",
-      salaryRange: "80k - 120k",
-    },
-    {
-      id: 11,
-      title: "Backend Engineer",
-      company: "Globex Corporation",
-      location: "San Francisco, CA",
-      description:
-        "Our growing team is in need of a skilled backend engineer to design and implement scalable and efficient server-side solutions.",
-      jobType: "Full-time",
-      salaryRange: "100k - 150k",
-    },
-  ];
+  const navigate = useNavigate();
+  const [jobs, setJobs] = useState([]);
 
+  useEffect(() => {
+    const fetchJobs = async () => {
+      const result = await getAlljobs();
+      if (result) {
+        setJobs(result);
+      }
+    };
+    fetchJobs();
+  }, []); // Add token as a dependency
+
+
+  // const jobs = [
+  //   {
+  //     id: 1,
+  //     title: "Frontend Developer",
+  //     company: "Acme Inc",
+  //     location: "New York, NY",
+  //     description:
+  //       "We are looking for an experienced frontend developer to join our team. You should have a strong background in React, JavaScript, and CSS.",
+  //     jobType: "Full-time",
+  //     salaryRange: "80k - 120k",
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Backend Engineer",
+  //     company: "Globex Corporation",
+  //     location: "San Francisco, CA",
+  //     description:
+  //       "Our growing team is in need of a skilled backend engineer to design and implement scalable and efficient server-side solutions.",
+  //     jobType: "Full-time",
+  //     salaryRange: "100k - 150k",
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "UI/UX Designer",
+  //     company: "Stark Industries",
+  //     location: "Seattle, WA",
+  //     description:
+  //       "We are seeking a talented UI/UX designer to join our product design team. You should have a strong portfolio and experience in user-centered design.",
+  //     jobType: "Full-time",
+  //     salaryRange: "70k - 100k",
+  //   },
+  //   {
+  //     id: 4,
+  //     title: "Data Analyst",
+  //     company: "Wayne Enterprises",
+  //     location: "Chicago, IL",
+  //     description:
+  //       "Our data team is looking for a skilled data analyst to help us derive insights from complex datasets and drive data-driven decision making.",
+  //     jobType: "Full-time",
+  //     salaryRange: "60k - 90k",
+  //   },
+  //   {
+  //     id: 5,
+  //     title: "DevOps Engineer",
+  //     company: "LexCorp",
+  //     location: "Boston, MA",
+  //     description:
+  //       "We are seeking a DevOps engineer to join our infrastructure team and help us automate and streamline our deployment and operations processes.",
+  //     jobType: "Full-time",
+  //     salaryRange: "90k - 130k",
+  //   },
+  //   {
+  //     id: 6,
+  //     title: "Frontend Developer",
+  //     company: "Acme Inc",
+  //     location: "New York, NY",
+  //     description:
+  //       "We are looking for an experienced frontend developer to join our team. You should have a strong background in React, JavaScript, and CSS.",
+  //     jobType: "Full-time",
+  //     salaryRange: "80k - 120k",
+  //   },
+  //   {
+  //     id: 7,
+  //     title: "Backend Engineer",
+  //     company: "Globex Corporation",
+  //     location: "San Francisco, CA",
+  //     description:
+  //       "Our growing team is in need of a skilled backend engineer to design and implement scalable and efficient server-side solutions.",
+  //     jobType: "Full-time",
+  //     salaryRange: "100k - 150k",
+  //   },
+  //   {
+  //     id: 8,
+  //     title: "Frontend Developer",
+  //     company: "Acme Inc",
+  //     location: "New York, NY",
+  //     description:
+  //       "We are looking for an experienced frontend developer to join our team. You should have a strong background in React, JavaScript, and CSS.",
+  //     jobType: "Full-time",
+  //     salaryRange: "80k - 120k",
+  //   },
+  //   {
+  //     id: 9,
+  //     title: "Backend Engineer",
+  //     company: "Globex Corporation",
+  //     location: "San Francisco, CA",
+  //     description:
+  //       "Our growing team is in need of a skilled backend engineer to design and implement scalable and efficient server-side solutions.",
+  //     jobType: "Full-time",
+  //     salaryRange: "100k - 150k",
+  //   },
+  //   {
+  //     id: 10,
+  //     title: "Frontend Developer",
+  //     company: "Acme Inc",
+  //     location: "New York, NY",
+  //     description:
+  //       "We are looking for an experienced frontend developer to join our team. You should have a strong background in React, JavaScript, and CSS.",
+  //     jobType: "Full-time",
+  //     salaryRange: "80k - 120k",
+  //   },
+  //   {
+  //     id: 11,
+  //     title: "Backend Engineer",
+  //     company: "Globex Corporation",
+  //     location: "San Francisco, CA",
+  //     description:
+  //       "Our growing team is in need of a skilled backend engineer to design and implement scalable and efficient server-side solutions.",
+  //     jobType: "Full-time",
+  //     salaryRange: "100k - 150k",
+  //   },
+  // ];
   const filteredJobs = useMemo(() => {
     return jobs.filter((job) => {
+      // Check if job.title, job.company, and job.description are defined before using them
+      const title = job.Title ? job.title.toLowerCase() : '';
+      const company = job.company ? job.company.toLowerCase() : '';
+      const description = job.description ? job.description.toLowerCase() : '';
+  
       const searchMatch =
-        job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        job.company.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        job.description.toLowerCase().includes(searchQuery.toLowerCase());
+        title.includes(searchQuery.toLowerCase()) ||
+        company.includes(searchQuery.toLowerCase()) ||
+        description.includes(searchQuery.toLowerCase());
+  
       const filterMatch =
-        (filters.jobType.length === 0 ||
-          filters.jobType.includes(job.jobType)) &&
-        (filters.location.length === 0 ||
-          filters.location.includes(job.location.split(", ")[0])) &&
-        (filters.salaryRange.length === 0 ||
-          filters.salaryRange.includes(job.salaryRange));
+        (filters.jobType.length === 0 || filters.jobType.includes(job.jobType)) &&
+        (filters.location.length === 0 || filters.location.includes(job.location.split(", ")[0])) &&
+        (filters.salaryRange.length === 0 || filters.salaryRange.includes(job.salaryRange));
+  
       return searchMatch && filterMatch;
     });
   }, [searchQuery, filters]);
-
+  
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
   };
@@ -338,7 +356,7 @@ const JobPost = () => {
             </div> */}
             <div className="grid grid-cols-1  gap-6">
               {filteredJobs.map((job) => (
-                <Card key={job.id}>
+                <Card key={job  .id}>
                   <div className="flex gap-2">
                     <img className="h-12" src={Logo1} alt="" />
                   <CardHeader>

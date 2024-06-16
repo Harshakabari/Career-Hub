@@ -19,7 +19,8 @@ import MyProfile from './components/core/MyProfile.jsx'
 import Settings from './Settings'
 import PrivateRoute from "./operations/Auth/PrivateRoute.jsx"
 import Dashboard from "./pages/Dashboard.jsx"
-
+import Myjobs from "./dashboard/MyJob.jsx"
+// import EditJob from "./dashboard/"
 
 
 
@@ -69,7 +70,12 @@ function App() {
         >
           {/* Route for all users */}
           <Route path="dashboard/my-profile" element={<MyProfile />} />
+          <Route path="dashboard/my-jobs" element={<Myjobs />} />
           <Route path="dashboard/Settings" element={<Settings />} />
+          {/* <Route
+                path="dashboard/edit-job/:jobid"
+                element={<EditJob />}
+              /> */}
         </Route>
       </Routes>
   );
