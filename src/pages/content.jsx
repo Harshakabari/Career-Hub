@@ -22,7 +22,7 @@ const content = () => {
               className="absolute lg:left-10 lg:-top-40 opacity-70 -top-24 "
               src={background}
               alt=""
-              srcset=""
+              srcSet=""
             />
             
 

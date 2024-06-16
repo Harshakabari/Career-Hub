@@ -190,8 +190,6 @@ exports.deletejob = async (req, res) => {
   try {
     const { jobid } = req.body  
 
- 
-
     // Find the course
     const jobpost = await job.findById(jobid)
     if (!jobpost) {

@@ -1,46 +1,10 @@
 import React, { useState } from "react";
-import { useForm, FormProvider } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
+import { useForm, FormProvider, useFormContext, Controller } from "react-hook-form";
 import Modal from "react-modal";
 import { Link } from "react-router-dom";
-import CustomForm from "../components/CustomForm/Customform"; // Adjust the path as needed
-
-const formSchema = z.object({
-  companyName: z.string().min(1, {
-    message: "Company name is required.",
-  }),
-  companyDescription: z.string().min(1, {
-    message: "Company description is required.",
-  }),
-  jobTitle: z.string().min(1, {
-    message: "Job title is required.",
-  }),
-  jobDescription: z.string().min(1, {
-    message: "Job description is required.",
-  }),
-  location: z.string().min(1, {
-    message: "Location is required.",
-  }),
-  role: z.enum(["full-time", "part-time", "contract", "internship"], {
-    errorMap: () => ({ message: "Role is required." }),
-  }),
-  experience: z.enum(["entry-level", "mid-level", "senior-level"], {
-    errorMap: () => ({ message: "Experience level is required." }),
-  }),
-  salary: z
-    .string()
-    .transform((value) => Number(value))
-    .refine((value) => !isNaN(value) && value >= 0, {
-      message: "Salary must be a positive number.",
-    }),
-  skills: z.string().min(1, {
-    message: "Skills are required.",
-  }),
-  createdAt: z.string().min(1, {
-    message: "Created date is required.",
-  }),
-});
+import Header from "../components/Header/Header";
+import { addJobDetails } from "../operations/jobDetailsAPI";
+import { useSelector } from "react-redux";
 
 const fields = [
   {
@@ -113,7 +77,6 @@ const fields = [
 
 const Page = () => {
   const methods = useForm({
-    resolver: zodResolver(formSchema),
     defaultValues: {
       companyName: "",
       companyDescription: "",
@@ -125,21 +88,36 @@ const Page = () => {
       salary: "",
       skills: "",
     },
-    mode: "all",
+    mode: "onBlur", // Validate on blur
   });
 
+  const { handleSubmit, reset } = methods;
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { token } = useSelector((state) => state.auth); // Assuming auth slice contains token
 
-  const onSubmit = (values) => {
-    console.log(JSON.stringify(values, null, 2)); // Logging form data to console
-    methods.reset(); // Resetting the form after submission
-    setIsModalOpen(true); // Open modal on successful submission
+  const onSubmit = async (values) => {
+    try {
+      await addJobDetails(values, token); // Call async function to add job details
+      reset(); // Resetting the form after submission
+      setIsModalOpen(true); // Open modal on successful submission
+    } catch (error) {
+      console.error('Error adding job:', error);
+      // Handle error or display error message to user
+    }
   };
 
   return (
     <>
+      <Header />
       <FormProvider {...methods}>
-        <CustomForm form={methods} fields={fields} onSubmit={methods.handleSubmit(onSubmit)} />
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          {fields.map((field) => (
+            <FormField key={field.name} {...field} />
+          ))}
+          <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded">
+            Submit
+          </button>
+        </form>
       </FormProvider>
 
       <Modal
@@ -172,6 +150,45 @@ const Page = () => {
         }
       `}</style>
     </>
+  );
+};
+
+const FormField = ({ name, label, placeholder, input, options, type }) => {
+  const { control, formState: { errors } } = useFormContext();
+
+  return (
+    <div className="flex flex-col">
+      <label className="text-sm font-medium text-gray-700">{label}</label>
+      {input === "input" && (
+        <Controller
+          control={control}
+          name={name}
+          render={({ field }) => <input {...field} type={type || "text"} placeholder={placeholder} className="border border-gray-300 rounded px-3 py-2 mt-1 focus:outline-none focus:border-blue-500" />}
+        />
+      )}
+      {input === "textarea" && (
+        <Controller
+          control={control}
+          name={name}
+          render={({ field }) => <textarea {...field} placeholder={placeholder} className="border border-gray-300 rounded px-3 py-2 mt-1 focus:outline-none focus:border-blue-500" />}
+        />
+      )}
+      {input === "select" && (
+        <Controller
+          control={control}
+          name={name}
+          render={({ field }) => (
+            <select {...field} placeholder={placeholder} className="border border-gray-300 rounded px-3 py-2 mt-1 focus:outline-none focus:border-blue-500">
+              <option value="" disabled hidden>{placeholder}</option>
+              {options.map((option) => (
+                <option key={option.value} value={option.value}>{option.text}</option>
+              ))}
+            </select>
+          )}
+        />
+      )}
+      <span className="text-red-500 text-sm">{errors[name]?.message}</span> {/* Display validation error messages */}
+    </div>
   );
 };
 
