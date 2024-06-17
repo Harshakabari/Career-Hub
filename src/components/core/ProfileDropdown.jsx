@@ -31,11 +31,11 @@ export default function ProfileDropdown() {
       {open && (
         <div
           onClick={(e) => e.stopPropagation()}
-          className="absolute top-[118%] right-0 z-50 divide-y-[1px] bg-blue-400 divide-yellow-700 overflow-hidden rounded-md border-[1px] border-richblack-700 bg-richblack-800"
+          className="absolute top-[118%] right-0 z-50 divide-y-[1px] bg-blue-900 divide-white overflow-hidden rounded-md border-[1px] border-richblack-700 bg-richblack-800"
           ref={ref}
         >
           <Link to="/dashboard/my-profile" onClick={() => setOpen(false)}>
-            <div className="flex w-full items-center text-white hover:text-black  gap-x-1 py-[10px] px-[12px] text-sm text-richblack-100 hover:bg-white hover:text-richblack-25">
+            <div className="flex w-full items-center text-white hover:text-gray-900  gap-x-1 py-[10px] px-[12px] text-sm text-richblack-100 hover:bg-white hover:text-richblack-25">
               <VscDashboard className="text-lg" />
               Dashboard
             </div>
@@ -45,7 +45,7 @@ export default function ProfileDropdown() {
               dispatch(logout(navigate))
               setOpen(false)
             }}
-            className="flex w-full text-white  hover:text-black items-center gap-x-1 py-[10px] px-[12px] text-sm text-richblack-100 hover:bg-white hover:text-richblack-25"
+            className="flex w-full text-white  hover:text-gray-900 items-center gap-x-1 py-[10px] px-[12px] text-sm text-richblack-100 hover:bg-white hover:text-richblack-25"
           >
             <VscSignOut className="text-lg" />
             Logout
