@@ -235,7 +235,7 @@ const JobPost = () => {
                     </CardContent>
                     <CardFooter>
                       <div className="flex gap-8">
-                        <Button onClick={() => navigate(`/jobdetails/${job._id}`)}>
+                        <Button onClick={() => navigate(`/jobappllicationform/${job._id}`)}>
                           Apply
                         </Button>
                         <Button>
