@@ -1,13 +1,13 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import maleTourist from '../assets/newsletter.jpg';
+import maleTourist from '../assets/newsletter.png';
 import Scroll from '../components/Scroll_Images/Scroll';
 
 const Newsletter = () => {
     return (
         <>
         <Scroll />
-        <section className='newsletter bg-blue-100 pt-6'>
+        <section className='newsletter bg-[#e7f3ff] pt-6'>
             <Container>
                 <Row className='flex gap-7 lg:px-28 md:px-14 px-6 py-2 w-dvw'>
                     <Col className='text-black pr-8'>
@@ -21,7 +21,7 @@ const Newsletter = () => {
                                     className="border-none px-3 text-base text-gray-800 w-full focus:outline-none"
                                     required
                                 />
-                                <button className="btn newsletter__btn bg-[#2277AE] text-white rounded-md py-2 px-6 text-lg">
+                                <button className="btn newsletter__btn bg-red-500 text-white rounded-md py-2 px-6 text-lg">
                                     Subscribe
                                 </button>
                             </form>

@@ -3,7 +3,6 @@ import { toast } from "react-hot-toast"
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
-
 import { sendOtp } from "../../operations/authAPI.js"
 import { setSignupData } from "../../slices/authSlice.js"
 
@@ -69,7 +68,7 @@ function SignupForm() {
       <form onSubmit={handleOnSubmit} className="flex w-full flex-col gap-y-4 ">
         <div className="md:flex lg:flex block gap-x-4 w-full">
           <label className="w-full ">
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5 relative">
+            <p className="mb-1 text-[0.875rem] leading-[1.375rem] font-semibold relative">
               First Name <sup className="text-red-500 text-lg absolute -top-1">*</sup>
             </p>
             <input
@@ -79,11 +78,11 @@ function SignupForm() {
               value={firstName}
               onChange={handleOnChange}
               placeholder="Enter first name"
-              className="form-style w-full py-1 px-2 rounded-md text-gray-900"
+              className="form-style w-full py-1 px-2 rounded-md text-gray-600 outline-none shadow-md"
             />
           </label>
           <label className="w-full">
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5 relative">
+            <p className="mb-1 text-[0.875rem] leading-[1.375rem] font-semibold relative">
               Last Name <sup className="text-red-500 text-lg absolute -top-1">*</sup>
             </p>
             <input
@@ -93,12 +92,12 @@ function SignupForm() {
               value={lastName}
               onChange={handleOnChange}
               placeholder="Enter last name"
-              className="form-style w-full text-gray-900 py-1 px-2 rounded-md"
+              className="form-style w-full text-gray-600 outline-none shadow-md py-1 px-2 rounded-md"
             />
           </label>
         </div>
         <label className="w-full">
-          <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5 relative">
+          <p className="mb-1 text-[0.875rem] leading-[1.375rem] font-semibold relative">
             Email Address <sup className="text-red-500 text-lg absolute -top-1">*</sup>
           </p>
           <input
@@ -108,12 +107,12 @@ function SignupForm() {
             value={email}
             onChange={handleOnChange}
             placeholder="Enter email address"
-            className=" w-full py-1 px-2 rounded-md text-gray-900 "
+            className=" w-full py-1 px-2 rounded-md text-gray-600 outline-none shadow-md"
           />
         </label>
         <div className="md:flex lg:flex block gap-x-4">
           <label className="relative">
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5 relative">
+            <p className="mb-1 text-[0.875rem] leading-[1.375rem] font-semibold relative">
               Create Password <sup className="text-red-500 text-lg absolute -top-1">*</sup>
             </p>
             <input
@@ -123,7 +122,7 @@ function SignupForm() {
               value={password}
               onChange={handleOnChange}
               placeholder="Enter Password"
-              className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-900"
+              className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md"
             />
             <span
               onClick={() => setShowPassword((prev) => !prev)}
@@ -137,7 +136,7 @@ function SignupForm() {
             </span>
           </label>
           <label className="relative">
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5 relative">
+            <p className="mb-1 text-[0.875rem] leading-[1.375rem] font-semibold relative">
               Confirm Password <sup className="text-red-500 text-lg absolute -top-1">*</sup>
             </p>
             <input
@@ -147,7 +146,7 @@ function SignupForm() {
               value={confirmPassword}
               onChange={handleOnChange}
               placeholder="Confirm Password"
-              className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-900"
+              className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md"
             />
             <span
               onClick={() => setShowConfirmPassword((prev) => !prev)}
@@ -163,7 +162,7 @@ function SignupForm() {
         </div>
         <button
           type="submit"
-          className="mt-6 rounded-[8px] bg-blue-500 text-white hover:bg-blue-600 hover:duration-50 py-[8px] px-[12px] font-medium text-richblack-900"
+          className="mt-6 rounded-[8px] bg-blue-900 hover:bg-blue-800  duration-200 py-[8px] px-[12px] font-medium text-white"
         >
           Create Account
         </button>

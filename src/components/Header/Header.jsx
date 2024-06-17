@@ -33,11 +33,11 @@ function Header() {
   }, []);
 
   return (
-    <div className={`flex sticky top-0 z-50 transition duration-300 ease-in-out ${scrolled ? 'bg-white bg-opacity-100' : ''}`}>
-      <div className="flex px-20 items-center justify-between sticky w-full z-30 bg-[white] bg-opacity-100 border-b-2 border-blue-100 backdrop-blur-lg transition-all duration-300">
+    <div className={`flex sticky top-0 z-50 transition duration-300 ease-in-out backdrop-blur-md`}>
+      <div className="flex px-20 items-center justify-between sticky w-full z-30 bg-[white] bg-opacity-100  backdrop-blur-lg transition-all duration-300">
         {/* Logo */}
         <Link to="/">
-          <img src={Logo} className="mr-3 lg:h-14 h-12" loading='lazy' alt="Logo" />
+          <img src={Logo} className="mr-3 lg:h-14 h-12 select-none" loading='lazy' alt="Logo" />
         </Link>
         {/* Navigation links */}
         <nav className="hidden md:block">
@@ -45,7 +45,7 @@ function Header() {
             {NavbarLinks.map((link, index) => (
               <li key={index}> 
                 <Link to={link?.path}>
-                  <p className={`${matchRoute(link?.path) ? "text-blue-900" : "text-blue-700"}`}>
+                  <p className={`${matchRoute(link?.path) ? "text-blue-900 font-bold" : "text-blue-900 opacity-65"}`}>
                     {link.title}
                   </p>
                 </Link>             
@@ -58,14 +58,14 @@ function Header() {
         <div className="hidden items-center gap-x-4 text-blue-900 text-md font-semibold md:flex">
           {token == null && (
             <Link to="/login">
-              <button className="  hover:bg-gray-50 focus:ring-4  focus:ring-gray-300 font-medium rounded-lg  px-4 lg:px-5 py-2 lg:py-2.5 mr-2  focus:outline-none ">
+              <button className="  hover:bg-blue-900 hover:text-white bg-[#e7f3ff] duration-200 font-medium rounded-lg  px-4 lg:px-5 py-2 lg:py-2.5 mr-2  focus:outline-none ">
                 Log in 
               </button>
             </Link>
           )}
           {token == null && (
             <Link to="/signup">
-              <button className=" hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none ">
+              <button className="  hover:bg-blue-900 hover:text-white bg-[#e7f3ff] duration-200 font-medium rounded-lg px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none ">
                 Get started
               </button>
             </Link>

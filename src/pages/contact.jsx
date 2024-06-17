@@ -22,18 +22,19 @@ const contact = () => {
                     </ul>
                 </div>
                 <div className="max-w-screen-lg mx-auto p-5 h-full bg-transparent backdrop-blur-lg">
-                    <div className="grid grid-cols-1 md:grid-cols-12 border border-gray-300">
+                    <div className="grid grid-cols-1 md:grid-cols-12 bg-[#e7f3ff] rounded-md shadow-xl">
                         <div className=" md:col-span-4 p-10 text-gray-700">
-                            <h3 className="mt-4 text-xl text-blue-700 font-semibold leading-7 font-regular uppercase">
+                            <h3 className="mt-4 text-xl text-blue-900 font-semibold leading-7 font-regular uppercase">
                                 Contact
                             </h3>
                             <h3 className="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight">
-                                Get In <span className="text-blue-600">Touch</span>
+                                Get In <span className="text-blue-900">Touch</span>
                             </h3>
-                            <p className="mt-4 leading-7">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                industry. Lorem Ipsum has been the industry's standard dummy
-                                text ever since the 1500s.
+                            <p className="mt-4 leading-7 content-center w-90">
+                            We value your feedback and inquiries! Whether you have questions about our products,
+                            need support, or just want to share your thoughts, we're here to help. Please fill out
+                            the form below with your contact details and message, and we're committed to providing the best 
+                            possible assistance.Thank you for reaching out to us, and we look forward to connecting with you soon.
                             </p>
                             <div className="flex mt-8">
                                 <a href="/">
@@ -105,7 +106,9 @@ const contact = () => {
                                         First Name
                                     </label>
                                     <input
-                                        className="appearance-none block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                                         className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md"
+
+                                        // className="appearance-none block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                                         id="grid-first-name"
                                         type="text"
                                         placeholder="Jane"
@@ -123,7 +126,9 @@ const contact = () => {
                                         Last Name
                                     </label>
                                     <input
-                                        className="appearance-none block w-full  text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md"
+
+                                        // className="appearance-none block w-full  text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                         id="grid-last-name"
                                         type="text"
                                         placeholder="Doe"
@@ -140,7 +145,9 @@ const contact = () => {
                                         Email Address
                                     </label>
                                     <input
-                                        className="appearance-none block w-full  text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md "
+
+                                        // className="appearance-none block w-full  text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                         id="grid-email"
                                         type="email"
                                         placeholder="xyz@gmail.com"
@@ -161,18 +168,20 @@ const contact = () => {
                                         rows="10"
                                         required
                                         placeholder="Enter your message here"
-                                        className="appearance-none block w-full  text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md resize-none"
+                                        
+                                        // className="appearance-none block w-full  text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                     ></textarea>
                                 </div>
-                                <div className="flex justify-between w-full px-3">
-                                    <div className="md:flex md:items-center">
+                                <div className="flex justify-between w-full mt-5 px-3">
+                                    <div className="md:flex md:items-center items-center">
                                         <label className="block  font-bold">
                                             <input className="mr-2 leading-tight" type="checkbox" />
                                             <span className="text-sm">Send me your newsletter!</span>
                                         </label>
                                     </div>
                                     <button
-                                        className="shadow bg-blue-600 hover:bg-blue-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
+                                        className="shadow bg-blue-900 hover:bg-blue-800 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
                                         type="submit"
                                     >
                                         Send Message

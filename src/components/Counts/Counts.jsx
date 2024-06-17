@@ -5,7 +5,7 @@ import CountUp from "react-countup";
 const Counts = () => {
   return (
     <>
-      <div className="grid lg:grid-cols-3   mx-4 lg:h-24 py-4 rounded-3xl lg:mt-20 mt-10 align-content-center justify-center border-slate-100 border-2 shadow-xl backdrop-blur-lg text-black">
+      <div className="grid lg:grid-cols-3 w-1/2  lg:h-24 mt-10 rounded-3xl align-content-center mx-auto justify-center border-slate-100 border-2 shadow-xl backdrop-blur-lg text-black">
         {/* // counting 1 */}
         <div className="flex gap-5 justify-center pb-2 items-center">
           <svg

@@ -46,12 +46,12 @@ const faqItems = [
 const AccordionItem = ({ item, isActive, onToggle }) => (
   <div
     className={`accordion border border-solid border-gray-300 p-4 rounded-xl transition duration-500 mb-8 ${
-      isActive ? "bg-indigo-50 border-indigo-600" : ""
+      isActive ? "bg-[#e7f3ff] border-blue-900" : ""
     }`}
   >
     <button
-      className={`accordion-toggle group inline-flex items-center justify-between text-left text-lg font-normal leading-8 text-gray-900 w-full transition duration-500 hover:text-indigo-600 ${
-        isActive ? "font-medium text-indigo-600" : ""
+      className={`accordion-toggle group inline-flex items-center justify-between text-left text-lg font-normal leading-8 text-gray-900 w-full transition duration-500 hover:text-blue-900 ${
+        isActive ? "font-medium text-blue-900" : ""
       }`}
       onClick={onToggle}
       aria-expanded={isActive}
@@ -59,8 +59,8 @@ const AccordionItem = ({ item, isActive, onToggle }) => (
       <h5>{item.question}</h5>
       <svg
         className={`w-6 h-6 transition duration-500 ${
-          isActive ? "text-indigo-600" : "text-gray-900"
-        } group-hover:text-indigo-600`}
+          isActive ? "text-blue-900" : "text-gray-900"
+        } group-hover:text-blue-900`}
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

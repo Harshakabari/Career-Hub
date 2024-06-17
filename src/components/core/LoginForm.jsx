@@ -31,8 +31,8 @@ function LoginForm() {
       className="mt-6 flex w-full flex-col gap-y-4"
     >
       <label className="w-full">
-        <p className="mb-2 font-semibold text-[0.875rem] leading-[1.375rem] text-richblack-5">
-          Email Address <sup className="text-pink-200">*</sup>
+        <p className="mb-2 font-semibold text-[0.875rem] leading-[1.375rem] ">
+          Email Address <sup className="text-red-500">*</sup>
         </p>
         <input
           required
@@ -41,12 +41,12 @@ function LoginForm() {
           value={email}
           onChange={handleOnChange}
           placeholder="Enter email address"
-          className="form-style w-full h-9 rounded-md pl-4 text-gray-900"
+          className="form-style w-full h-9 rounded-md pl-4 text-gray-600 outline-none shadow-md"
         />
       </label>
       <label className="w-full">
-        <p className="mb-2 text-[0.875rem] font-semibold leading-[1.375rem] text-richblack-5">
-          Password <sup className="text-pink-200">*</sup>
+        <p className="mb-2 text-[0.875rem] font-semibold leading-[1.375rem] ">
+          Password <sup className="text-red-500">*</sup>
         </p>
         <input
           required
@@ -55,17 +55,17 @@ function LoginForm() {
           value={password}
           onChange={handleOnChange}
           placeholder="Enter Password"
-          className="w-full !pr-2 h-9 rounded-md pl-4 text-gray-800"
+          className="w-full !pr-2 h-9 rounded-md pl-4 text-gray-600 outline-none shadow-md"
         />
         <Link to="/forgot-password">
-          <p className="mt-1 ml-auto max-w-max text-xs text-blue-500">
+          <p className="mt-1 ml-auto max-w-max text-l text-blue-900">
             Forgot Password
           </p>
         </Link>
       </label>
       <button
         type="submit" 
-        className="mt-6 rounded-[8px] bg-blue-500 text-white hover:bg-blue-600 hover:duration-50 py-[8px] px-[12px] font-medium text-richblack-900"
+        className="mt-6 rounded-[8px] bg-blue-900 hover:bg-blue-800  duration-200 py-[8px] px-[12px] font-medium text-white"
       >
         Sign In
       </button>
