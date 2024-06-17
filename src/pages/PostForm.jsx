@@ -110,7 +110,13 @@ const Page = () => {
     <>
       <Header />
       <FormProvider {...methods}>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <div className="pl-24">
+      <h2 className="text-3xl py-2 ">Post a New Job</h2>
+      <p className="text-gray-500">Fill out the form below to create a new job posting.</p>
+      </div>
+        <div className="flex gap-4 px-20">
+          
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-[75%] px-5 py-5">
           {fields.map((field) => (
             <FormField key={field.name} {...field} />
           ))}
@@ -118,6 +124,20 @@ const Page = () => {
             Submit
           </button>
         </form>
+        
+
+<div class=" my-10 hover:shadow-lg duration-700 h-[420px] w-96 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8">
+    <h5 class="mb-6 text-3xl font-bold text-gray-900 ">Get more updates...</h5>
+   
+    <form className="grid">
+      <input type="email" placeholder="Enter your email" className="border-gray-200 border-2 py-1 px-2 rounded-lg" required />
+      <button className="bg-blue-600 my-4 py-1 text-white font-semibold rounded-lg">Subscribe Now</button>
+      <p className="text-gray-500 py-3 text-md">Subscribe now to stay updated with the latest job postings and career advice. Be the first to know about exclusive job opportunities tailored to your skills and interests, helping you to advance your career and seize the best opportunities available.</p>
+    </form>
+    
+</div>
+
+        </div>
       </FormProvider>
 
       <Modal
