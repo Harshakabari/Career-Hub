@@ -110,12 +110,13 @@ const Page = () => {
     <>
       <Header />
       <FormProvider {...methods}>
-        <div className="pl-24">
-      <h2 className="text-3xl py-2 ">Post a New Job</h2>
+        <div className="pl-24 mt-6">
+      <h2 className="text-3xl py-2 font-semibold ">Post a New Job</h2>
       <p className="text-gray-500">Fill out the form below to create a new job posting.</p>
+      <hr className="mt-3 w-[1300px]" />
       </div>
         <div className="flex gap-4 px-20">
-          
+
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-[75%] px-5 py-5">
           {fields.map((field) => (
             <FormField key={field.name} {...field} />
