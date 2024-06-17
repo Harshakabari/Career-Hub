@@ -32,7 +32,7 @@ const Content = () => {
           </h2>
           <ul className="text-lg text-gray-700 py-6 leading-8 tracking-wide -top-36">
             {contentItems.map((item, index) => (
-              <li key={index} className=" flex my-2 ml-6">
+              <li key={index} className="flex my-2 ml-6">
                 <div>
                 <FaArrowRightLong className="w-[32px] text-xl my-1.5" />
                 </div>
