@@ -31,10 +31,11 @@ export default function JobTable({ jobs, setJobs }) {
     <>
       <Table className="rounded-xl border border-richblack-800">
         <Thead>
-          <Tr className="flex gap-x-10 rounded-t-md border-b border-b-richblack-800 px-6 py-2">
-            <Th className="flex-1 text-left text-sm font-medium uppercase text-richblack-100">Jobs</Th>
-            <Th className="text-left text-sm font-medium uppercase text-richblack-100">Duration</Th>
-            <Th className="text-left text-sm font-medium uppercase text-richblack-100">Price</Th>
+          <Tr className="flex gap-x-[90px] rounded-t-md border-b border-b-richblack-800 px-6 py-2">
+            <Th className="flex-1 text-left text-sm font-medium uppercase text-richblack-100">Job-Title</Th>
+            <Th className="flex-1 -ml-[3rem] text-left text-sm font-medium uppercase text-richblack-100">Salary</Th>
+            <Th className="text-left text-sm font-medium uppercase text-richblack-100">Role</Th>
+            <Th className="text-left text-sm font-medium uppercase text-richblack-100">experience</Th>
             <Th className="text-left text-sm font-medium uppercase text-richblack-100">Actions</Th>
           </Tr>
         </Thead>
@@ -45,16 +46,19 @@ export default function JobTable({ jobs, setJobs }) {
             </Tr>
           ) : (
             jobs?.map((job) => (
-              <Tr key={job._id  } className="flex gap-x-10 border-b border-richblack-800 px-6 py-8">
-                <Td className="flex flex-1 gap-x-4">
-                  <img src={job?.companyName} alt={job?.role} className="h-[148px] w-[220px] rounded-lg object-cover" />
+              <Tr key={job._id  } className="flex gap-x-20 border-b border-richblack-800 px-6 py-8">
+                <Td className="flex flex-1 gap-x-14">
+                  <div>
+                  <h3 className='mb-2 w-[220px]'> {job.jobTitle}</h3>
+                  <p className='text-gray-500'>{job.jobDescription}</p>
+                  </div>
                   <div className="flex flex-col justify-between">
                     <p className="text-lg font-semibold text-richblack-5">{job.salary}</p>
                     <p className="text-[12px] text-white">Created: {formatDate(job.createdAt)}</p>
                   </div>
                 </Td>
-                <Td className="text-sm font-medium text-richblack-100">2hr 30min</Td>
-                <Td className="text-sm font-medium text-richblack-100">₹{job.price}</Td>
+                <Td className="text-sm font-medium text-richblack-100">{job.role}</Td>
+                <Td className="w-[80px] text-sm font-medium text-richblack-100">{job.experience}</Td>
                 <Td className="text-sm font-medium text-richblack-100">
                   <button
                     disabled={loading}
