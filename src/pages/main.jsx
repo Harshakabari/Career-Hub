@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Mainimg from "../assets/4565.jpg";
+import Mainimg from "../assets/bgmain.svg";
 import Counts from "../components/Counts/Counts"
 
 
