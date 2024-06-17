@@ -16,7 +16,7 @@ const card = () => {
     <>
       
         {/* ======= card1 ======= */}
-      <div className="w-full max-w-md rounded-lg overflow-hidden shadow-lg mx-auto my-6 hover:scale-105 duration-500">
+      <div className="w-full max-w-md rounded-lg overflow-hidden shadow-lg mx-auto my-6 hover:shadow-2xl duration-500">
       <img
         src={Blog2}
         alt="Blog Post Image"
@@ -40,7 +40,7 @@ const card = () => {
     </div>
 
         {/* ======= card2 ======= */}
-    <div className="w-full max-w-md rounded-lg overflow-hidden shadow-lg mx-auto my-6 hover:scale-105 duration-500">
+             <div className="w-full max-w-md rounded-lg overflow-hidden shadow-lg mx-auto my-6 hover:shadow-2xl duration-500">
       <img
         src={Blog9}
         alt="Blog Post Image"
@@ -56,7 +56,7 @@ const card = () => {
         </p>
         <a
           href="#"
-          className="inline-flex items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-200 dark:focus-visible:ring-gray-300"
+          className="inline-flex items-center justify-center rounded-md  px-4 py-2 text-sm font-medium text-gray-50 bg-[#e7f3ff] shadow transition-colors hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-200 dark:focus-visible:ring-gray-300"
         >
           Read More
         </a>
@@ -64,7 +64,7 @@ const card = () => {
     </div>
 
         {/* ======= card3 ======= */}
-    <div className="w-full max-w-md rounded-lg overflow-hidden shadow-lg mx-auto my-6 hover:scale-105 duration-500">
+             <div className="w-full max-w-md rounded-lg overflow-hidden shadow-lg mx-auto my-6 hover:shadow-2xl duration-500">
       <img
         src={Blog8}
         alt="Blog Post Image"
@@ -88,7 +88,7 @@ const card = () => {
     </div>
 
         {/* ======= card4 ======= */}
-        <div className="w-full max-w-md rounded-lg overflow-hidden shadow-lg mx-auto my-6 hover:scale-105 duration-500">
+              <div className="w-full max-w-md rounded-lg overflow-hidden shadow-lg mx-auto my-6 hover:shadow-2xl duration-500">
       <img
         src={Blog4}
         alt="Blog Post Image"
@@ -112,7 +112,7 @@ const card = () => {
     </div>
 
         {/* ======= card5 ======= */}
-        <div className="w-full max-w-md rounded-lg overflow-hidden shadow-lg mx-auto my-6 hover:scale-105 duration-500">
+              <div className="w-full max-w-md rounded-lg overflow-hidden shadow-lg mx-auto my-6 hover:shadow-2xl duration-500">
       <img
         src={Blog1}
         alt="Blog Post Image"
@@ -136,7 +136,7 @@ const card = () => {
     </div>
 
         {/* ======= card6 ======= */}
-        <div className="w-full max-w-md rounded-lg overflow-hidden shadow-lg mx-auto my-6 hover:scale-105 duration-500">
+             <div className="w-full max-w-md rounded-lg overflow-hidden shadow-lg mx-auto my-6 hover:shadow-2xl duration-500">
       <img
         src={Blog6}
         alt="Blog Post Image"
@@ -160,7 +160,7 @@ const card = () => {
     </div>
 
         {/* ======= card7 ======= */}
-        <div className="w-full max-w-md rounded-lg overflow-hidden shadow-lg mx-auto my-6 hover:scale-105 duration-500">
+              <div className="w-full max-w-md rounded-lg overflow-hidden shadow-lg mx-auto my-6 hover:shadow-2xl duration-500">
       <img
         src={Blog10}
         alt="Blog Post Image"
@@ -184,7 +184,7 @@ const card = () => {
     </div>
 
         {/* ======= card8 ======= */}
-        <div className="w-full max-w-md rounded-lg overflow-hidden shadow-lg mx-auto my-6 hover:scale-105 duration-500">
+             <div className="w-full max-w-md rounded-lg overflow-hidden shadow-lg mx-auto my-6 hover:shadow-2xl duration-500">
       <img
         src={Blog7}
         alt="Blog Post Image"
@@ -208,7 +208,7 @@ const card = () => {
     </div>
 
         {/* ======= card10 ======= */}
-        <div className="w-full max-w-md rounded-lg overflow-hidden shadow-lg mx-auto my-6 hover:scale-105 duration-500">
+              <div className="w-full max-w-md rounded-lg overflow-hidden shadow-lg mx-auto my-6 hover:shadow-2xl duration-500"> 
       <img
         src={Blog5}
         alt="Blog Post Image"

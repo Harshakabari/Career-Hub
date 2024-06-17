@@ -43,7 +43,7 @@ const CardFooter = ({ children }) => <div className="mt-4">{children}</div>;
 const Button = ({ children, onClick }) => (
   <button
     onClick={onClick}
-    className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+    className="bg-blue-900 text-white px-4 py-2 rounded hover:scale-105 duration-200"
   >
     {children}
   </button>
@@ -127,7 +127,7 @@ const JobPost = () => {
       <Header />
       <div className="px-24 py-8 text-black">
         <h3 className="font-bold text-4xl py-2 rounded-lg">
-          Find your <span className="text-blue-500">new job</span> today
+          Find your <span className="text-blue-900">NEW JOB</span> today
         </h3>
         <p className="text-gray-600 mb-8">
           Thousands of jobs in the computer, engineering, and technology sectors are waiting for you.
