@@ -39,7 +39,7 @@ const About = () => {
     <div className="relative w-full h-[250px] overflow-hidden bg-slate-50">
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="text-center">
-          <h2 ref={line1Ref} className="uppercase tracking-widest font-bold backdrop-blur-md bg-slate-200 p-2 rounded-md px-16 text-gray-800 text-5xl opacity-0 transition-transform duration-700">About Jobmaster</h2>
+          <h2 ref={line1Ref} className="uppercase tracking-widest font-bold backdrop-blur-md bg-slate-200 p-2 rounded-md px-16 text-gray-800 text-5xl opacity-0 transition-transform duration-700">About career hub</h2>
         </div>
         
       </div >
