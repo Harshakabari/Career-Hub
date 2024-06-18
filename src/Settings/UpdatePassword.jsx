@@ -32,10 +32,10 @@ export default function UpdatePassword() {
   return (
     <>
       <form onSubmit={handleSubmit(submitPasswordForm)}>
-        <div className="my-10 flex flex-col gap-y-6 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
+        <div className="my-10 flex flex-col gap-y-6 rounded-md bg-[#e7f3ff] p-8 px-12">
           <h2 className="text-lg font-semibold text-richblack-5">Password</h2>
           <div className="flex flex-col gap-5 lg:flex-row">
-            <div className="relative flex flex-col gap-2 lg:w-[48%]">
+            <div className="relative flex flex-col gap-2 lg:w-[48%] font-semibold text-blue-900">
               <label htmlFor="oldPassword" className="lable-style">
                 Current Password
               </label>
@@ -44,7 +44,7 @@ export default function UpdatePassword() {
                 name="oldPassword"
                 id="oldPassword"
                 placeholder="Enter Current Password"
-                className="form-style"
+                className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md"
                 {...register("oldPassword", { required: true })}
               />
               <span
@@ -63,7 +63,7 @@ export default function UpdatePassword() {
                 </span>
               )}
             </div>
-            <div className="relative flex flex-col gap-2 lg:w-[48%]">
+            <div className="relative flex flex-col gap-2 lg:w-[48%] font-semibold text-blue-900">
               <label htmlFor="newPassword" className="lable-style">
                 New Password
               </label>
@@ -72,7 +72,7 @@ export default function UpdatePassword() {
                 name="newPassword"
                 id="newPassword"
                 placeholder="Enter New Password"
-                className="form-style"
+                className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md"
                 {...register("newPassword", { required: true })}
               />
               <span

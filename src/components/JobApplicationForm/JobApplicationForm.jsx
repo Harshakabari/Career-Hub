@@ -80,7 +80,7 @@ function JobApplicationForm() {
   return (
     <>
     <Header />
-    <button className='flex items-center gap-1 bg-blue-500 px-2 py-1 pr-4 ml-2 mt-3 rounded-full text-white'> 
+    <button className='flex items-center gap-1 bg-blue-900 px-2 py-1 pr-4 ml-8 mt-5 rounded-[8px] text-white'> 
     <Link className='flex items-center' to="/job"><IoIosArrowBack />back</Link></button>
     <div className='m-6'>
       <form onSubmit={handleSubmit} className="space-y-6 p-6 bg-white rounded shadow-lg max-w-3xl mx-auto">
@@ -174,7 +174,7 @@ function JobApplicationForm() {
           </label>
           <label className="block">
             Job Responsibilities
-            <textarea name="experience[0].responsibilities" value={formData.experience[0].responsibilities} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
+            <textarea name="experience[0].responsibilities" value={formData.experience[0].responsibilities} onChange={handleChange} className="resize-none block w-full mt-1 p-2 border rounded" />
           </label>
         </div>
 
@@ -218,7 +218,7 @@ function JobApplicationForm() {
         <div className="space-y-4">
           <label className="block">
             Cover Letter
-            <textarea name="coverLetter" value={formData.coverLetter} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
+            <textarea name="coverLetter" value={formData.coverLetter} onChange={handleChange} className="block w-full resize-none  mt-1 p-2 border rounded" />
           </label>
           <label className="block">
             Resume/CV
@@ -230,7 +230,7 @@ function JobApplicationForm() {
           </label>
           <label className="block">
             Additional Comments
-            <textarea name="comments" value={formData.comments} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
+            <textarea name="comments" value={formData.comments} onChange={handleChange} className="block resize-none w-full mt-1 p-2 border rounded" />
           </label>
         </div>
 
@@ -260,7 +260,7 @@ function JobApplicationForm() {
           </label>
         </div>
 
-        <button type="submit" className="block w-full bg-blue-500 text-white py-2 rounded">
+        <button type="submit" className="block w-full bg-blue-900 hover:bg-blue-800 text-white py-2 rounded">
           Submit Application
         </button>
       </form>

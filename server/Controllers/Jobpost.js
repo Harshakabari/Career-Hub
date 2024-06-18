@@ -1,8 +1,8 @@
 const Job = require("../Models/Jobpost");
 const User = require("../Models/user");
 
-// const { uploadImageToCloudinary } = require("../utils/imageUploader")
-// const { convertSecondsToDuration } = require("../utils/secToDuration")
+const { uploadImageToCloudinary } = require("../utils/imageUploader")
+
 
 exports.createjob = async (req, res) => {
   try {

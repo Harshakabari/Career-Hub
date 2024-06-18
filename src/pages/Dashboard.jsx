@@ -2,7 +2,6 @@ import { useSelector } from "react-redux"
 import { Outlet } from "react-router-dom"
 import Sidebar from "../dashboard/Sidebar"
 import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
 
 function Dashboard() {
   const { loading: profileLoading } = useSelector((state) => state.profile)
@@ -27,7 +26,6 @@ function Dashboard() {
         </div>
       </div>
     </div>
-    <Footer />
     </>
   )
 }

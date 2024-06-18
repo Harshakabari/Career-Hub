@@ -217,17 +217,17 @@ const JobPost = () => {
                       </CardHeader>
                     </div>
                     <CardContent>
-                      <div className="mb-4 flex gap-8 text-gray-600">
+                      <div className="mb-4 flex gap-8 text-gray-900">
                         <p className="flex items-center gap-1">
-                          <SlLocationPin />
+                          <SlLocationPin className=" text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]"/>
                           {job.location}
                         </p>
                         <p className="flex items-center gap-1">
-                          <IoTimeOutline />
+                          <IoTimeOutline className=" text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]"/>
                           {job.role}
                         </p>
                         <p className="flex items-center gap-1">
-                          <RiMoneyRupeeCircleLine />
+                          <RiMoneyRupeeCircleLine className=" text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]" />
                           {job.salary}
                         </p>
                       </div>
