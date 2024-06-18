@@ -40,10 +40,10 @@ const CardContent = ({ children }) => <div className="mb-4">{children}</div>;
 
 const CardFooter = ({ children }) => <div className="mt-4">{children}</div>;
 
-const Button = ({ children, onClick }) => (
+const Button = ({ children, onClick, className = "" }) => (
   <button
     onClick={onClick}
-    className="bg-blue-900 text-white px-4 py-2 rounded hover:scale-105 duration-200"
+    className={`bg-blue-900 text-white px-4 py-2 rounded hover:scale-105 duration-200 ${className}`}
   >
     {children}
   </button>
@@ -66,6 +66,8 @@ const JobPost = () => {
 
   const navigate = useNavigate();
   const [jobs, setJobs] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const jobsPerPage = 6;
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -111,6 +113,7 @@ const JobPost = () => {
   const handleSearch = (title, location) => {
     setSearchQuery(title);
     setLocationQuery(location);
+    setCurrentPage(1); // Reset to first page on new search
   };
 
   const handleFilterChange = (type, value) => {
@@ -120,7 +123,18 @@ const JobPost = () => {
         ? prevFilters[type].filter((item) => item !== value)
         : [...prevFilters[type], value],
     }));
+    setCurrentPage(1); // Reset to first page on filter change
   };
+
+  // Pagination logic
+  const indexOfLastJob = currentPage * jobsPerPage;
+  const indexOfFirstJob = indexOfLastJob - jobsPerPage;
+  const currentJobs = filteredJobs.slice(indexOfFirstJob, indexOfLastJob);
+  const totalPages = Math.ceil(filteredJobs.length / jobsPerPage);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const nextPage = () => setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
+  const prevPage = () => setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
 
   return (
     <>
@@ -204,10 +218,10 @@ const JobPost = () => {
           <div>
             <div className="grid grid-cols-1 gap-6">
               <p className="text-center mb-4 font-semibold text-gray-700">Total Jobs: {filteredJobs.length}</p>
-              {filteredJobs.length === 0 ? (
+              {currentJobs.length === 0 ? (
                 <p className="text-center font-semibold text-gray-600">Data not found!</p>
               ) : (
-                filteredJobs.map((job) => (
+                currentJobs.map((job) => (
                   <Card key={job.id}>
                     <div className="flex gap-2">
                       <img className="h-12" src={Logo1} alt="" />
@@ -219,15 +233,15 @@ const JobPost = () => {
                     <CardContent>
                       <div className="mb-4 flex gap-8 text-gray-900">
                         <p className="flex items-center gap-1">
-                          <SlLocationPin className=" text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]"/>
+                          <SlLocationPin className="text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]" />
                           {job.location}
                         </p>
                         <p className="flex items-center gap-1">
-                          <IoTimeOutline className=" text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]"/>
+                          <IoTimeOutline className="text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]" />
                           {job.role}
                         </p>
                         <p className="flex items-center gap-1">
-                          <RiMoneyRupeeCircleLine className=" text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]" />
+                          <RiMoneyRupeeCircleLine className="text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]" />
                           {job.salary}
                         </p>
                       </div>
@@ -246,6 +260,23 @@ const JobPost = () => {
                   </Card>
                 ))
               )}
+            </div>
+            <div className="flex justify-center mt-8">
+              <Button onClick={prevPage} className={currentPage === 1 ? "opacity-50 cursor-not-allowed" : ""} disabled={currentPage === 1}>
+                Previous
+              </Button>
+              {Array.from({ length: totalPages }, (_, index) => (
+                <Button
+                  key={index + 1}
+                  onClick={() => paginate(index + 1)}
+                  className={`mx-1 ${currentPage === index + 1 ? "bg-blue-700" : "bg-blue-900"}`}
+                >
+                  {index + 1}
+                </Button>
+              ))}
+              <Button onClick={nextPage} className={currentPage === totalPages ? "opacity-50 cursor-not-allowed" : ""} disabled={currentPage === totalPages}>
+                Next
+              </Button>
             </div>
           </div>
         </div>
