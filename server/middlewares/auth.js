@@ -42,4 +42,42 @@ exports.auth = async (req, res, next) => {
 		});
 	}
 };
+exports.isApplicant = async (req, res, next) => {
+	try {
+		const userDetails = await User.findOne({ email: req.user.email });
+
+		if (userDetails.accountType !== "Applicant") {
+			return res.status(401).json({
+				success: false,
+				message: "This is a Protected Route for Applicant",
+			});
+		}
+		next();
+	} catch (error) {
+		return res
+			.status(500)
+			.json({ success: false, message: `User Role Can't be Verified` });
+	}
+};
+exports.isRecruiter = async (req, res, next) => {
+	try {
+		const userDetails = await User.findOne({ email: req.user.email });
+		console.log(userDetails);
+
+		console.log(userDetails.accountType);
+
+		if (userDetails.accountType !== "Recruiter") {
+			return res.status(401).json({
+				success: false,
+				message: "This is a Protected Route for Recruiter",
+			});
+		}
+		next();
+	} catch (error) {
+		return res
+			.status(500)
+			.json({ success: false, message: `User Role Can't be Verified` });
+	}
+};
+
 
