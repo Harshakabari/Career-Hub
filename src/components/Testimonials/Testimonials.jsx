@@ -4,7 +4,7 @@ import ava01 from '../../assets/ava-1.jpg'
 const Testimonials = () => {
   return (
     <>
-      <section id="testimonies" className="py-20 bg-slate-900">
+      <section id="testimonies" className="lg:py-20 py-10 bg-slate-900">
     <div className="max-w-6xl mx-8 md:mx-10 lg:mx-20 xl:mx-auto">
 
 
@@ -14,7 +14,7 @@ const Testimonials = () => {
                 <h1 className="mb-5 text-3xl font-semibold text-white md:text-center md:text-5xl">
                 What our clients say about us
                 </h1>
-                <p className="text-xl text-gray-100 md:text-center md:text-2xl">
+                <p className="text-base text-gray-100 md:text-center md:text-2xl">
                     Here's what others have to say about us.
                 </p>
             </div>

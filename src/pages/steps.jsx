@@ -16,13 +16,13 @@ const steps = () => {
         </h3>
 
         {/* // All card */}
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-center items-center gap-4 m-8 mx-auto lg:px-40 px-8">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-center items-center lg:gap-4 lg:m-8 mt-3 lg:mx-auto  lg:px-40 px-3">
           {/* // card 1 */}
-          <div className="   relative shadow-2xl h-[320px] w-[300px] m-[20px] p-1 -z-0  overflow-hidden rounded-3xl duration-200 hover:shadow-black">
+          <div className="   relative shadow-2xl lg:h-[320px] lg:w-[300px] h-[270px] m-[20px] p-1 -z-0  overflow-hidden rounded-3xl duration-200 hover:shadow-black">
             <div className="relative h-full w-full bg-white z-[99] pl-5 pt-8 pr-5 rounded-3xl">
               <div className="flex items-center gap-1 justify-between mx-5 mb-9">
                 <svg
-                  className="w-16 h-16 text-blue-900"
+                  className="lg:w-16 lg:h-16 w-12 h-12 text-blue-900"
                   viewBox="0 0 64 64"
                   fill="currentColor"
                 >
@@ -42,7 +42,7 @@ const steps = () => {
                   />
                 </svg>
                 <svg
-                  className="w-16 h-16 text-blue-900"
+                  className="lg:w-16 lg:h-16 w-12 h-12 text-blue-900"
                   fill="currentColor"
                   viewBox="0 0 16 16"
                 >
@@ -64,11 +64,11 @@ const steps = () => {
           </div>
 
           {/* // card 2 */}
-          <div className="   relative shadow-2xl h-[320px] w-[300px] m-[20px] p-1 -z-0  overflow-hidden rounded-3xl duration-200 hover:shadow-black">
+          <div className="   relative shadow-2xl lg:h-[320px] lg:w-[300px] h-[270px] m-[20px] p-1 -z-0  overflow-hidden rounded-3xl duration-200 hover:shadow-black">
             <div className="relative h-full w-full bg-white z-[99] pl-5 pt-8 pr-5 rounded-3xl">
               <div className="flex items-center gap-1 justify-between mx-5 mb-9">
                 <svg
-                  className="w-16 h-16 text-blue-900"
+                  className="lg:w-16 lg:h-16 w-12 h-12 text-blue-900"
                   fill="currentColor"
                   viewBox="0 0 16 16"
                 >
@@ -78,7 +78,7 @@ const steps = () => {
                   />
                 </svg>
                 <svg
-                  className="w-16 h-16 text-blue-900 "
+                  className="lg:w-16 lg:h-16 w-12 h-12 text-blue-900 "
                   fill="currentColor"
                   viewBox="0 0 16 16"
                 >
@@ -99,18 +99,18 @@ const steps = () => {
           </div>
 
           {/* // card 3 */}
-          <div className="   relative shadow-2xl h-[320px] w-[300px] m-[20px] p-1 -z-0  overflow-hidden rounded-3xl duration-200 hover:shadow-black">
+          <div className="   relative shadow-2xl lg:h-[320px] lg:w-[300px] h-[270px] m-[20px] p-1 -z-0  overflow-hidden rounded-3xl duration-200 hover:shadow-black">
             <div className="relative h-full w-full bg-white z-[99] pl-5 pt-8 pr-5 rounded-3xl">
               <div className="flex items-center gap-1 justify-between mx-5 mb-9">
                 <svg
-                  className="w-16 h-16 text-blue-900"
+                  className="lg:w-16 lg:h-16 w-12 h-12 text-blue-900"
                   viewBox="0 0 640 512"
                   fill="currentColor"
                 >
                   <path d="M144 160c-44.2 0-80-35.8-80-80S99.8 0 144 0s80 35.8 80 80-35.8 80-80 80zm368 0c-44.2 0-80-35.8-80-80s35.8-80 80-80 80 35.8 80 80-35.8 80-80 80zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7-1.3 7.2-1.9 14.7-1.9 22.3 0 38.2 16.8 72.5 43.3 96H21.3C9.6 320 0 310.4 0 298.7zM405.3 320h-.7c26.6-23.5 43.3-57.8 43.3-96 0-7.6-.7-15-1.9-22.3 13.6-6.3 28.7-9.7 44.6-9.7h42.7c58.9 0 106.7 47.8 106.7 106.7 0 11.8-9.6 21.3-21.3 21.3H405.3zm10.7-96c0 53-43 96-96 96s-96-43-96-96 43-96 96-96 96 43 96 96zM128 485.3c0-73.6 59.7-133.3 133.3-133.3h117.4c73.6 0 133.3 59.7 133.3 133.3 0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z" />
                 </svg>
                 <svg
-                  className="w-16 h-16 text-blue-900"
+                  className="lg:w-16 lg:h-16 w-12 h-12 text-blue-900"
                   fill="currentColor"
                   viewBox="0 0 16 16"
                 >

@@ -3,18 +3,18 @@ import ServiceCard from "./ServiceCard";
 
 const ServiceGrid = () => {
   return (
-    <div className="pb-6 min-h-screen w-full bg-slate-900 pt-8 px-10 md:px-24">
-      <h2 className="pb-4 text-white text-center font-bold text-5xl">Job Category</h2>
-      <p className="pb-8 text-center text-lg text-gray-300">
+    <div className="pb-6 min-h-screen w-full bg-slate-900 pt-8 lg:px-10 px-4 md:px-24">
+      <h2 className="pb-4 text-white text-center font-bold lg:text-5xl text-4xl">Job Category</h2>
+      <p className="pb-8 text-center lg:text-lg text-sm w-full text-gray-300">
         Find a job should not be a full-time endeavor. Tell us <br />
         what you're searching for, and we will find you job
       </p>
-      <div className="grid gap-14 md:grid-cols-3 md:gap-8">
+      <div className="grid lg:gap-14 gap-7 mx-4 md:grid-cols-3 md:gap-8">
         {/* // card 1 */}
         <div className="hover:scale-105 ease-in duration-300">
           <ServiceCard
             icon={
-              <svg viewBox="0 0 64 64" fill="currentColor" className="h-8 w-10">
+              <svg viewBox="0 0 64 64" fill="currentColor" className="lg:h-8 lg:w-10 h-7">
                 <path
                   fill="none"
                   stroke="currentColor"
@@ -53,7 +53,7 @@ const ServiceGrid = () => {
                 viewBox="0 0 48 48"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-white"
+                className="lg:h-6 w-6 h-5 text-white"
               >
                 <path
                   d="M12 0C11.0532 0 10.2857 0.767511 10.2857 1.71432V5.14285H13.7142V1.71432C13.7142 0.767511 12.9467 0 12 0Z"
@@ -96,7 +96,7 @@ const ServiceGrid = () => {
                 viewBox="0 0 48 48"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-white"
+                className="lg:h-6 lg:w-6 h-5 text-white"
               >
                 <path
                   d="M14 27H22V14H14V27ZM26 34H34V21H26V34ZM40 0H8C3.6 0 0 3.6 0 8V40C0 44.4 3.6 48 8 48H40C44.4 48 48 44.4 48 40V8C48 3.6 44.4 0 40 0ZM44 40C44 41.1 43.1 42 42 42H6C4.9 42 4 41.1 4 40V10H44V40Z"
@@ -112,10 +112,10 @@ const ServiceGrid = () => {
         </div>
 
         {/* // card 4 */}
-        <div className="hover:scale-105 ease-in duration-300 mt-5">
+        <div className="hover:scale-105 ease-in duration-300 lg:mt-5">
           <ServiceCard
             icon={
-              <svg viewBox="0 0 64 64" fill="currentColor" className="h-8 w-10">
+              <svg viewBox="0 0 64 64" fill="currentColor" className="lg:h-8 lg:w-10 h-6">
                 <path
                   fill="none"
                   stroke="currentColor"
@@ -140,13 +140,13 @@ const ServiceGrid = () => {
         </div>
 
         {/* // card 5 */}
-        <div className="hover:scale-105 ease-in duration-300 mt-5">
+        <div className="hover:scale-105 ease-in duration-300 lg:mt-5">
           <ServiceCard
             icon={
               <svg
                 viewBox="0 0 640 512"
                 fill="currentColor"
-                className="h-10 w-8 text-white"
+                className="lg:h-10 lg:w-8 h-7 w-7 text-white"
               >
                 <path d="M64 64C28.7 64 0 92.7 0 128v256c0 35.3 28.7 64 64 64h512c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64zm32 64h224c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32v-64c0-17.7 14.3-32 32-32zM64 368c0-8.8 7.2-16 16-16h256c8.8 0 16 7.2 16 16s-7.2 16-16 16H80c-8.8 0-16-7.2-16-16zm320 0c0-8.8 7.2-16 16-16h160c8.8 0 16 7.2 16 16s-7.2 16-16 16H400c-8.8 0-16-7.2-16-16zM80 320c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16zm80-16c0 8.8-7.2 16-16 16s-16-7.2-16-16 7.2-16 16-16 16 7.2 16 16zm48 16c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16zm80-16c0 8.8-7.2 16-16 16s-16-7.2-16-16 7.2-16 16-16 16 7.2 16 16zm48 16c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16z" />
               </svg>
@@ -159,10 +159,10 @@ const ServiceGrid = () => {
         </div>
 
         {/* // card 6 */}
-        <div className="hover:scale-105 ease-in duration-300 mt-5">
+        <div className="hover:scale-105 ease-in duration-300 lg:mt-5">
           <ServiceCard
             icon={
-              <svg fill="none" viewBox="0 0 15 15" className="h-8 w-8">
+              <svg fill="none" viewBox="0 0 15 15" className="lg:h-8 lg:w-8 h-7">
                 <path
                   fill="currentColor"
                   fillRule="evenodd"

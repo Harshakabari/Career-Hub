@@ -7,10 +7,10 @@ const Newsletter = () => {
     return (
         <>
         <Scroll />
-        <section className='newsletter bg-[#e7f3ff] pt-6'>
+        <section className='newsletter bg-[#e7f3ff] lg:pt-6 w-full'>
             <Container>
-                <Row className='flex gap-7 lg:px-28 md:px-14 px-6 py-2 w-dvw'>
-                    <Col className='text-black pr-8'>
+                <Row className='flex lg:gap-7 lg:px-28 md:px-14 px-6 lg:py-2  w-dvw'>
+                    <Col className='text-black lg:pr-8'>
                         <div className="newsletter__content py-12">
                             <h2 className="text-2xl md:text-3xl lg:text-4xl mb-4">Subscribe now to get useful job information.</h2>
 

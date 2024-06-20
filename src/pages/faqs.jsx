@@ -45,7 +45,7 @@ const faqItems = [
 
 const AccordionItem = ({ item, isActive, onToggle }) => (
   <div
-    className={`accordion border border-solid border-gray-300 p-4 rounded-xl transition duration-500 mb-8 ${
+    className={`accordion border border-solid border-gray-300 lg:p-4 p-3 rounded-xl transition duration-500 lg:mb-8 mb-3 ${
       isActive ? "bg-[#e7f3ff] border-blue-900" : ""
     }`}
   >
@@ -93,16 +93,16 @@ const faqs = () => {
 
   return (
     <>
-      <section className=" bg-slate-100 py-16 px-24 flex lg:flex-row md:flex-col-reverse flex-col-reverse  gap-4 items-center justify-between">
+      <section className=" bg-slate-100 lg:py-16 lg:px-24 flex lg:flex-row md:flex-col-reverse flex-col-reverse  gap-4 items-center justify-between">
         <div>
           <div className=" mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-16">
-              <h3 className="lg:text-5xl md:text-3xl text-2xl font-manrope text-center font-bold text-blue-950 leading-[3.25rem]">
+              <h3 className="lg:text-5xl hidden lg:block md:text-3xl text-2xl font-manrope text-center font-bold text-blue-950 leading-[3.25rem]">
                 Frequently asked questions
               </h3>
             </div>
 
-            <div className="accordion-group lg:w-[720px] md:w-[520px] w-[360px]">
+            <div className="accordion-group lg:w-[720px] md:w-[520px] w-[360px] -mt-24 px-4 lg:mt-0 lg:px-0">
               {faqItems.map((item, index) => (
                 <AccordionItem
                   key={item.id}
@@ -116,7 +116,7 @@ const faqs = () => {
         </div>
 
         <div>
-            <img className="lg:h-[530px] lg:w-[590px] md:h-[430px] md:w-[490px] lg:mt-24" src={FAQImg} alt="FAQ-image" />
+            <img className="lg:h-[530px] lg:w-[590px] md:h-[430px] md:w-[490px] lg:mt-24 h-[350px]" src={FAQImg} alt="FAQ-image" />
         </div>
       </section>
     </>
