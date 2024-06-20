@@ -127,8 +127,8 @@ const Page = () => {
         </form>
         
 
-<div class=" my-10 hover:shadow-lg duration-700 h-[420px] w-96 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8">
-    <h5 class="mb-6 text-3xl font-bold text-gray-900 ">Get more updates...</h5>
+<div className=" my-10 hover:shadow-lg duration-700 h-[420px] w-96 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8">
+    <h5 className="mb-6 text-3xl font-bold text-gray-900 ">Get more updates...</h5>
    
     <form className="grid">
       <input type="email" placeholder="Enter your email" className="border-gray-200 border-2 py-1 px-2 rounded-lg" required />

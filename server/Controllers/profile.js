@@ -52,39 +52,43 @@ exports.updateProfile = async (req, res) => {
 
 exports.deleteAccount = async (req, res) => {
   try {
-    const id = req.user.id
-    console.log(id)
-    const user = await User.findById({ _id: id })
+    const id = req.user.id;
+    console.log(id);
+    const user = await User.findById(id);
     if (!user) {
       return res.status(404).json({
         success: false,
         message: "User not found",
-      })
+      });
     }
-    // Delete Assosiated Profile with the User
-    await Profile.findByIdAndDelete({
-      _id: new mongoose.Types.ObjectId(user.additionalDetails),
-    })
+
+    // Delete Associated Profile with the User
+    // await Profile.findByIdAndDelete(user.profile); // assuming user.profile contains the profile ID
+
+    // Update jobs to remove the user
     for (const jobid of user.jobs) {
       await job.findByIdAndUpdate(
         jobid,
         { $pull: { jobs: id } },
         { new: true }
-      )
+      );
     }
+
     // Now Delete User
-    await User.findByIdAndDelete({ _id: id })
+    await User.findByIdAndDelete(id);
     res.status(200).json({
       success: true,
       message: "User deleted successfully",
-    })
+    });
   } catch (error) {
-    console.log(error)
-    res
-      .status(500)
-      .json({ success: false, message: "User Cannot be deleted successfully" })
+    console.log(error);
+    res.status(500).json({ 
+      success: false, 
+      message: "User cannot be deleted successfully" 
+    });
   }
-}
+};
+
 
 exports.getAllUserDetails = async (req, res) => {
   try {

@@ -27,12 +27,17 @@ const userSchema = new mongoose.Schema(
         resetPasswordExpires: {
              type: Date,
         },
+        accountType: {
+            type: String,
+            enum: ["Recruiter","Applicant"],
+            required: true,
+        },
+        image: {
+            type: String,
+        },
         additionalDetails: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Profile",
-        },
-        image: {
-             type: String,
         },
         jobs: [
             {

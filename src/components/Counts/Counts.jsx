@@ -9,7 +9,7 @@ const Counts = () => {
         {/* // counting 1 */}
         <div className="flex gap-5 justify-center pb-2 items-center">
           <svg
-            class="svg-icon border-slate-400 shadow-lg shadow-slate-400 border-2 rounded-[5px] p-[7px] bg-white h-11 w-11"
+            className="svg-icon border-slate-400 shadow-lg shadow-slate-400 border-2 rounded-[5px] p-[7px] bg-white h-11 w-11"
             viewBox="0 0 1024 1024"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,7 @@ const Counts = () => {
         {/* // counting 2 */}
         <div className="flex gap-5 justify-center pb-2 -ml-6 items-center">
           <svg
-            class="svg-icon border-slate-400 shadow-lg shadow-slate-400 border-2 rounded-[5px] p-[6px] bg-white text-orange-400 h-11 w-11"
+            className="svg-icon border-slate-400 shadow-lg shadow-slate-400 border-2 rounded-[5px] p-[6px] bg-white text-orange-400 h-11 w-11"
             viewBox="0 0 1024 1024"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +51,7 @@ const Counts = () => {
         {/* // counting 3 */}
         <div className="flex gap-5 justify-center  items-center">
           <svg
-            class="svg-icon border-slate-400 shadow-lg shadow-slate-400 border-2 rounded-[5px] p-[7px] bg-white text-orange-400 h-11 w-11"
+            className="svg-icon border-slate-400 shadow-lg shadow-slate-400 border-2 rounded-[5px] p-[7px] bg-white text-orange-400 h-11 w-11"
             viewBox="0 0 1024 1024"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"

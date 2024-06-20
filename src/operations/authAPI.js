@@ -42,6 +42,7 @@ export function sendOtp(email, navigate) {
 }
 
 export function signUp(
+  accountType,
   firstName,
   lastName,
   email,
@@ -54,13 +55,23 @@ export function signUp(
     const toastId = toast.loading("Loading...")
     dispatch(setLoading(true))
     try {
+      console.log({
+        "accountType":accountType,
+        "firstName":firstName,
+        "lastName":lastName,
+        "email":email,
+        "password":password,
+        "confirmPassword":confirmPassword,
+        "otp":otp,
+      },"before response");
       const response = await apiConnector("POST", SIGNUP_API, {
-        firstName,
-        lastName,
-        email,
-        password,
-        confirmPassword,
-        otp,
+        "accountType":accountType,
+        "firstName":firstName,
+        "lastName":lastName,
+        "email":email,
+        "password":password,
+        "confirmPassword":confirmPassword,
+        "otp":otp,
       })
 
       console.log("SIGNUP API RESPONSE............", response)
@@ -73,7 +84,7 @@ export function signUp(
     } catch (error) {
       console.log("SIGNUP API ERROR............", error)
       toast.error("Signup Failed")
-      navigate("/signup")
+      // navigate("/signup")
     }
     dispatch(setLoading(false))
     toast.dismiss(toastId)

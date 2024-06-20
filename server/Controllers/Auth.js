@@ -13,6 +13,7 @@ exports.signup = async (req, res) => {
   try {
     // Destructure fields from the request body
     const {
+      accountType,
       firstName,
       lastName,
       email,
@@ -21,6 +22,7 @@ exports.signup = async (req, res) => {
       otp,
     } = req.body
     // Check if All Details are there or not
+    console.log(req.body,"req.body")
     if (
       !firstName ||
       !lastName ||
@@ -72,12 +74,23 @@ exports.signup = async (req, res) => {
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10)
 
+
     // Create the Additional Profile For User
+    // const profileDetails = await Profile.create({
+    //   gender: null,
+    //   dateOfBirth: null,
+    //   about: null,
+    //   contactNumber: null,
+    // })
     const user = await User.create({
       firstName,
       lastName,
       email,
+      // contactNumber,
       password: hashedPassword,
+      accountType: accountType,
+      // additionalDetails: profileDetails._id,
+      image: "",
     })
 
     return res.status(200).json({
@@ -93,7 +106,6 @@ exports.signup = async (req, res) => {
     })
   }
 }
-
 // Login controller for authenticating users
 exports.login = async (req, res) => {
   try {
@@ -124,7 +136,7 @@ exports.login = async (req, res) => {
     // Generate JWT token and Compare Password
     if (await bcrypt.compare(password, user.password)) {
       const token = jwt.sign(
-        { email: user.email, id: user._id},
+        { email: user.email, id: user._id,accountType:user.accountType},
           process.env.JWT_SECRET,{
           expiresIn: "100h",
         }

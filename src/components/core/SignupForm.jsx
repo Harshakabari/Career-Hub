@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { sendOtp } from "../../operations/authAPI.js"
 import { setSignupData } from "../../slices/authSlice.js"
+import { ACCOUNT_TYPE } from "../../utils/constants.js";
+import Tab from "../common/Tab.jsx";
 
 
 
@@ -12,6 +14,8 @@ function SignupForm() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
+  // student or instructor
+  const [accountType, setAccountType] = useState(ACCOUNT_TYPE.APPLICANT)
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -31,6 +35,7 @@ function SignupForm() {
     setFormData((prevData) => ({
       ...prevData,
       [e.target.name]: e.target.value,
+      
     }))
   }
 
@@ -44,8 +49,9 @@ function SignupForm() {
     }
     const signupData = {
       ...formData,
+      accountType,
     }
-
+console.log(signupData,"herer");
     // Setting signup data to state
     // To be used after otp verification
     dispatch(setSignupData(signupData))
@@ -60,10 +66,24 @@ function SignupForm() {
       password: "",
       confirmPassword: "",
     })
+    setAccountType(ACCOUNT_TYPE.APPLICANT)
   }
+  const tabData = [
+    {
+      id: 1,
+      tabName: "Applicant",
+      type: ACCOUNT_TYPE.APPLICANT,
+    },
+    {
+      id: 2,
+      tabName: "Recruiter",
+      type: ACCOUNT_TYPE.RECRUITER,
+    },
+  ]
 
   return (
     <div>
+      <Tab tabData={tabData} field={accountType} setField={setAccountType} />
       {/* Form */}
       <form onSubmit={handleOnSubmit} className="flex w-full flex-col gap-y-4 ">
         <div className="md:flex lg:flex block gap-x-4 w-full">

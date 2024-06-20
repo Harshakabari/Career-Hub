@@ -74,7 +74,6 @@ export const addJobDetails = async (data, token) => {
     if (!response?.data?.success) {
       throw new Error("Could Not Add Job Details")
     }
-    toast.success("Job Posted Successfully")
     result = response?.data?.data
   } catch (error) {
     console.log("CREATE JOB API ERROR............", error)
