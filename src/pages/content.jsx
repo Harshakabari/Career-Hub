@@ -24,62 +24,93 @@ const Content = () => {
 
         <div className="grid grid-cols-2 gap-4">
           {/* Card 1 */}
-          <div className="text-black flex gap-2 items-center border p-1 w-80">
+          <div className="text-black grid grid-cols-5 items-center border p-4 w-80">
             <div className="rounded-full h-14 w-12 flex items-center justify-center">
-              <img className="h-10 w-10 object-contain" src={cardimg1} alt="icon-1" />
+              <img
+                className="h-10 w-10 object-contain"
+                src={cardimg1}
+                alt="icon-1"
+              />
             </div>
-            <div>
-              <p className="line-clamp-2">Don't let work schedule run your life.</p>
+            <div className="col-span-4">
+              <p className="line-clamp-2">
+                Don't let work schedule run your life.
+              </p>
             </div>
           </div>
 
           {/* Card 2 */}
-          <div className="text-black flex gap-2 items-center border p-4 w-80">
-            <div className="rounded-full h-12 w-12 flex items-center justify-center">
-              <img className="h-10 w-10 object-contain" src={cardimg2} alt="icon-2" />
+          <div className="text-black grid grid-cols-5 items-center border p-4 w-80">
+            <div className="rounded-full h-14 w-12 flex items-center justify-center">
+              <img
+                className="h-15 w-20 object-contain"
+                src={cardimg2}
+                alt="icon-2"
+              />
             </div>
-            <div>
-              <p className="line-clamp-2">We want to help you reach your full potential.</p>
+            <div className="col-span-4">
+              <p className="line-clamp-2">
+                We want to help you reach your full potential.
+              </p>
             </div>
           </div>
 
           {/* Card 3 */}
-          <div className="text-black flex gap-4 items-center border p-4 w-80">
-            <div className="rounded-full h-12 w-12 flex items-center justify-center">
-              <img className="h-20 w-20 object-contain" src={cardimg3} alt="icon-3" />
+          <div className="text-black grid grid-cols-5 items-center border p-4 w-80">
+            <div className="rounded-full h-14 w-12 flex items-center justify-center">
+              <img
+                className="h-10 w-10 object-contain"
+                src={cardimg3}
+                alt="icon-3"
+              />
             </div>
-            <div>
-              <p className="line-clamp-2">Build new experiences by working in different industries.</p>
+            <div className="col-span-4">
+              <p className="line-clamp-2">
+                Build new experiences by working in different industries.
+              </p>
             </div>
           </div>
 
           {/* Card 4 */}
-          <div className="text-black flex gap-4 items-center border p-4 w-80">
-            <div className="rounded-full h-12 w-12 flex items-center justify-center">
-              <img className="h-20 w-20 object-contain" src={cardimg4} alt="icon-4" />
+          <div className="text-black grid grid-cols-5 items-center border p-4 w-80">
+            <div className="rounded-full h-14 w-12 flex items-center justify-center">
+              <img
+                className="h-10 w-10 object-contain"
+                src={cardimg4}
+                alt="icon-4"
+              />
             </div>
-            <div>
-              <p className="line-clamp-2">Take back control of your time, manage expectations for that perfect work-life balance</p>
+            <div className="col-span-4">
+              <p className="line-clamp-2">
+                Take back control of your time, manage expectations for that
+                perfect work-life balance
+              </p>
             </div>
           </div>
 
           {/* Card 5 */}
-          <div className="text-black flex gap-4 items-center border p-4 w-80">
-            <div className="rounded-full w-20 flex items-center justify-center">
-              <img className="" src={cardimg5} alt="icon-5" />
+          <div className="text-black grid grid-cols-5 items-center border p-4 pr-6 w-80">
+            <div className="rounded-full h-14 w-12 flex items-center justify-center">
+              <img className="h-10 w-10 object-contain" src={cardimg5} alt="icon-5" />
             </div>
-            <div>
-              <p className="line-clamp-2">We connect you with jobs allowing you to work where you want, when you want</p>
+            <div className="col-span-4">
+              <p className="line-clamp-2">
+                We connect you with jobs allowing you to work where you want,
+                when you want
+              </p>
             </div>
           </div>
 
           {/* Card 6 */}
-          <div className="text-black flex gap-4 items-center border p-4 w-80">
-            <div className="rounded-full h-12 w-12 flex items-center justify-center">
-              <img className="overflow-visible h-10 w-10 object-contain" src={cardimg6} alt="icon-6" />
+          <div className="text-black grid grid-cols-5 items-center border p-4 w-80">
+            <div className="rounded-full h-14 w-12 flex items-center justify-center">
+              <img className="h-10 w-10 object-contain" src={cardimg6} alt="icon-6" />
             </div>
-            <div>
-              <p className="line-clamp-2">Every completed shift improves our matching, ensuring we find you work that you enjoy</p>
+            <div className="col-span-4">
+              <p className="line-clamp-2">
+                Every completed shift improves our matching, ensuring we find
+                you work that you enjoy
+              </p>
             </div>
           </div>
         </div>
