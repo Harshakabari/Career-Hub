@@ -4,6 +4,8 @@ import { BiArrowBack } from "react-icons/bi"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import { resetPassword } from "../../operations/authAPI"
+import Header from "../Header/Header"
+import Footer from "../Footer/Footer"
 
 function UpdatePassword() {
   const navigate = useNavigate()
@@ -34,6 +36,8 @@ function UpdatePassword() {
   }
 
   return (
+    <>
+    <Header/>
     <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
       {loading ? (
         <div className="spinner"></div>
@@ -113,6 +117,8 @@ function UpdatePassword() {
         </div>
       )}
     </div>
+    <Footer/>
+    </>
   )
 }
 

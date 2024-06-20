@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
 import { getPasswordResetToken } from "../../operations/authAPI"
+import Header from "../Header/Header"
+import Footer from "../Footer/Footer"
 
 function ForgotPassword() {
   const [email, setEmail] = useState("")
@@ -17,7 +19,9 @@ function ForgotPassword() {
   }
 
   return (
-    <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
+    <>
+    <Header/>
+    <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center px-3">
       {loading ? (
         <div className="spinner"></div>
       ) : (
@@ -25,7 +29,7 @@ function ForgotPassword() {
           <h1 className="text-[1.875rem] font-semibold leading-[2.375rem] text-blue-900">
             {!emailSent ? "Reset your password" : "Check email"}
           </h1>
-          <p className="my-4 text-[1.125rem] leading-[1.625rem] text-richblack-100">
+          <p className="lg:my-4 my-2 lg:text-[1.125rem] lg:leading-[1.625rem] text-richblack-100">
             {!emailSent
               ? "Have no fear. We'll email you instructions to reset your password. If you dont have access to your email we can try account recovery"
               : `We have sent the reset email to ${email}`}
@@ -57,7 +61,7 @@ function ForgotPassword() {
           </form>
           <div className="mt-6 flex items-center justify-between">
             <Link to="/login">
-              <p className="flex items-center gap-x-2 text-blue-900 font-semibold">
+              <p className="flex items-center gap-x-2 text-sm lg:text-base text-blue-900 font-semibold">
                 <BiArrowBack /> Back To Login
               </p>
             </Link>
@@ -65,6 +69,8 @@ function ForgotPassword() {
         </div>
       )}
     </div>
+      <Footer/>
+    </>
   )
 }
 

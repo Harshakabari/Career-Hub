@@ -1,6 +1,7 @@
 import error from "../../assets/error.png"
 
 
+
 function Error() {
   return (
       <div className="flex flex-col justify-center items-center">

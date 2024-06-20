@@ -6,6 +6,8 @@ import { RxCountdownTimer } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 import { sendOtp, signUp } from "../../operations/authAPI";
 import { useNavigate } from "react-router-dom";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 function VerifyEmail() {
   const [otp, setOtp] = useState("");
@@ -47,7 +49,9 @@ function VerifyEmail() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-3.5rem)] grid place-items-center">
+    <>
+    <Header />
+    <div className="min-h-[calc(100vh-3.5rem)] grid place-items-center lg:px-0 px-6">
       {loading ? (
         <div>
           <div className="spinner"></div>
@@ -104,6 +108,8 @@ function VerifyEmail() {
         </div>
       )}
     </div>
+    <Footer />
+    </>
   );
 }
 

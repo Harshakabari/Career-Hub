@@ -102,7 +102,7 @@ console.log(signupData,"herer");
             />
           </label>
           <label className="w-full">
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] font-semibold relative">
+            <p className="mb-1 text-[0.875rem] leading-[1.375rem] font-semibold relative mt-2 lg:mt-0">
               Last Name <sup className="text-red-500 text-lg absolute -top-1">*</sup>
             </p>
             <input
@@ -117,7 +117,7 @@ console.log(signupData,"herer");
           </label>
         </div>
         <label className="w-full">
-          <p className="mb-1 text-[0.875rem] leading-[1.375rem] font-semibold relative">
+          <p className="mb-1 text-[0.875rem] leading-[1.375rem] font-semibold relative -mt-1.5 lg:mt-0">
             Email Address <sup className="text-red-500 text-lg absolute -top-1">*</sup>
           </p>
           <input
@@ -132,7 +132,7 @@ console.log(signupData,"herer");
         </label>
         <div className="md:flex lg:flex block gap-x-4">
           <label className="relative">
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] font-semibold relative">
+            <p className="mb-1 text-[0.875rem] leading-[1.375rem] font-semibold relative -mt-1.5 lg:mt-0">
               Create Password <sup className="text-red-500 text-lg absolute -top-1">*</sup>
             </p>
             <input
@@ -146,7 +146,7 @@ console.log(signupData,"herer");
             />
             <span
               onClick={() => setShowPassword((prev) => !prev)}
-              className="absolute right-3 top-[30px] z-[10] cursor-pointer "
+              className="absolute right-3 lg:top-[30px] top-[25px] z-[10] cursor-pointer "
             >
               {showPassword ? (
                 <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
@@ -156,7 +156,7 @@ console.log(signupData,"herer");
             </span>
           </label>
           <label className="relative">
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] font-semibold relative">
+            <p className="mb-1 text-[0.875rem] leading-[1.375rem] font-semibold relative mt-2 lg:mt-0">
               Confirm Password <sup className="text-red-500 text-lg absolute -top-1">*</sup>
             </p>
             <input
@@ -170,7 +170,7 @@ console.log(signupData,"herer");
             />
             <span
               onClick={() => setShowConfirmPassword((prev) => !prev)}
-              className="absolute right-3 top-[55px] md:top-[30px] lg:top-[30px] z-[10] cursor-pointer "
+              className="absolute right-3 top-[63px] md:top-[30px] lg:top-[30px] z-[10] cursor-pointer "
             >
               {showConfirmPassword ? (
                 <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
@@ -182,7 +182,7 @@ console.log(signupData,"herer");
         </div>
         <button
           type="submit"
-          className="mt-6 rounded-[8px] bg-blue-900 hover:bg-blue-800  duration-200 py-[8px] px-[12px] font-medium text-white"
+          className="lg:mt-6 rounded-[8px] bg-blue-900 hover:bg-blue-800  duration-200 py-[8px] px-[12px] font-medium text-white"
         >
           Create Account
         </button>

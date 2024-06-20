@@ -31,7 +31,7 @@ function LoginForm() {
       className="mt-6 flex w-full flex-col gap-y-4"
     >
       <label className="w-full">
-        <p className="mb-2 font-semibold text-[0.875rem] leading-[1.375rem] ">
+        <p className="mb-2 font-semibold text-[0.875rem] leading-[1.375rem] -mt-4 lg:mt-0">
           Email Address <sup className="text-red-500">*</sup>
         </p>
         <input
@@ -58,14 +58,14 @@ function LoginForm() {
           className="w-full !pr-2 h-9 rounded-md pl-4 text-gray-600 outline-none shadow-md"
         />
         <Link to="/forgot-password">
-          <p className="mt-1 ml-auto max-w-max text-l text-blue-900">
+          <p className="mt-1 ml-auto max-w-max text-sm lg:text-base text-blue-900">
             Forgot Password
           </p>
         </Link>
       </label>
       <button
         type="submit" 
-        className="mt-6 rounded-[8px] bg-blue-900 hover:bg-blue-800  duration-200 py-[8px] px-[12px] font-medium text-white"
+        className="lg:mt-6 rounded-[8px] bg-blue-900 hover:bg-blue-800  duration-200 py-[8px] px-[12px] font-medium text-white"
       >
         Sign In
       </button>
