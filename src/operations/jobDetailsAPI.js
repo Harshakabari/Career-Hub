@@ -9,6 +9,7 @@ const {
   GET_ALL_JOBS_API ,
   DELETE_JOB_API , 
   GET_USER_JOB,
+  GET_FULL_JOB_DETAILS_AUTHENTICATED,
   // COURSE_DETAILS_API,
   // COURSE_CATEGORIES_API,
   // GET_ALL_COURSE_API,
@@ -16,11 +17,46 @@ const {
   // EDIT_COURSE_API,
   // GET_ALL_INSTRUCTOR_COURSES_API,
   // DELETE_COURSE_API,
-  // GET_FULL_COURSE_DETAILS_AUTHENTICATED,
   // CREATE_RATING_API,
   // LECTURE_COMPLETION_API,
 } = jobEndpoints
 
+export const getFullDetailsOfJob = async (jobid, token) => {
+  const toastId = toast.loading("Loading...");
+  //   dispatch(setLoading(true));
+  let result = null;
+  try {
+    const response = await apiConnector(
+      "POST",
+      GET_FULL_JOB_DETAILS_AUTHENTICATED,
+      {
+        jobid,
+      },
+      {
+        Authorization: `Bearer ${token}`,
+      }
+    );
+    console.log("JOB_FULL_DETAILS_API API RESPONSE............", response);
+  
+    if (!response.data.success) {
+      throw new Error(response.data.message);
+    }
+    result = response?.data?.data;
+  } catch (error) {
+    console.log("JOB_FULL_DETAILS_API API ERROR............", error);
+    if (error.response && error.response.data) {
+      result = error.response.data;
+      // toast.error(error.response.data.message);
+    } else if (error.message === "Network Error") {
+      result = { success: false, message: "Network error occurred. Please check your connection." };
+    } else {
+      result = { success: false, message: error.message || "Unknown error occurred" };
+    }
+  }
+  toast.dismiss(toastId);
+  //   dispatch(setLoading(false));
+  return result;
+};
 export const getAlljobs = async () => {
   const toastId = toast.loading("Loading...")
   let result = []
@@ -38,7 +74,6 @@ export const getAlljobs = async () => {
   return result
 }
 
-// export const fetchCourseDetails = async (courseId) => {
 //   const toastId = toast.loading("Loading...")
 //   //   dispatch(setLoading(true));
 //   let result = null

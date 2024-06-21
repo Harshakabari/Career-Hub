@@ -1,7 +1,9 @@
 const Profile = require("../Models/Profile")
-const job = require("../Models/Jobpost")
+const Job = require("../Models/Jobpost")
 const User = require("../Models/user")
 const { uploadImageToCloudinary } = require("../utils/imageUploader")
+const mongoose = require("mongoose")
+
 
 // Method for updating a profile
 exports.updateProfile = async (req, res) => {
@@ -90,16 +92,25 @@ exports.deleteAccount = async (req, res) => {
       });
     }
 
-    // Update jobs to remove the user
-    for (const jobId of user.jobs) {
-      await job.findByIdAndUpdate(
-        jobId,
-        { $pull: { users: id } },
-        { new: true }
-      );
+    // Delete the associated profile
+    await Profile.findByIdAndDelete(user.additionalDetails);
+
+    // Find and delete all jobs posted by the user
+    const userJobs = user.jobs;
+    for (const jobId of userJobs) {
+      await Job.findByIdAndDelete(jobId);
     }
 
-    // Now Delete User
+    // Alternatively, if you want to remove the user from jobs they are associated with (but not posted)
+    // for (const jobId of user.jobs) {
+    //   await Job.findByIdAndUpdate(
+    //     jobId,
+    //     { $pull: { users: id } },
+    //     { new: true }
+    //   );
+    // }
+
+    // Now delete the user
     await User.findByIdAndDelete(id);
 
     res.status(200).json({
@@ -114,7 +125,6 @@ exports.deleteAccount = async (req, res) => {
     });
   }
 };
-
 
 
 exports.getAllUserDetails = async (req, res) => {

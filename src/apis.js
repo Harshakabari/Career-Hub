@@ -21,6 +21,7 @@ export const jobEndpoints = {
   GET_ALL_JOBS_API:BASE_URL + "/job/getAlljobs" ,
   DELETE_JOB_API:BASE_URL + "/job/deletejob" , 
   GET_USER_JOB:BASE_URL + "/job/getuserjobs",
+  GET_FULL_JOB_DETAILS_AUTHENTICATED:BASE_URL + "/job/getFulljobDetails",
   // GET_ALL_COURSE_API: BASE_URL + "/course/getAllCourses",
   // COURSE_DETAILS_API: BASE_URL + "/course/getCourseDetails",
   // EDIT_COURSE_API: BASE_URL + "/course/editCourse",
@@ -34,8 +35,7 @@ export const jobEndpoints = {
   // DELETE_SECTION_API: BASE_URL + "/course/deleteSection",
   // DELETE_SUBSECTION_API: BASE_URL + "/course/deleteSubSection",
   // DELETE_COURSE_API: BASE_URL + "/course/deleteCourse",
-  // GET_FULL_COURSE_DETAILS_AUTHENTICATED:
-  //   BASE_URL + "/course/getFullCourseDetails",
+
   // LECTURE_COMPLETION_API: BASE_URL + "/course/updateCourseProgress",
   // CREATE_RATING_API: BASE_URL + "/course/createRating",
 }
