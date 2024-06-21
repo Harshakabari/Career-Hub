@@ -22,7 +22,7 @@ const Content = () => {
           Live Life On Your Own Terms.
         </h2>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
           {/* Card 1 */}
           <div className="text-black grid grid-cols-5 items-center border p-4 w-80">
             <div className="rounded-full h-14 w-12 flex items-center justify-center">
