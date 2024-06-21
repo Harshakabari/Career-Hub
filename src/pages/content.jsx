@@ -17,8 +17,8 @@ const Content = () => {
           alt="jobdesc-image"
         />
       </div>
-      <div>
-        <h2 className="text-black font-semibold lg:text-[43px] text-4xl pb-8">
+      <div className="lg:mx-0 mx-9">
+        <h2 className="text-black font-semibold lg:text-[43px] text-3xl pb-8">
           Live Life On Your Own Terms.
         </h2>
 
