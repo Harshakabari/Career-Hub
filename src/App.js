@@ -22,8 +22,6 @@ import Dashboard from "./pages/Dashboard.jsx"
 import Myjobs from "./dashboard/MyJob.jsx"
 // import EditJob from "./EditJob"
 
-
-
 function App() {
   return (
       <Routes>

@@ -64,6 +64,7 @@ export function signUp(
         "confirmPassword":confirmPassword,
         "otp":otp,
       },"before response");
+      
       const response = await apiConnector("POST", SIGNUP_API, {
         "accountType":accountType,
         "firstName":firstName,

@@ -1,5 +1,6 @@
 const bcrypt = require("bcrypt")
 const User = require("../Models/user")
+const Profile = require("../Models/Profile")
 const OTP = require("../Models/Otp")
 const jwt = require("jsonwebtoken")
 const otpGenerator = require("otp-generator")
@@ -15,6 +16,7 @@ exports.signup = async (req, res) => {
     const {
       accountType,
       firstName,
+      contactNumber,
       lastName,
       email,
       password,
@@ -76,20 +78,19 @@ exports.signup = async (req, res) => {
 
 
     // Create the Additional Profile For User
-    // const profileDetails = await Profile.create({
-    //   gender: null,
-    //   dateOfBirth: null,
-    //   about: null,
-    //   contactNumber: null,
-    // })
+    const profileDetails = await Profile.create({
+      gender: null,
+      about: null,
+      contactNumber: null,
+    })
     const user = await User.create({
       firstName,
       lastName,
       email,
-      // contactNumber,
+      contactNumber,
       password: hashedPassword,
       accountType: accountType,
-      // additionalDetails: profileDetails._id,
+      additionalDetails: profileDetails._id,
       image: "",
     })
 

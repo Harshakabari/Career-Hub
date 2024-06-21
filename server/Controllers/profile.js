@@ -1,8 +1,8 @@
-const Profile = require("./profile")
+const Profile = require("../Models/Profile")
 const job = require("../Models/Jobpost")
 const User = require("../Models/user")
 const { uploadImageToCloudinary } = require("../utils/imageUploader")
-const mongoose = require("mongoose")
+
 // Method for updating a profile
 exports.updateProfile = async (req, res) => {
   try {
@@ -11,49 +11,77 @@ exports.updateProfile = async (req, res) => {
       lastName = "",
       about = "",
       contactNumber = "",
-    } = req.body
-    const id = req.user.id
+      gender = "",
+    } = req.body;
 
-    // Find the profile by id
-    const userDetails = await User.findById(id)
-    const profile = await Profile.findById(userDetails.additionalDetails)
+    const id = req.user.id;
+    console.log("User ID:", id);
 
-    const user = await User.findByIdAndUpdate(id, {
+    // Find the user by id and update firstName, lastName
+    const updatedUser = await User.findByIdAndUpdate(id, {
       firstName,
       lastName,
-    })
-    await user.save()
+    }, { new: true }); // { new: true } ensures we get the updated user object
+
+    if (!updatedUser) {
+      return res.status(404).json({
+        success: false,
+        error: "User not found",
+      });
+    }
+    const profile = await Profile.findById(updatedUser.additionalDetails);
+      if (!profile) {
+        console.error(`Profile not found for user with ID ${id}. AdditionalDetails: ${updatedUser.additionalDetails}`);
+        return res.status(404).json({
+          success: false,
+          error: "Profile not found",
+      });
+    }
+
+    // Find the profile by additionalDetails
+    
+    console.log("User additionalDetails:", updatedUser.additionalDetails);
+
+    if (!profile) {
+      return res.status(404).json({
+        success: false,
+        error: "Profile not found",
+      });
+    }
 
     // Update the profile fields
-    profile.about = about
-    profile.contactNumber = contactNumber
+    profile.about = about;
+    profile.contactNumber = contactNumber;
+    profile.gender = gender;
 
     // Save the updated profile
-    await profile.save()
+    await profile.save();
 
     // Find the updated user details
     const updatedUserDetails = await User.findById(id)
       .populate("additionalDetails")
-      .exec()
+      .exec();
 
     return res.json({
       success: true,
       message: "Profile updated successfully",
       updatedUserDetails,
-    })
+    });
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return res.status(500).json({
       success: false,
       error: error.message,
-    })
+    });
   }
-}
+};
+
 
 exports.deleteAccount = async (req, res) => {
   try {
     const id = req.user.id;
-    console.log(id);
+
+    // Find the user by id
     const user = await User.findById(id);
     if (!user) {
       return res.status(404).json({
@@ -62,20 +90,18 @@ exports.deleteAccount = async (req, res) => {
       });
     }
 
-    // Delete Associated Profile with the User
-    // await Profile.findByIdAndDelete(user.profile); // assuming user.profile contains the profile ID
-
     // Update jobs to remove the user
-    for (const jobid of user.jobs) {
+    for (const jobId of user.jobs) {
       await job.findByIdAndUpdate(
-        jobid,
-        { $pull: { jobs: id } },
+        jobId,
+        { $pull: { users: id } },
         { new: true }
       );
     }
 
     // Now Delete User
     await User.findByIdAndDelete(id);
+
     res.status(200).json({
       success: true,
       message: "User deleted successfully",
@@ -88,6 +114,7 @@ exports.deleteAccount = async (req, res) => {
     });
   }
 };
+
 
 
 exports.getAllUserDetails = async (req, res) => {
