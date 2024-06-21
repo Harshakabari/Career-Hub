@@ -73,7 +73,10 @@ function Header() {
               </button>
             </Link>
           )}
-          {token !== null && <ProfileDropdown />}
+          
+        </div>
+        <div className='text-blue-900 ml-20'>
+        {token !== null && <ProfileDropdown />}
         </div>
         <button className="mr-4 md:hidden" onClick={toggleModal}>
           <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
@@ -81,7 +84,7 @@ function Header() {
       </div>
 
       {isModalOpen && (
-        <div className="fixed inset-0 mt-56 z-40 bg-gray-800 bg-opacity-75 flex items-center justify-center">
+        <div className="fixed inset-0 mt-44 z-40 bg-gray-800 bg-opacity-75 flex items-center justify-center">
           <div className="bg-white rounded-lg shadow-lg p-6 w-11/12 max-w-md mx-auto">
             {/* <button className="absolute top-4 right-4" onClick={toggleModal}>
               <AiOutlineClose fontSize={24} fill="#000" />
@@ -114,7 +117,7 @@ function Header() {
                   </button>
                 </Link>
               )}
-              {token !== null && <ProfileDropdown />}
+              {/* {token !== null && <ProfileDropdown />} */}
             </div>
           </div>
         </div>
