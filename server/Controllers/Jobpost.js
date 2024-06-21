@@ -4,6 +4,33 @@ const User = require("../Models/user");
 const { uploadImageToCloudinary } = require("../utils/imageUploader")
 
 
+exports.getFulljobDetails = async (req, res) => {
+  try {
+    const { jobid } = req.body
+    const userId = req.user.id
+    const jobDetails = await Job.findOne({
+      _id: jobid,
+    })
+
+    if (!jobDetails) {
+      return res.status(400).json({
+        success: false,
+        message: `Could not find job with id: ${jobid}`,
+      })
+    }
+    return res.status(200).json({
+      success: true,
+      data: {
+        jobDetails,
+      },
+    })
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    })
+  }
+}
 exports.createjob = async (req, res) => {
   try {
     const userId = req.user.id;
