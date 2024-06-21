@@ -20,8 +20,11 @@ const Checkbox = ({ checked, onCheckedChange }) => (
   />
 );
 
-const Card = ({ children }) => (
-  <div className="bg-white text-black rounded-lg hover:shadow-lg hover:shadow-zinc-300 duration-700 border-gray-300 border-2 p-6">
+const Card = ({ children, onClick }) => (
+  <div
+    className="bg-white text-black rounded-lg hover:shadow-lg hover:shadow-zinc-300 duration-700 border-gray-300 border-2 p-6 cursor-pointer"
+    onClick={onClick}
+  >
     {children}
   </div>
 );
@@ -67,6 +70,7 @@ const JobPost = () => {
   const navigate = useNavigate();
   const [jobs, setJobs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedJob, setSelectedJob] = useState(null); // State for selected job details
   const jobsPerPage = 6;
 
   useEffect(() => {
@@ -126,6 +130,10 @@ const JobPost = () => {
     setCurrentPage(1); // Reset to first page on filter change
   };
 
+  const handleViewMore = (job) => {
+    setSelectedJob(job);
+  };
+
   // Pagination logic
   const indexOfLastJob = currentPage * jobsPerPage;
   const indexOfFirstJob = indexOfLastJob - jobsPerPage;
@@ -148,7 +156,7 @@ const JobPost = () => {
         </p>
         <Searchbar onSearch={handleSearch} />
 
-        <div className="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-[300px_1fr_300px] gap-8">
           <div className="bg-white rounded-lg shadow-md p-6 border-gray-300 border-2">
             <h2 className="text-lg font-bold mb-4">Filters</h2>
             <div className="space-y-4">
@@ -222,7 +230,7 @@ const JobPost = () => {
                 <p className="text-center font-semibold text-gray-600">Data not found!</p>
               ) : (
                 currentJobs.map((job) => (
-                  <Card key={job.id}>
+                  <Card key={job.id} onClick={() => handleViewMore(job)}>
                     <div className="flex gap-2">
                       <img className="h-12" src={Logo1} alt="" />
                       <CardHeader>
@@ -252,8 +260,8 @@ const JobPost = () => {
                         <Button onClick={() => navigate(`/jobappllicationform/${job._id}`)}>
                           Apply
                         </Button>
-                        <Button>
-                          <Link to={`/jobdetails/${job._id}`}>View More</Link>
+                        <Button onClick={() => handleViewMore(job)}>
+                          View More
                         </Button>
                       </div>
                     </CardFooter>
@@ -278,6 +286,49 @@ const JobPost = () => {
                 Next
               </Button>
             </div>
+          </div>
+          <div className="bg-white rounded-lg shadow-md p-6 border-gray-300 border-2">
+            {selectedJob ? (
+              <>
+                <h2 className="text-lg font-bold mb-4">Job Details</h2>
+                <div className="flex gap-2">
+                  <img className="h-12" src={Logo1} alt="" />
+                  <CardHeader>
+                    <CardTitle>{selectedJob.jobTitle}</CardTitle>
+                    <CardDescription>{selectedJob.companyName}</CardDescription>
+                  </CardHeader>
+                </div>
+                <CardContent>
+                  <div className="mb-4 flex gap-8 text-gray-900">
+                    <p className="flex items-center gap-1">
+                      <SlLocationPin className="text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]" />
+                      {selectedJob.location}
+                    </p>
+                    <p className="flex items-center gap-1">
+                      <IoTimeOutline className="text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]" />
+                      {selectedJob.role}
+                    </p>
+                    <p className="flex items-center gap-1">
+                      <RiMoneyRupeeCircleLine className="text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]" />
+                      {selectedJob.salary}
+                    </p>
+                  </div>
+                  <p className="mb-4">{selectedJob.jobDescription}</p>
+                </CardContent>
+                <CardFooter>
+                  <div className="flex gap-8">
+                    <Button onClick={() => navigate(`/jobappllicationform/${selectedJob._id}`)}>
+                      Apply
+                    </Button>
+                    <Button>
+                      <Link to={`/jobdetails/${selectedJob._id}`}>View More</Link>
+                    </Button>
+                  </div>
+                </CardFooter>
+              </>
+            ) : (
+              <p className="text-center font-semibold text-gray-600">Select a job to view details</p>
+            )}
           </div>
         </div>
       </div>
