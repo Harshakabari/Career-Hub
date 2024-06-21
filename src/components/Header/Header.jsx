@@ -44,7 +44,7 @@ function Header() {
           <img src={Logo} className="mr-3 lg:h-14 h-12 select-none" loading='lazy' alt="Logo" />
         </Link>
         {/* Navigation links */}
-        <nav className="hidden md:block">
+        <nav className="hidden md:block ml-56">
           <ul className="flex gap-x-6 text-richblack-25 text-md font-semibold">
             {NavbarLinks.map((link, index) => (
               <li key={index}>
@@ -58,7 +58,7 @@ function Header() {
           </ul>
         </nav>
         {/* Login / Signup / Dashboard */}
-        <div className="hidden items-center gap-x-4 text-blue-900 text-md font-semibold md:flex">
+        <div className="hidden items-center gap-x-4 text-blue-900 pl-44 text-md font-semibold md:flex">
           {token == null && (
             <Link to="/login">
               <button className="hover:bg-blue-900 hover:text-white duration-200 font-medium rounded-lg px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none">
@@ -84,7 +84,7 @@ function Header() {
       </div>
 
       {isModalOpen && (
-        <div className="fixed inset-0 mt-44 z-40 bg-gray-800 bg-opacity-75 flex items-center justify-center">
+        <div className="fixed inset-0 mt-56 z-40 bg-gray-800 bg-opacity-75 flex items-center justify-center">
           <div className="bg-white rounded-lg shadow-lg p-6 w-11/12 max-w-md mx-auto">
             {/* <button className="absolute top-4 right-4" onClick={toggleModal}>
               <AiOutlineClose fontSize={24} fill="#000" />

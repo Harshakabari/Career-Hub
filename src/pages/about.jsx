@@ -12,13 +12,13 @@ const About = () => {
   return (
     <>
       <Header />
-      <div className="flex border-2 pr-10 my-10 mx-28 justify-center duration-700 hover:shadow-lg">
+      <div className="lg:flex  border-2 lg:pr-10 lg:my-10 my-4 lg:mx-28 mx-4 justify-center duration-700 hover:shadow-lg">
         <img className="mx-auto w-[490px]" src={MenImg} alt="" />
         <div className="flex flex-col items-center py-10">
           <h2 className="px-10 font-semibold text-3xl my-3 text-blue-900 ">
             Our Mission
           </h2>
-          <p className="my-4 px-10 text-lg text-blue-800">
+          <p className="my-4 lg:px-10 px-4 lg:text-lg text-center md:text-md text-blue-800">
             {" "}
             At Career Hub, our mission is to help people get jobs. We have more
             than 5000 global employees passionately pursuing this purpose and
@@ -26,7 +26,7 @@ const About = () => {
             foster a collaborative workspace that strives to create the best
             experience for job seekers.{" "}
           </p>
-          <p className="my-4 px-10 text-lg text-blue-800">
+          <p className="my-4 lg:px-10 px-4 lg:text-lg text-md  text-center text-blue-800">
             {" "}
             We aim to provide a seamless and efficient platform where
             individuals can discover their dream jobs and companies can find
