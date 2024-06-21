@@ -168,7 +168,7 @@ const contact = () => {
                                         rows="10"
                                         required
                                         placeholder="Enter your message here"
-              className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md resize-none"
+                                        className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md resize-none"
                                         
                                         // className="appearance-none block w-full  text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                     ></textarea>

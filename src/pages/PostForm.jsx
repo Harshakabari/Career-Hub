@@ -151,7 +151,7 @@ const Page = () => {
           <h2 className="text-2xl font-bold mb-4">Job Posted Successfully</h2>
           <p className="mb-4">Thank you for posting the job. It has been successfully added.</p>
           <button onClick={() => setIsModalOpen(false)} className="bg-blue-500 text-white py-2 px-4 rounded">
-            <Link to="/">Close</Link>
+            <Link to="/dashboard/my-jobs">Close</Link>
           </button>
         </div>
       </Modal>

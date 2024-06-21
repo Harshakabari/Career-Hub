@@ -77,30 +77,29 @@ export default function EditProfile() {
           </div>
 
           <div className="flex flex-col gap-5 lg:flex-row font-semibold text-blue-900">
-            <div className="flex flex-col gap-2 lg:w-[48%]">
-              <label htmlFor="dateOfBirth" className="lable-style font-semibold text-blue-900">
-                Date of Birth
+          <div className="flex flex-col gap-2 lg:w-[48%]">
+              <label htmlFor="contactNumber" className="lable-style">
+                Contact Number
               </label>
               <input
-                type="date"
-                name="dateOfBirth"
-                id="dateOfBirth"
+                type="tel"
+                name="contactNumber"
+                id="contactNumber"
+                placeholder="Enter Contact Number"
                 className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md"
-                {...register("dateOfBirth", {
+                {...register("contactNumber", {
                   required: {
                     value: true,
-                    message: "Please enter your Date of Birth.",
+                    message: "Please enter your Contact Number.",
                   },
-                  max: {
-                    value: new Date().toISOString().split("T")[0],
-                    message: "Date of Birth cannot be in the future.",
-                  },
+                  maxLength: { value: 12, message: "Invalid Contact Number" },
+                  minLength: { value: 10, message: "Invalid Contact Number" },
                 })}
-                defaultValue={user?.additionalDetails?.dateOfBirth}
+                defaultValue={user?.additionalDetails?.contactNumber}
               />
-              {errors.dateOfBirth && (
-                <span className="-mt-1 text-[12px] text-yellow-100">
-                  {errors.dateOfBirth.message}
+              {errors.contactNumber && (
+                <span className="-mt-1 text-[12px] text-red-600">
+                  {errors.contactNumber.message}
                 </span>
               )}
             </div>
@@ -124,62 +123,31 @@ export default function EditProfile() {
                   )
                 })}
               </select>
-              {errors.gender && (
-                <span className="-mt-1 text-[12px] text-yellow-100">
-                  Please enter your Date of Birth.
-                </span>
-              )}
             </div>
           </div>
 
-          <div className="flex flex-col gap-5 lg:flex-row font-semibold text-blue-900">
-            <div className="flex flex-col gap-2 lg:w-[48%]">
-              <label htmlFor="contactNumber" className="lable-style">
-                Contact Number
-              </label>
-              <input
-                type="tel"
-                name="contactNumber"
-                id="contactNumber"
-                placeholder="Enter Contact Number"
-                className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md"
-                {...register("contactNumber", {
-                  required: {
-                    value: true,
-                    message: "Please enter your Contact Number.",
-                  },
-                  maxLength: { value: 12, message: "Invalid Contact Number" },
-                  minLength: { value: 10, message: "Invalid Contact Number" },
-                })}
-                defaultValue={user?.additionalDetails?.contactNumber}
-              />
-              {errors.contactNumber && (
-                <span className="-mt-1 text-[12px] text-yellow-100">
-                  {errors.contactNumber.message}
-                </span>
-              )}
-            </div>
-            <div className="flex flex-col gap-2 lg:w-[48%] font-semibold text-blue-900">
+        
+            <div className="flex flex-col gap-2 lg:w-[98%] font-semibold text-blue-900 ">
               <label htmlFor="about" className="lable-style">
                 About
               </label>
-              <input
+              <textarea
                 type="text"
                 name="about"
                 id="about"
                 placeholder="Enter Bio Details"
-                className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md"
+              className="form-style w-full !pr-10 h-80 py-1 px-2 rounded-md text-gray-600 outline-none shadow-md resize-none"
                 {...register("about", { required: true })}
                 defaultValue={user?.additionalDetails?.about}
               />
               {errors.about && (
-                <span className="-mt-1 text-[12px] text-yellow-100">
+                <span className="-mt-1 text-[12px] text-red-600">
                   Please enter your About.
                 </span>
               )}
             </div>
           </div>
-        </div>
+      
 
         <div className="flex justify-end gap-2">
           <button
