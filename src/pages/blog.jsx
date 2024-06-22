@@ -12,7 +12,7 @@ const blog = () => {
         <h2 className="text-center text-blue-900 font-semibold text-5xl">Career Advices</h2>
         <p className="text-gray-600 text-center tracking-wide text-xl m-2">Learn more career tips from company's recruiter</p>
       </div>
-      <div className='grid grid-cols-3 gap-6 px-32 pb-5'>
+      <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 lg:px-32 md:px-24 px-6 pb-5'>
       <Blogcard />
       </div>
       <Footer />

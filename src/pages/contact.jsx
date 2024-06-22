@@ -21,7 +21,7 @@ const contact = () => {
                         <li></li>
                     </ul>
                 </div>
-                <div className="max-w-screen-lg mx-auto p-5 h-full bg-transparent backdrop-blur-lg">
+                <div className="max-w-screen-lg mx-auto lg:p-5 md:p-5 p-2 h-full bg-transparent backdrop-blur-lg">
                     <div className="grid grid-cols-1 md:grid-cols-12 bg-[#e7f3ff] rounded-md shadow-xl">
                         <div className=" md:col-span-4 p-10 text-gray-700">
                             <h3 className="mt-4 text-xl text-blue-900 font-semibold leading-7 font-regular uppercase">
@@ -173,7 +173,7 @@ const contact = () => {
                                         // className="appearance-none block w-full  text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                     ></textarea>
                                 </div>
-                                <div className="flex justify-between w-full mt-5 px-3">
+                                <div className="lg:flex md:flex flex-col justify-between w-full mt-5 px-3">
                                     <div className="md:flex md:items-center items-center">
                                         <label className="block  font-bold">
                                             <input className="mr-2 leading-tight" type="checkbox" />
@@ -181,7 +181,7 @@ const contact = () => {
                                         </label>
                                     </div>
                                     <button
-                                        className="shadow bg-blue-900 hover:bg-blue-800 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
+                                        className="shadow bg-blue-900 hover:bg-blue-800 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded lg:my-0 md:my-0 my-4"
                                         type="submit"
                                     >
                                         Send Message

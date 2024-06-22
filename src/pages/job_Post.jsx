@@ -64,7 +64,7 @@ const JobPost = () => {
   const [filterOptions, setFilterOptions] = useState({
     roles: [],
     locations: [],
-    salaries: [],
+    salaries: ["0-10000", "10000-25000", "26000-50000", "51000-100000", ">100000"],
   });
 
   const navigate = useNavigate();
@@ -81,9 +81,8 @@ const JobPost = () => {
 
         const roles = [...new Set(result.map((job) => job.role))];
         const locations = [...new Set(result.map((job) => job.location.split(", ")[0]))];
-        const salaries = [...new Set(result.map((job) => job.salary))];
 
-        setFilterOptions({ roles, locations, salaries });
+        setFilterOptions((prev) => ({ ...prev, roles, locations }));
       }
     };
     fetchJobs();
@@ -105,10 +104,21 @@ const JobPost = () => {
 
       const roleMatch = filters.role.length === 0 || filters.role.includes(job.role);
 
-      const salaryMatch = filters.salary.length === 0 || filters.salary.includes(job.salary);
+      const salaryMatch = filters.salary.length === 0 || filters.salary.some((range) => {
+        if (range === ">100000") {
+          return Number(job.salary.replace(/[^0-9]/g, '')) > 100000;
+        } else {
+          const [min, max] = range.split("-").map(Number);
+          const salary = Number(job.salary.replace(/[^0-9]/g, ''));
+          return (
+            (min ? salary >= min : true) &&
+            (max ? salary <= max : true)
+          );
+        }
+      });
 
       const filterMatch =
-        (filters.location.length === 0 || filters.location.includes(job.location.split(", ")[0]));
+        filters.location.length === 0 || filters.location.includes(job.location.split(", ")[0]);
 
       return searchMatch && locationMatch && roleMatch && salaryMatch && filterMatch;
     });
@@ -155,41 +165,22 @@ const JobPost = () => {
         </p>
         <Searchbar onSearch={handleSearch} />
 
-        <div className="grid grid-cols-1 md:grid-cols-[300px_1fr_300px] gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-[300px_1fr_400px] gap-8">
           <div className="bg-white rounded-lg shadow-md p-6 border-gray-300 border-2">
             <h2 className="text-lg font-bold mb-4">Filters</h2>
             <div className="space-y-4">
               <div>
                 <h3 className="text-sm font-medium mb-2">Role</h3>
                 <div className="space-y-2">
-                  <Label className="flex items-center gap-2">
-                    <Checkbox
-                      checked={filters.role.includes("Full-time")}
-                      onCheckedChange={() => handleFilterChange("role", "Full-time")}
-                    />
-                    Full-time
-                  </Label>
-                  <Label className="flex items-center gap-2">
-                    <Checkbox
-                      checked={filters.role.includes("Part-time")}
-                      onCheckedChange={() => handleFilterChange("role", "Part-time")}
-                    />
-                    Part-time
-                  </Label>
-                  <Label className="flex items-center gap-2">
-                    <Checkbox
-                      checked={filters.role.includes("Contract")}
-                      onCheckedChange={() => handleFilterChange("role", "Contract")}
-                    />
-                    Contract
-                  </Label>
-                  <Label className="flex items-center gap-2">
-                    <Checkbox
-                      checked={filters.role.includes("Internship")}
-                      onCheckedChange={() => handleFilterChange("role", "Internship")}
-                    />
-                    Internship
-                  </Label>
+                  {filterOptions.roles.map((role) => (
+                    <Label className="flex items-center gap-2" key={role}>
+                      <Checkbox
+                        checked={filters.role.includes(role)}
+                        onCheckedChange={() => handleFilterChange("role", role)}
+                      />
+                      {role}
+                    </Label>
+                  ))}
                 </div>
               </div>
               <div>
@@ -298,29 +289,38 @@ const JobPost = () => {
                   </CardHeader>
                 </div>
                 <CardContent>
-                  <div className="mb-4 flex gap-8 text-gray-900">
-                    <p className="flex items-center gap-1">
+                  <div className="mb-4 flex gap-4 text-gray-900">
+                    <p className="flex items-center gap-2">
                       <SlLocationPin className="text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]" />
                       {selectedJob.location}
                     </p>
-                    <p className="flex items-center gap-1">
+                    <p className="flex items-center gap-2 my-2">
                       <IoTimeOutline className="text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]" />
                       {selectedJob.role}
                     </p>
-                    <p className="flex items-center gap-1">
+                    <p className="flex items-center gap-2 my-2">
                       <RiMoneyRupeeCircleLine className="text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]" />
                       {selectedJob.salary}
                     </p>
                   </div>
-                  <p className="mb-4">{selectedJob.jobDescription}</p>
+                  <div>
+                    <h4 className="font-bold">JobDescription:</h4>
+                    <p className="mb-4 text-gray-700">{selectedJob.jobDescription}</p>
+
+                    <h4 className="font-bold">CompanyDescription:</h4>
+                    <p className="mb-4 text-gray-700">{selectedJob.companyDescription}</p>
+                  </div>
+
+                  <div>
+                    <h4 className="font-bold">Skills:</h4>
+                    <p className="mb-4 text-gray-700">{selectedJob.skills}</p>
+                  </div>
+
                 </CardContent>
                 <CardFooter>
                   <div className="flex gap-8">
                     <Button onClick={() => navigate(`/jobapplicationform/${selectedJob._id}`)}>
                       Apply
-                    </Button>
-                    <Button>
-                      <Link to={`/jobdetails/${selectedJob._id}`}>View More</Link>
                     </Button>
                   </div>
                 </CardFooter>
