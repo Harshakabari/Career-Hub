@@ -33,7 +33,7 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/postform' element={<Jobform />} />
         <Route path='/blog' element={<Blog />} />
-        <Route path='/jobappllicationform/:id' element={<JobApplicationForm />} />
+        <Route path='/jobapplicationform/:id' element={<JobApplicationForm />} />
         <Route path="*" element={<Error />} />
         <Route
           path="verify-email"
