@@ -35,10 +35,10 @@ const About = () => {
         </div>
       </div>
       
-      <div className="grid lg:grid-cols-2 grid-cols-1 mx-28 gap-4 mb-8 font-sans ">
+      <div className="grid lg:grid-cols-2 grid-cols-1 lg:mx-28 mx-4 gap-4 mb-8 font-sans ">
     <div className="px-4 py-6 border-2 bg-white rounded-lg duration-700 hover:shadow-lg">
       <h2 className="text-3xl font-semibold text-center py-3 ">Our Services</h2>
-      <ul className="list-none space-y-4 text-lg">
+      <ul className="list-none space-y-4 lg:text-lg text-md ">
         <li className="flex items-start gap-2">
           <GoDotFill className="text-blue-900 mt-1" />
           <span>
@@ -67,7 +67,7 @@ const About = () => {
     </div>
     <div className="px-4 py-6 border-2 bg-white rounded-lg duration-700 hover:shadow-lg">
       <h2 className="text-3xl font-semibold text-center py-3 ">Our Values</h2>
-      <ul className="list-none space-y-4 text-lg">
+      <ul className="list-none space-y-4 lg:text-lg text-md">
         <li className="flex items-start gap-2">
           <GoDotFill className="text-blue-900 mt-1" />
           <span>
@@ -101,7 +101,7 @@ const About = () => {
   <div className="font-sans">
     <div className="py-6">
     <h2 className="text-3xl text-center font-semibold ">Meet Our Team</h2>
-    <p className="text-gray-700 text-center">We’re a dynamic group of individuals who are passionate about what we do.</p>
+    <p className="text-gray-700 text-center md:px-0 px-4 md:text-md text-sm">We’re a dynamic group of individuals who are passionate about what we do.</p>
     </div>
     <div>
       <ProfileCards />

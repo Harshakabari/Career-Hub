@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom"
 import { EDIT_JOB_API } from "../operations/jobDetailsAPI.js"
 import IconBtn from "../components/common/IconBtn"
 
-const genders = ["Male", "Female", "Non-Binary", "Prefer not to say", "Other"]
+const role = ["Full-time", "Part-time", "Contract", "Internship"]
+const experience = ["entry-level", "mid-level", "senior-level"]
 
 export default function EditJob() {
   const { user } = useSelector((state) => state.profile)
@@ -32,7 +33,7 @@ export default function EditJob() {
     <>
       <form onSubmit={handleSubmit(submitjobForm)}>
         {/* Profile Information */}
-        <div className="my-10 flex flex-col gap-y-6 rounded-md bg-[#e7f3ff] bg-richblack-800 p-8 px-12">
+        <div className="my-10 flex flex-col gap-y-6 rounded-md bg-[#e7f3ff] bg-richblack-800 p-8 px-12 w-[950px]">
           <h2 className="text-lg font-semibold text-richblack-5">
             Profile Information
           </h2>
@@ -85,7 +86,7 @@ export default function EditJob() {
                 name="companyDescription"
                 id="companyDescription"
                 placeholder="Enter Bio Details"
-              className="form-style w-full !pr-10 h-80 py-1 px-2 rounded-md text-gray-600 outline-none shadow-md resize-none"
+              className="form-style w-full !pr-10 h-72 py-1 px-2 rounded-md text-gray-600 outline-none shadow-md resize-none"
                 {...register("companyDescription", { required: true })}
                 defaultValue={job?.companyDescription}
               />
@@ -97,7 +98,7 @@ export default function EditJob() {
             </div>
 
           <div className="flex flex-col gap-5 lg:flex-row font-semibold text-blue-900">
-          <div className="flex flex-col gap-2 lg:w-[48%]">
+          {/* <div className="flex flex-col gap-2 lg:w-[48%]">
               <label htmlFor="contactNumber" className="lable-style">
                 Contact Number
               </label>
@@ -122,20 +123,20 @@ export default function EditJob() {
                   {errors.contactNumber.message}
                 </span>
               )}
-            </div>
+            </div> */}
             <div className="flex flex-col gap-2 lg:w-[48%] font-semibold text-blue-900">
-              <label htmlFor="gender" className="lable-style">
-                Gender
+              <label htmlFor="experience" className="lable-style">
+              Experience
               </label>
               <select
                 type="text"
-                name="gender"
-                id="gender"
+                name="experience"
+                id="experience"
                 className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md"
-                {...register("gender", { required: true })}
-                defaultValue={user?.additionalDetails?.gender}
+                {...register("experience", { required: true })}
+                defaultValue={user?.additionalDetails?.experience}
               >
-                {genders.map((ele, i) => {
+                {experience.map((ele, i) => {
                   return (
                     <option key={i} value={ele}>
                       {ele}
@@ -144,29 +145,115 @@ export default function EditJob() {
                 })}
               </select>
             </div>
+
+            <div className="flex flex-col gap-2 lg:w-[48%] font-semibold text-blue-900">
+              <label htmlFor="role" className="lable-style">
+                Role
+              </label>
+              <select
+                type="text"
+                name="role"
+                id="role"
+                className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md"
+                {...register("role", { required: true })}
+                defaultValue={user?.additionalDetails?.role}
+              >
+                {role.map((ele, i) => {
+                  return (
+                    <option key={i} value={ele}>
+                      {ele}
+                    </option>
+                  )
+                })}
+              </select>
+            </div>
+
           </div>
 
         
             <div className="flex flex-col gap-2 lg:w-[98%] font-semibold text-blue-900 ">
-              <label htmlFor="about" className="lable-style">
-                About
+              <label htmlFor="jobdescription" className="lable-style">
+              jobDescription
               </label>
               <textarea
                 type="text"
-                name="about"
-                id="about"
-                placeholder="Enter Bio Details"
-              className="form-style w-full !pr-10 h-80 py-1 px-2 rounded-md text-gray-600 outline-none shadow-md resize-none"
-                {...register("about", { required: true })}
-                defaultValue={user?.additionalDetails?.about}
+                name="jobdescription"
+                id="jobdescription"
+                placeholder="Enter jobdescription"
+              className="form-style w-full !pr-10 h-72 py-1 px-2 rounded-md text-gray-600 outline-none shadow-md resize-none"
+                {...register("jobdescription", { required: true })}
+                defaultValue={job?.jobDescription}
               />
               {errors.about && (
                 <span className="-mt-1 text-[12px] text-red-600">
-                  Please enter your About.
+                  Please enter your Job-description.
+                </span>
+              )}
+            </div>
+
+            <div className="flex flex-col gap-5 lg:flex-row">
+            <div className="flex flex-col gap-2 lg:w-[48%] font-semibold text-blue-900">
+              <label htmlFor=" location" className="lable-style">
+              Location
+              </label>
+              <input
+                type="text"
+                name=" location"
+                id="location"
+                placeholder="Enter first name"
+                className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md"
+                {...register(" location", { required: true })}
+                defaultValue={job?.location}
+              />
+              {errors. location && (
+                <span className="-mt-1 text-[12px] text-yellow-100">
+                  Please enter your  location.
+                </span>
+              )}
+            </div>
+            <div className="flex flex-col gap-2 lg:w-[48%] font-semibold text-blue-900">
+              <label htmlFor="lasjobTitletName" className="lable-style">
+              Salary
+              </label>
+              <input
+                type="text"
+                name="salary"
+                id="salary"
+                placeholder="Enter companyName"
+                className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md"
+                {...register("salary", { required: true })}
+                defaultValue={job?.salary}
+              />
+              {errors.salary && (
+                <span className="-mt-1 text-[12px] text-yellow-100">
+                  Please enter your Job salary.
                 </span>
               )}
             </div>
           </div>
+
+          <div className="flex flex-col gap-2 lg:w-[48%] font-semibold text-blue-900">
+              <label htmlFor="lasjobTitletName" className="lable-style">
+              Skills
+              </label>
+              <input
+                type="text"
+                name="skills"
+                id="skills"
+                placeholder="Enter skills"
+                className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md"
+                {...register("skills", { required: true })}
+                defaultValue={job?.skills}
+              />
+              {errors.skills && (
+                <span className="-mt-1 text-[12px] text-yellow-100">
+                  Please enter your skills.
+                </span>
+              )}
+            </div>
+          </div>
+
+          
         
       
 

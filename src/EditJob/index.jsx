@@ -40,7 +40,7 @@ export default function EditJob() {
       <h1 className="mb-14 text-3xl font-medium text-richblack-5">
         Edit Job
       </h1>
-      <div className="mx-auto max-w-[600px]">
+      <div className="mx-auto">
         {job ? (
         <Editjob/>
         ) : (
