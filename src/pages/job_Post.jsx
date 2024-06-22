@@ -70,7 +70,7 @@ const JobPost = () => {
   const navigate = useNavigate();
   const [jobs, setJobs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [selectedJob, setSelectedJob] = useState(null); // State for selected job details
+  const [selectedJob, setSelectedJob] = useState(null);
   const jobsPerPage = 6;
 
   useEffect(() => {
@@ -117,7 +117,7 @@ const JobPost = () => {
   const handleSearch = (title, location) => {
     setSearchQuery(title);
     setLocationQuery(location);
-    setCurrentPage(1); // Reset to first page on new search
+    setCurrentPage(1);
   };
 
   const handleFilterChange = (type, value) => {
@@ -127,14 +127,13 @@ const JobPost = () => {
         ? prevFilters[type].filter((item) => item !== value)
         : [...prevFilters[type], value],
     }));
-    setCurrentPage(1); // Reset to first page on filter change
+    setCurrentPage(1);
   };
 
   const handleViewMore = (job) => {
     setSelectedJob(job);
   };
 
-  // Pagination logic
   const indexOfLastJob = currentPage * jobsPerPage;
   const indexOfFirstJob = indexOfLastJob - jobsPerPage;
   const currentJobs = filteredJobs.slice(indexOfFirstJob, indexOfLastJob);
@@ -257,7 +256,7 @@ const JobPost = () => {
                     </CardContent>
                     <CardFooter>
                       <div className="flex gap-8">
-                        <Button onClick={() => navigate(`/jobappllicationform/${job._id}`)}>
+                        <Button onClick={() => navigate(`/jobapplicationform/${job._id}`)}>
                           Apply
                         </Button>
                         <Button onClick={() => handleViewMore(job)}>
@@ -317,7 +316,7 @@ const JobPost = () => {
                 </CardContent>
                 <CardFooter>
                   <div className="flex gap-8">
-                    <Button onClick={() => navigate(`/jobappllicationform/${selectedJob._id}`)}>
+                    <Button onClick={() => navigate(`/jobapplicationform/${selectedJob._id}`)}>
                       Apply
                     </Button>
                     <Button>
