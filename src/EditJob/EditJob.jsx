@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
-import { EDIT_JOB_API } from "../operations/jobDetailsAPI.js"
+import { editjob} from "../operations/jobDetailsAPI.js"
 import IconBtn from "../components/common/IconBtn"
 
 const role = ["Full-time", "Part-time", "Contract", "Internship"]
@@ -24,7 +24,7 @@ export default function EditJob() {
   const submitjobForm = async (data) => {
     // console.log("Form Data - ", data)
     try {
-      dispatch(updatejob(token, data))
+      dispatch(editjob(token, data))
     } catch (error) {
       console.log("ERROR MESSAGE - ", error.message)
     }
@@ -37,6 +37,7 @@ export default function EditJob() {
           <h2 className="text-lg font-semibold text-richblack-5">
             Profile Information
           </h2>
+          <input type="text"  />
           <div className="flex flex-col gap-5 lg:flex-row">
             <div className="flex flex-col gap-2 lg:w-[48%] font-semibold text-blue-900">
               <label htmlFor=" companyName" className="lable-style">
