@@ -1,17 +1,18 @@
 import { useForm } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 
 import { editjob} from "../operations/jobDetailsAPI.js"
 import IconBtn from "../components/common/IconBtn"
 
-const role = ["Full-time", "Part-time", "Contract", "Internship"]
+const role = ["full-time", "part-time", "contract", "internship"]
 const experience = ["entry-level", "mid-level", "senior-level"]
 
 export default function EditJob() {
   const { user } = useSelector((state) => state.profile)
-  const {job } = useSelector((state) => state.job)
+  const { job } = useSelector((state) => state.job)
   const { token } = useSelector((state) => state.auth)
+  const { jobid } = useParams()
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -22,9 +23,8 @@ export default function EditJob() {
   } = useForm()
 
   const submitjobForm = async (data) => {
-    // console.log("Form Data - ", data)
     try {
-      dispatch(editjob(token, data))
+      dispatch(editjob(token,jobid, data))
     } catch (error) {
       console.log("ERROR MESSAGE - ", error.message)
     }
@@ -37,24 +37,23 @@ export default function EditJob() {
           <h2 className="text-lg font-semibold text-richblack-5">
             Profile Information
           </h2>
-          <input type="text"  />
           <div className="flex flex-col gap-5 lg:flex-row">
             <div className="flex flex-col gap-2 lg:w-[48%] font-semibold text-blue-900">
-              <label htmlFor=" companyName" className="lable-style">
-              Company Name
+            <label htmlFor="companyName" className="lable-style">
+             Company Name
               </label>
               <input
                 type="text"
-                name=" companyName"
-                id="firstName"
-                placeholder="Enter first name"
+                name="companyName"
+                id="companyName"
+                placeholder="Enter companyName"
                 className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md"
-                {...register(" companyName", { required: true })}
+                {...register("companyName", { required: true })}
                 defaultValue={job?.companyName}
               />
-              {errors. companyName && (
+              {errors.companyName && (
                 <span className="-mt-1 text-[12px] text-yellow-100">
-                  Please enter your  companyName.
+                  Please enter your company Name.
                 </span>
               )}
             </div>
@@ -68,7 +67,7 @@ export default function EditJob() {
                 id="jobTitle"
                 placeholder="Enter companyName"
                 className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md"
-                {...register("lastName", { required: true })}
+                {...register("jobTitle", { required: true })}
                 defaultValue={job?.jobTitle}
               />
               {errors.jobTitle && (
@@ -99,32 +98,6 @@ export default function EditJob() {
             </div>
 
           <div className="flex flex-col gap-5 lg:flex-row font-semibold text-blue-900">
-          {/* <div className="flex flex-col gap-2 lg:w-[48%]">
-              <label htmlFor="contactNumber" className="lable-style">
-                Contact Number
-              </label>
-              <input
-                type="tel"
-                name="contactNumber"
-                id="contactNumber"
-                placeholder="Enter Contact Number"
-                className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md"
-                {...register("contactNumber", {
-                  required: {
-                    value: true,
-                    message: "Please enter your Contact Number.",
-                  },
-                  maxLength: { value: 12, message: "Invalid Contact Number" },
-                  minLength: { value: 10, message: "Invalid Contact Number" },
-                })}
-                defaultValue={user?.additionalDetails?.contactNumber}
-              />
-              {errors.contactNumber && (
-                <span className="-mt-1 text-[12px] text-red-600">
-                  {errors.contactNumber.message}
-                </span>
-              )}
-            </div> */}
             <div className="flex flex-col gap-2 lg:w-[48%] font-semibold text-blue-900">
               <label htmlFor="experience" className="lable-style">
               Experience
@@ -182,7 +155,7 @@ export default function EditJob() {
                 id="jobdescription"
                 placeholder="Enter jobdescription"
               className="form-style w-full !pr-10 h-72 py-1 px-2 rounded-md text-gray-600 outline-none shadow-md resize-none"
-                {...register("jobdescription", { required: true })}
+                {...register("jobDescription", { required: true })}
                 defaultValue={job?.jobDescription}
               />
               {errors.about && (
@@ -194,26 +167,26 @@ export default function EditJob() {
 
             <div className="flex flex-col gap-5 lg:flex-row">
             <div className="flex flex-col gap-2 lg:w-[48%] font-semibold text-blue-900">
-              <label htmlFor=" location" className="lable-style">
-              Location
+            <label htmlFor="location" className="lable-style">
+              location
               </label>
               <input
                 type="text"
-                name=" location"
+                name="location"
                 id="location"
-                placeholder="Enter first name"
+                placeholder="Enter companyName"
                 className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md"
-                {...register(" location", { required: true })}
+                {...register("location", { required: true })}
                 defaultValue={job?.location}
               />
-              {errors. location && (
+              {errors.location && (
                 <span className="-mt-1 text-[12px] text-yellow-100">
-                  Please enter your  location.
+                  Please enter your loaction.
                 </span>
               )}
             </div>
             <div className="flex flex-col gap-2 lg:w-[48%] font-semibold text-blue-900">
-              <label htmlFor="lasjobTitletName" className="lable-style">
+              <label htmlFor="salary" className="lable-style">
               Salary
               </label>
               <input
@@ -234,7 +207,7 @@ export default function EditJob() {
           </div>
 
           <div className="flex flex-col gap-2 lg:w-[48%] font-semibold text-blue-900">
-              <label htmlFor="lasjobTitletName" className="lable-style">
+              <label htmlFor="skills" className="lable-style">
               Skills
               </label>
               <input

@@ -10,15 +10,6 @@ const {
   DELETE_JOB_API , 
   GET_USER_JOB,
   GET_FULL_JOB_DETAILS_AUTHENTICATED,
-  // COURSE_DETAILS_API,
-  // COURSE_CATEGORIES_API,
-  // GET_ALL_COURSE_API,
-  // CREATE_COURSE_API,
-  // EDIT_COURSE_API,
-  // GET_ALL_INSTRUCTOR_COURSES_API,
-  // DELETE_COURSE_API,
-  // CREATE_RATING_API,
-  // LECTURE_COMPLETION_API,
 } = jobEndpoints
 
 export const getFullDetailsOfJob = async (jobid, token) => {
@@ -74,29 +65,6 @@ export const getAlljobs = async () => {
   return result
 }
 
-//   const toastId = toast.loading("Loading...")
-//   //   dispatch(setLoading(true));
-//   let result = null
-//   try {
-//     const response = await apiConnector("POST", COURSE_DETAILS_API, {
-//       courseId,
-//     })
-//     console.log("COURSE_DETAILS_API API RESPONSE............", response)
-
-//     if (!response.data.success) {
-//       throw new Error(response.data.message)
-//     }
-//     result = response.data
-//   } catch (error) {
-//     console.log("COURSE_DETAILS_API API ERROR............", error)
-//     result = error.response.data
-//     // toast.error(error.response.data.message);
-//   }
-//   toast.dismiss(toastId)
-//   //   dispatch(setLoading(false));
-//   return result
-// }
-
 // add the job details
 export const addJobDetails = async (data, token) => {
   let result = null
@@ -142,11 +110,11 @@ export const getuserjobs = async (token) => {
   return result
 }
 // edit the job details
-export const editjob = async (token,data) => {
+export const editjob = async (token,jobid,data) => {
   let result = null
   const toastId = toast.loading("Loading...")
   try {
-    const response = await apiConnector("PUT", `${EDIT_JOB_API}${data.jobid}`, data, {
+    const response = await apiConnector("PUT", `${EDIT_JOB_API}${jobid}`, data, {
       Authorization: `Bearer ${token}`,
     })
     console.log("EDIT JOB API RESPONSE............", response)

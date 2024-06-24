@@ -1,5 +1,6 @@
 const Job = require("../Models/Jobpost");
 const User = require("../Models/user");
+const mongoose = require('mongoose')
 
 const { uploadImageToCloudinary } = require("../utils/imageUploader")
 
@@ -109,7 +110,14 @@ exports.createjob = async (req, res) => {
 
 exports.editjob = async (req, res) => {
   try {
-    const { jobid } = req.body;
+    console.log('Request params:', req.params);
+    console.log('Request body:', req.body);
+    
+    const { jobid } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(jobid)) {
+      return res.status(400).json({ error: "Invalid job ID" });
+    }
+    
     const updates = req.body;
     const jobpost = await Job.findById(jobid);
 
@@ -139,7 +147,6 @@ exports.editjob = async (req, res) => {
     });
   }
 };
-
 exports.getAlljobs = async (req, res) => {
   try {
     const allJobs = await Job.find().populate("jobadmin").exec();

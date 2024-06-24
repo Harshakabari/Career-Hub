@@ -15,8 +15,8 @@ const Footer = () => {
                 <img src={logo} className="h-14 me-3" alt="FlowBite Logo" />
               </a>
               <p className="lg:w-96 text-gray-300 my-2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Corporis, fugit sint. Accusamus eos distinctio reprehenderit.
+              Your gateway to a brighter future. Discover opportunities, connect with employers, 
+              and achieve career growth effortlessly.
               </p>
             </div>
 
