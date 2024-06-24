@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Header from "../components/Header/Header";
 import Searchbar from "../components/SearchBar/SearchBar";
 import Logo1 from "../assets/clogo1.png";
@@ -7,18 +7,7 @@ import { SlLocationPin } from "react-icons/sl";
 import { IoTimeOutline } from "react-icons/io5";
 import { RiMoneyRupeeCircleLine } from "react-icons/ri";
 import { getAlljobs } from "../operations/jobDetailsAPI";
-
-const Label = ({ children, className }) => (
-  <label className={className}>{children}</label>
-);
-
-const Checkbox = ({ checked, onCheckedChange }) => (
-  <input
-    type="checkbox"
-    checked={checked}
-    onChange={(e) => onCheckedChange(e.target.checked)}
-  />
-);
+import Dropdown from "../components/Dropdown/Dropdown";
 
 const Card = ({ children, onClick }) => (
   <div
@@ -83,6 +72,11 @@ const JobPost = () => {
         const locations = [...new Set(result.map((job) => job.location.split(", ")[0]))];
 
         setFilterOptions((prev) => ({ ...prev, roles, locations }));
+
+        // Set the first job as the selected job by default
+        if (result.length > 0) {
+          setSelectedJob(result[0]);
+        }
       }
     };
     fetchJobs();
@@ -164,58 +158,37 @@ const JobPost = () => {
           Thousands of jobs in the computer, engineering, and technology sectors are waiting for you.
         </p>
         <Searchbar onSearch={handleSearch} />
-
-        <div className="grid grid-cols-1 md:grid-cols-[300px_1fr_400px] gap-8">
-          <div className="bg-white rounded-lg shadow-md p-6 border-gray-300 border-2">
-            <h2 className="text-lg font-bold mb-4">Filters</h2>
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-sm font-medium mb-2">Role</h3>
-                <div className="space-y-2">
-                  {filterOptions.roles.map((role) => (
-                    <Label className="flex items-center gap-2" key={role}>
-                      <Checkbox
-                        checked={filters.role.includes(role)}
-                        onCheckedChange={() => handleFilterChange("role", role)}
-                      />
-                      {role}
-                    </Label>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <h3 className="text-sm font-medium mb-2">Location</h3>
-                <div className="space-y-2">
-                  {filterOptions.locations.map((location) => (
-                    <Label className="flex items-center gap-2" key={location}>
-                      <Checkbox
-                        checked={filters.location.includes(location)}
-                        onCheckedChange={() => handleFilterChange("location", location)}
-                      />
-                      {location}
-                    </Label>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <h3 className="text-sm font-medium mb-2">Salary</h3>
-                <div className="space-y-2">
-                  {filterOptions.salaries.map((salary) => (
-                    <Label className="flex items-center gap-2" key={salary}>
-                      <Checkbox
-                        checked={filters.salary.includes(salary)}
-                        onCheckedChange={() => handleFilterChange("salary", salary)}
-                      />
-                      {salary}
-                    </Label>
-                  ))}
-                </div>
-              </div>
-            </div>
+        
+        <p className="text-center mb-4 font-semibold text-gray-700">Total Jobs: {filteredJobs.length}</p>
+        
+        <div className="bg-white rounded-lg shadow-md p-6 border-gray-300 border-2 mb-8">
+          
+        <div className="flex flex-wrap items-center gap-8">
+            <h2 className="text-lg font-bold mb-4">Filters:</h2>
+            <Dropdown
+              label="Role ▼"
+              options={filterOptions.roles}
+              selectedOptions={filters.role}
+              onChange={(value) => handleFilterChange("role", value)}
+            />
+            <Dropdown
+              label="Location ▼"
+              options={filterOptions.locations}
+              selectedOptions={filters.location}
+              onChange={(value) => handleFilterChange("location", value)}
+            />
+            <Dropdown
+              label="Salary ▼"
+              options={filterOptions.salaries}
+              selectedOptions={filters.salary}
+              onChange={(value) => handleFilterChange("salary", value)}
+            />
           </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_600px] gap-8">
           <div>
             <div className="grid grid-cols-1 gap-6">
-              <p className="text-center mb-4 font-semibold text-gray-700">Total Jobs: {filteredJobs.length}</p>
               {currentJobs.length === 0 ? (
                 <p className="text-center font-semibold text-gray-600">Data not found!</p>
               ) : (
@@ -229,7 +202,7 @@ const JobPost = () => {
                       </CardHeader>
                     </div>
                     <CardContent>
-                      <div className="mb-4 flex gap-8 text-gray-900">
+                      <div className="mb-4 flex flex-wrap gap-8 text-gray-900">
                         <p className="flex items-center gap-1">
                           <SlLocationPin className="text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]" />
                           {job.location}
@@ -280,7 +253,9 @@ const JobPost = () => {
           <div className="bg-white rounded-lg shadow-md p-6 border-gray-300 border-2">
             {selectedJob ? (
               <>
-                <h2 className="text-lg font-bold mb-4">Job Details</h2>
+                <h2 className="text-lg font-bold mb-4">Job Details:</h2>
+                <hr />
+                <div className="px-12 py-4">
                 <div className="flex gap-2">
                   <img className="h-12" src={Logo1} alt="" />
                   <CardHeader>
@@ -304,10 +279,10 @@ const JobPost = () => {
                     </p>
                   </div>
                   <div>
-                    <h4 className="font-bold">JobDescription:</h4>
+                    <h4 className="font-bold">Job Description:</h4>
                     <p className="mb-4 text-gray-700">{selectedJob.jobDescription}</p>
 
-                    <h4 className="font-bold">CompanyDescription:</h4>
+                    <h4 className="font-bold">Company Description:</h4>
                     <p className="mb-4 text-gray-700">{selectedJob.companyDescription}</p>
                   </div>
 
@@ -324,6 +299,7 @@ const JobPost = () => {
                     </Button>
                   </div>
                 </CardFooter>
+                </div>
               </>
             ) : (
               <p className="text-center font-semibold text-gray-600">Select a job to view details</p>

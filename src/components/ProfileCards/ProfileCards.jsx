@@ -1,12 +1,12 @@
 import React from 'react';
-import profile1 from "../../assets/Team-member/khush.jpeg";
-import profile2 from "../../assets/Team-member/harsh.jpg";
-import profile3 from "../../assets/Team-member/jay.jpg";
-import profile4 from "../../assets/Team-member/rajan.jpg";
-import profile5 from "../../assets/Team-member/janvi.jpg";
-import profile6 from "../../assets/Team-member/harita.jpeg";
-import profile7 from "../../assets/Team-member/harita.jpeg";
-import profile8 from "../../assets/Team-member/jay.jpg";
+import profile1 from "../../assets/Team-member/khush.png";
+import profile2 from "../../assets/Team-member/harsh.png";
+import profile3 from "../../assets/Team-member/jay.png";
+import profile4 from "../../assets/Team-member/rajan.png";
+import profile5 from "../../assets/Team-member/janvi.png";
+import profile6 from "../../assets/Team-member/harita.png";
+import profile7 from "../../assets/Team-member/harita.png";
+import profile8 from "../../assets/Team-member/bhaumik.png";
 
 function GitlabIcon(props) {
   return (
@@ -74,9 +74,9 @@ const teamMembers = [
     name: 'Khush Prajapati', 
     role: 'Full Stack Developer', 
     image: profile1,
-    gitlab: 'https://gitlab.com/khushprajapati',
-    instagram: 'https://instagram.com/khushprajapati',
-    linkedin: 'https://linkedin.com/in/khushprajapati'
+    gitlab: 'https://github.com/Khushprajapati2004',
+    instagram: 'https://www.instagram.com/itiskhush/',
+    linkedin: 'https://www.linkedin.com/in/khush-prajapati-9a9944241/'
   },
   { 
     name: 'Harsh Akbari', 

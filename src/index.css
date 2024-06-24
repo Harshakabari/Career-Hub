@@ -220,3 +220,34 @@
   .opacity-0 {
     opacity: 0;
   }
+
+
+
+
+
+
+
+
+
+  .dropdown-enter {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+  }
+  
+  .dropdown-enter-active {
+    max-height: 300px;
+    opacity: 1;
+  }
+  
+  .dropdown-leave {
+    max-height: 300px;
+    opacity: 1;
+    transition: max-height 0.5s ease-in, opacity 0.5s ease-in;
+  }
+  
+  .dropdown-leave-active {
+    max-height: 0;
+    opacity: 0;
+  }
+  
