@@ -14,9 +14,9 @@ function JobApplicationForm() {
     phone: '',
     linkedIn: '',
     portfolio: '',
-    Github:'',
+    Github: '',
     education: '',
-    experience: '',
+    experience: [{ title: '', years: '' }], // Initialize with an object
     skills: '',
     resume: null,
   });
@@ -26,10 +26,23 @@ function JobApplicationForm() {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === 'checkbox' ? checked : value,
-    });
+    if (name.includes("experience")) {
+      const [key, index, field] = name.split(/[\[\]]/).filter(Boolean);
+      const updatedExperience = [...formData.experience];
+      updatedExperience[index] = {
+        ...updatedExperience[index],
+        [field]: type === 'checkbox' ? checked : value,
+      };
+      setFormData({
+        ...formData,
+        experience: updatedExperience,
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: type === 'checkbox' ? checked : value,
+      });
+    }
   };
 
   const handleFileChange = (e) => {
@@ -95,15 +108,19 @@ function JobApplicationForm() {
             </label>
             <label className="block">
               Github Profile
-              <input type="url" name="portfolio" value={formData.portfolio} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
+              <input type="url" name="Github" value={formData.Github} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
             </label>
           </div>
 
           {/* Work Experience */}
           <div className="space-y-4">
             <label className="block">
-              Years of Experiance
-              <input type="text" name="experience[0].title" value={formData.experience[0].title} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
+              Job Title
+              <input type="text" name="experience[0].title" value={formData.experience[0]?.title || ''} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
+            </label>
+            <label className="block">
+              Years of Experience
+              <input type="text" name="experience[0].years" value={formData.experience[0]?.years || ''} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
             </label>
           </div>
 

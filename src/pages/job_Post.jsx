@@ -96,25 +96,36 @@ const JobPost = () => {
 
       const locationMatch = location.includes(locationQuery.toLowerCase());
 
-      const roleMatch = filters.role.length === 0 || filters.role.includes(job.role);
+      const roleMatch =
+        filters.role.length === 0 || filters.role.includes(job.role);
 
-      const salaryMatch = filters.salary.length === 0 || filters.salary.some((range) => {
-        if (range === ">100000") {
-          return Number(job.salary.replace(/[^0-9]/g, '')) > 100000;
-        } else {
-          const [min, max] = range.split("-").map(Number);
-          const salary = Number(job.salary.replace(/[^0-9]/g, ''));
-          return (
-            (min ? salary >= min : true) &&
-            (max ? salary <= max : true)
-          );
-        }
-      });
+      const salaryMatch =
+        filters.salary.length === 0 ||
+        filters.salary.some((range) => {
+          if (range === ">100000") {
+            return (
+              Number(job.salary.replace(/[^0-9]/g, "")) > 100000
+            );
+          } else {
+            const [min, max] = range.split("-").map(Number);
+            const salary = Number(job.salary.replace(/[^0-9]/g, ""));
+            return (
+              (min ? salary >= min : true) && (max ? salary <= max : true)
+            );
+          }
+        });
 
       const filterMatch =
-        filters.location.length === 0 || filters.location.includes(job.location.split(", ")[0]);
+        filters.location.length === 0 ||
+        filters.location.includes(job.location.split(", ")[0]);
 
-      return searchMatch && locationMatch && roleMatch && salaryMatch && filterMatch;
+      return (
+        searchMatch &&
+        locationMatch &&
+        roleMatch &&
+        salaryMatch &&
+        filterMatch
+      );
     });
   }, [searchQuery, locationQuery, filters, jobs]);
 
@@ -125,12 +136,17 @@ const JobPost = () => {
   };
 
   const handleFilterChange = (type, value) => {
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      [type]: prevFilters[type].includes(value)
-        ? prevFilters[type].filter((item) => item !== value)
-        : [...prevFilters[type], value],
-    }));
+    if (value === "All") {
+      setFilters((prevFilters) => ({
+        ...prevFilters,
+        [type]: [],
+      }));
+    } else {
+      setFilters((prevFilters) => ({
+        ...prevFilters,
+        [type]: [value],
+      }));
+    }
     setCurrentPage(1);
   };
 
@@ -144,7 +160,8 @@ const JobPost = () => {
   const totalPages = Math.ceil(filteredJobs.length / jobsPerPage);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const nextPage = () => setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
+  const nextPage = () =>
+    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
   const prevPage = () => setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
 
   return (
@@ -163,25 +180,28 @@ const JobPost = () => {
         
         <div className="bg-white rounded-lg shadow-md p-6 border-gray-300 border-2 mb-8">
           
-        <div className="flex flex-wrap items-center gap-8">
+          <div className="flex flex-wrap items-center gap-8">
             <h2 className="text-lg font-bold mb-4">Filters:</h2>
             <Dropdown
               label="Role ▼"
-              options={filterOptions.roles}
+              options={["All", ...filterOptions.roles]}
               selectedOptions={filters.role}
               onChange={(value) => handleFilterChange("role", value)}
+              defaultSelected="All"
             />
             <Dropdown
               label="Location ▼"
-              options={filterOptions.locations}
+              options={["All", ...filterOptions.locations]}
               selectedOptions={filters.location}
               onChange={(value) => handleFilterChange("location", value)}
+              defaultSelected="All"
             />
             <Dropdown
               label="Salary ▼"
-              options={filterOptions.salaries}
+              options={["All", ...filterOptions.salaries]}
               selectedOptions={filters.salary}
               onChange={(value) => handleFilterChange("salary", value)}
+              defaultSelected="All"
             />
           </div>
         </div>
@@ -220,7 +240,7 @@ const JobPost = () => {
                     </CardContent>
                     <CardFooter>
                       <div className="flex gap-8">
-                        <Button onClick={() => navigate(`/jobapplicationform/${job._id}`)}>
+                        <Button onClick={() => navigate(`/jobapplicationform/${job.id}`)}>
                           Apply
                         </Button>
                         <Button onClick={() => handleViewMore(job)}>
@@ -256,49 +276,49 @@ const JobPost = () => {
                 <h2 className="text-lg font-bold mb-4">Job Details:</h2>
                 <hr />
                 <div className="px-12 py-4">
-                <div className="flex gap-2">
-                  <img className="h-12" src={Logo1} alt="" />
-                  <CardHeader>
-                    <CardTitle>{selectedJob.jobTitle}</CardTitle>
-                    <CardDescription>{selectedJob.companyName}</CardDescription>
-                  </CardHeader>
-                </div>
-                <CardContent>
-                  <div className="mb-4 flex gap-4 text-gray-900">
-                    <p className="flex items-center gap-2">
-                      <SlLocationPin className="text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]" />
-                      {selectedJob.location}
-                    </p>
-                    <p className="flex items-center gap-2 my-2">
-                      <IoTimeOutline className="text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]" />
-                      {selectedJob.role}
-                    </p>
-                    <p className="flex items-center gap-2 my-2">
-                      <RiMoneyRupeeCircleLine className="text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]" />
-                      {selectedJob.salary}
-                    </p>
+                  <div className="flex gap-2">
+                    <img className="h-12" src={Logo1} alt="" />
+                    <CardHeader>
+                      <CardTitle>{selectedJob.jobTitle}</CardTitle>
+                      <CardDescription>{selectedJob.companyName}</CardDescription>
+                    </CardHeader>
                   </div>
-                  <div>
-                    <h4 className="font-bold">Job Description:</h4>
-                    <p className="mb-4 text-gray-700">{selectedJob.jobDescription}</p>
+                  <CardContent>
+                    <div className="mb-4 flex gap-4 text-gray-900">
+                      <p className="flex items-center gap-2">
+                        <SlLocationPin className="text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]" />
+                        {selectedJob.location}
+                      </p>
+                      <p className="flex items-center gap-2 my-2">
+                        <IoTimeOutline className="text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]" />
+                        {selectedJob.role}
+                      </p>
+                      <p className="flex items-center gap-2 my-2">
+                        <RiMoneyRupeeCircleLine className="text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]" />
+                        {selectedJob.salary}
+                      </p>
+                    </div>
+                    <div>
+                      <h4 className="font-bold">Job Description:</h4>
+                      <p className="mb-4 text-gray-700">{selectedJob.jobDescription}</p>
 
-                    <h4 className="font-bold">Company Description:</h4>
-                    <p className="mb-4 text-gray-700">{selectedJob.companyDescription}</p>
-                  </div>
+                      <h4 className="font-bold">Company Description:</h4>
+                      <p className="mb-4 text-gray-700">{selectedJob.companyDescription}</p>
+                    </div>
 
-                  <div>
-                    <h4 className="font-bold">Skills:</h4>
-                    <p className="mb-4 text-gray-700">{selectedJob.skills}</p>
-                  </div>
+                    <div>
+                      <h4 className="font-bold">Skills:</h4>
+                      <p className="mb-4 text-gray-700">{selectedJob.skills}</p>
+                    </div>
 
-                </CardContent>
-                <CardFooter>
-                  <div className="flex gap-8">
-                    <Button onClick={() => navigate(`/jobapplicationform/${selectedJob._id}`)}>
-                      Apply
-                    </Button>
-                  </div>
-                </CardFooter>
+                  </CardContent>
+                  <CardFooter>
+                    <div className="flex gap-8">
+                      <Button onClick={() => navigate(`/jobapplicationform/${selectedJob.id}`)}>
+                        Apply
+                      </Button>
+                    </div>
+                  </CardFooter>
                 </div>
               </>
             ) : (
