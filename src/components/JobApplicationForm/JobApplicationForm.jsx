@@ -11,23 +11,14 @@ Modal.setAppElement('#root');
 function JobApplicationForm() {
   const [formData, setFormData] = useState({
     fullName: '',
-    email: '',
     phone: '',
-    address: '',
     linkedIn: '',
     portfolio: '',
+    Github:'',
     education: '',
-    school: '',
-    degree: '',
-    graduationYear: '',
-    experience: [{ title: '', company: '', responsibilities: '' }],
+    experience: '',
     skills: '',
-    certifications: '',
     resume: null,
-    authorized: false,
-    sponsorship: false,
-    certify: false,
-    consent: false,
   });
 
   const [errors, setErrors] = useState({});
@@ -90,18 +81,9 @@ function JobApplicationForm() {
               {errors.fullName && <span className="text-red-500">{errors.fullName}</span>}
             </label>
             <label className="block">
-              Email Address
-              <input type="email" name="email" value={formData.email} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
-              {errors.email && <span className="text-red-500">{errors.email}</span>}
-            </label>
-            <label className="block">
               Phone Number
               <input type="tel" name="phone" value={formData.phone} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
               {errors.phone && <span className="text-red-500">{errors.phone}</span>}
-            </label>
-            <label className="block">
-              Address
-              <input type="text" name="address" value={formData.address} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
             </label>
             <label className="block">
               LinkedIn Profile
@@ -111,40 +93,17 @@ function JobApplicationForm() {
               Portfolio/Website
               <input type="url" name="portfolio" value={formData.portfolio} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
             </label>
-          </div>
-          {/* Education */}
-          <div className="space-y-4">
             <label className="block">
-              Highest Level of Education
-              <input type="text" name="education" value={formData.education} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
-            </label>
-            <label className="block">
-              School Name
-              <input type="text" name="school" value={formData.school} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
-            </label>
-            <label className="block">
-              Degree/Major
-              <input type="text" name="degree" value={formData.degree} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
-            </label>
-            <label className="block">
-              Graduation Year
-              <input type="text" name="graduationYear" value={formData.graduationYear} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
+              Github Profile
+              <input type="url" name="portfolio" value={formData.portfolio} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
             </label>
           </div>
 
           {/* Work Experience */}
           <div className="space-y-4">
             <label className="block">
-              Previous Job Title
+              Years of Experiance
               <input type="text" name="experience[0].title" value={formData.experience[0].title} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
-            </label>
-            <label className="block">
-              Company Name
-              <input type="text" name="experience[0].company" value={formData.experience[0].company} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
-            </label>
-            <label className="block">
-              Job Responsibilities
-              <textarea name="experience[0].responsibilities" value={formData.experience[0].responsibilities} onChange={handleChange} className="resize-none block w-full mt-1 p-2 border rounded" />
             </label>
           </div>
 
@@ -154,43 +113,13 @@ function JobApplicationForm() {
               Relevant Skills
               <input type="text" name="skills" value={formData.skills} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
             </label>
-            <label className="block">
-              Certifications/Licenses
-              <input type="text" name="certifications" value={formData.certifications} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
-            </label>
-          </div>
+          </div>  
         
           {/* Additional Information */}
           <div className="space-y-4">
             <label className="block">
               Resume/CV
               <input type="file" name="resume" onChange={handleFileChange} className="block w-full mt-1 p-2 border rounded" />
-            </label>
-          </div>
-
-          {/* Legal */}
-          <div className="space-y-4">
-            <label className="flex items-center">
-              <input type="checkbox" name="authorized" checked={formData.authorized} onChange={handleChange} className="mr-2" />
-              Are you legally authorized to work in the country?
-              {errors.authorized && <span className="text-red-500 ml-2">{errors.authorized}</span>}
-            </label>
-            <label className="flex items-center">
-              <input type="checkbox" name="sponsorship" checked={formData.sponsorship} onChange={handleChange} className="mr-2" />
-              Will you now or in the future require sponsorship for employment visa status?
-            </label>
-          </div>
-
-          {/* Consent */}
-          <div className="space-y-4">
-            <label className="flex items-center">
-              <input type="checkbox" name="certify" checked={formData.certify} onChange={handleChange} className="mr-2" />
-              I certify that the information provided is true and complete to the best of my knowledge.
-              {errors.certify && <span className="text-red-500 ml-2">{errors.certify}</span>}
-            </label>
-            <label className="flex items-center">
-              <input type="checkbox" name="consent" checked={formData.consent} onChange={handleChange} className="mr-2" />
-              I consent to a background check if required.
             </label>
           </div>
 

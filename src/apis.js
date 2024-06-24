@@ -17,7 +17,7 @@ export const profileEndpoints = {
 // JOB ENDPOINTS
 export const jobEndpoints = {
   CREATE_JOB_API:BASE_URL + "/job/createjob" ,
-  EDIT_JOB_API :BASE_URL + "/job/editjob", 
+  EDIT_JOB_API :BASE_URL + "/job/editjob/", 
   GET_ALL_JOBS_API:BASE_URL + "/job/getAlljobs" ,
   DELETE_JOB_API:BASE_URL + "/job/deletejob" , 
   GET_USER_JOB:BASE_URL + "/job/getuserjobs",

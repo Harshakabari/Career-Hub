@@ -142,11 +142,11 @@ export const getuserjobs = async (token) => {
   return result
 }
 // edit the job details
-export const editjob = async (data, token) => {
+export const editjob = async (token,data) => {
   let result = null
   const toastId = toast.loading("Loading...")
   try {
-    const response = await apiConnector("POST", EDIT_JOB_API, data, {
+    const response = await apiConnector("PUT", `${EDIT_JOB_API}${data.jobid}`, data, {
       Authorization: `Bearer ${token}`,
     })
     console.log("EDIT JOB API RESPONSE............", response)
@@ -154,7 +154,7 @@ export const editjob = async (data, token) => {
       throw new Error("Could Not Update Job Details")
     }
     toast.success("Job Details Updated Successfully")
-    result = response?.data?.data
+    result = response?.data
   } catch (error) {
     console.log("EDIT JOB API ERROR............", error)
     toast.error(error.message)

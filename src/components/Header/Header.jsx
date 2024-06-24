@@ -58,7 +58,7 @@ function Header() {
           </ul>
         </nav>
         {/* Login / Signup / Dashboard */}
-        <div className="hidden items-center gap-x-4 text-blue-900 pl-44 text-md font-semibold md:flex">
+        <div className="hidden items-center gap-x-4 lg:-mr-28 text-blue-900 pl-44 text-md font-semibold md:flex">
           {token == null && (
             <Link to="/login">
               <button className="hover:bg-blue-900 hover:text-white duration-200 font-medium rounded-lg px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none">
