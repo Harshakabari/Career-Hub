@@ -24,7 +24,7 @@ exports.signup = async (req, res) => {
       otp,
     } = req.body
     // Check if All Details are there or not
-    console.log(req.body,"req.body")
+    // console.log(req.body,"req.body")
     if (
       !firstName ||
       !lastName ||

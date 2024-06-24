@@ -110,8 +110,8 @@ exports.createjob = async (req, res) => {
 
 exports.editjob = async (req, res) => {
   try {
-    console.log('Request params:', req.params);
-    console.log('Request body:', req.body);
+    // console.log('Request params:', req.params);
+    // console.log('Request body:', req.body);
     
     const { jobid } = req.params;
     if (!mongoose.Types.ObjectId.isValid(jobid)) {

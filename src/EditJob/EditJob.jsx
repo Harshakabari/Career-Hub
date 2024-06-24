@@ -24,7 +24,8 @@ export default function EditJob() {
 
   const submitjobForm = async (data) => {
     try {
-      dispatch(editjob(token,jobid, data))
+      dispatch(editjob(token,jobid, data,navigate));
+
     } catch (error) {
       console.log("ERROR MESSAGE - ", error.message)
     }

@@ -110,7 +110,7 @@ export const getuserjobs = async (token) => {
   return result
 }
 // edit the job details
-export const editjob = async (token,jobid,data) => {
+export const editjob = async (token,jobid,data,navigate) => {
   let result = null
   const toastId = toast.loading("Loading...")
   try {
@@ -123,6 +123,7 @@ export const editjob = async (token,jobid,data) => {
     }
     toast.success("Job Details Updated Successfully")
     result = response?.data
+      navigate("/dashboard/my-jobs");
   } catch (error) {
     console.log("EDIT JOB API ERROR............", error)
     toast.error(error.message)
