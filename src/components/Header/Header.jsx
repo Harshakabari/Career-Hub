@@ -45,7 +45,7 @@ function Header() {
           <h1 className='sr-only'>Career Hub</h1>
         </Link>
         {/* Navigation links */}
-        <nav className="hidden md:block ml-56">
+        <nav className="hidden md:hidden lg:block ml-56">
           <ul className="flex gap-x-6 text-richblack-25 text-md font-semibold">
             {NavbarLinks.map((link, index) => (
               <li key={index}>

@@ -32,7 +32,7 @@ export default function Searchbar({ onSearch }) {
           className="pl-11 w-full py-2 rounded-md border border-[#e7f3ff] focus:border-blue-900 outline-none"
         />
       </div>
-      <Button onClick={handleSearch} className="bg-blue-900 hover:shadow-md hover:shadow-blue-900 duration-200 rounded-lg text-white lg:w-60 w-96 lg:h-10 h-9">
+      <Button onClick={handleSearch} className="bg-blue-900 hover:shadow-md  hover:shadow-blue-900 duration-200 rounded-lg text-white lg:w-60 w-[365px] lg:h-10 h-9">
         Search
       </Button>
     </div>
