@@ -9,6 +9,7 @@ import { IoTimeOutline } from "react-icons/io5";
 import { RiMoneyRupeeCircleLine } from "react-icons/ri";
 import { getAlljobs } from "../operations/jobDetailsAPI";
 import Dropdown from "../components/Dropdown/Dropdown";
+import Footer from "../components/Footer/Footer";
 
 // Set the app element for accessibility
 Modal.setAppElement('#root');
@@ -184,7 +185,7 @@ const JobPost = () => {
         </p>
         <Searchbar onSearch={handleSearch} />
 
-        <p className="text-center mb-4 font-semibold text-gray-700">Total Jobs: {filteredJobs.length}</p>
+        
 
         <div className="bg-white rounded-lg shadow-md p-6 border-gray-300 border-2 mb-8">
           <div className="flex flex-wrap items-center lg:gap-8">
@@ -214,6 +215,8 @@ const JobPost = () => {
             </div>
           </div>
         </div>
+
+        <p className="text-center mb-4 font-semibold text-gray-700">Total Jobs: {filteredJobs.length}</p>
 
         <div className="grid grid-cols-1 md:grid-cols-[1fr_600px] gap-8">
           <div>
@@ -397,6 +400,7 @@ const JobPost = () => {
           )}
         </Modal>
       </div>
+      <Footer />
     </>
   );
 };

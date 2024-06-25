@@ -27,14 +27,14 @@ const Footer = () => {
                 </h2>
                 <ul className="text-gray-400 font-medium">
                   <li className="mb-4">
-                    <a href="https://flowbite.com/" className="hover:underline">
+                    <a href="/" className="hover:underline">
                       Home
                     </a>
                   </li>
 
                   <li className="mb-4">
                     <a
-                      href="https://tailwindcss.com/"
+                      href="/about"
                       className="hover:underline"
                     >
                       About
@@ -43,7 +43,7 @@ const Footer = () => {
 
                   <li className="mb-4">
                     <a
-                      href="https://tailwindcss.com/"
+                      href="/job"
                       className="hover:underline"
                     >
                       Find job

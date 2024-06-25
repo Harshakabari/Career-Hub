@@ -42,6 +42,7 @@ function Header() {
         {/* Logo */}
         <Link to="/">
           <img src={Logo} className="mr-3 lg:h-14 h-12 select-none" loading='lazy' alt="Logo" />
+          <h1 className='sr-only'>Career Hub</h1>
         </Link>
         {/* Navigation links */}
         <nav className="hidden md:block ml-56">

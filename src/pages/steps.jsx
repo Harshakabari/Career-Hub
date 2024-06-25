@@ -18,7 +18,7 @@ const steps = () => {
         {/* // All card */}
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-center items-center lg:gap-4 lg:m-8 mt-3 lg:mx-auto  lg:px-40 px-3">
           {/* // card 1 */}
-          <div className="   relative shadow-2xl lg:h-[320px] lg:w-[300px] h-[270px] m-[20px] p-1 -z-0  overflow-hidden rounded-3xl duration-200 hover:shadow-black">
+          <div className="border-2 relative shadow-2xl lg:h-[320px] lg:w-[300px] h-[270px] m-[20px] p-1 -z-0  overflow-hidden rounded-3xl duration-200 hover:shadow-black">
             <div className="relative h-full w-full bg-white z-[99] pl-5 pt-8 pr-5 rounded-3xl">
               <div className="flex items-center gap-1 justify-between mx-5 mb-9">
                 <svg
@@ -64,7 +64,7 @@ const steps = () => {
           </div>
 
           {/* // card 2 */}
-          <div className="   relative shadow-2xl lg:h-[320px] lg:w-[300px] h-[270px] m-[20px] p-1 -z-0  overflow-hidden rounded-3xl duration-200 hover:shadow-black">
+          <div className="border-2 relative shadow-2xl lg:h-[320px] lg:w-[300px] h-[270px] m-[20px] p-1 -z-0  overflow-hidden rounded-3xl duration-200 hover:shadow-black">
             <div className="relative h-full w-full bg-white z-[99] pl-5 pt-8 pr-5 rounded-3xl">
               <div className="flex items-center gap-1 justify-between mx-5 mb-9">
                 <svg
@@ -99,7 +99,7 @@ const steps = () => {
           </div>
 
           {/* // card 3 */}
-          <div className="   relative shadow-2xl lg:h-[320px] lg:w-[300px] h-[270px] m-[20px] p-1 -z-0  overflow-hidden rounded-3xl duration-200 hover:shadow-black">
+          <div className="border-2 relative shadow-2xl lg:h-[320px] lg:w-[300px] h-[270px] m-[20px] p-1 -z-0  overflow-hidden rounded-3xl duration-200 hover:shadow-black">
             <div className="relative h-full w-full bg-white z-[99] pl-5 pt-8 pr-5 rounded-3xl">
               <div className="flex items-center gap-1 justify-between mx-5 mb-9">
                 <svg
