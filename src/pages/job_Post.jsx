@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import Modal from 'react-modal';
 import Header from "../components/Header/Header";
 import Searchbar from "../components/SearchBar/SearchBar";
 import Logo1 from "../assets/clogo1.png";
@@ -8,6 +9,9 @@ import { IoTimeOutline } from "react-icons/io5";
 import { RiMoneyRupeeCircleLine } from "react-icons/ri";
 import { getAlljobs } from "../operations/jobDetailsAPI";
 import Dropdown from "../components/Dropdown/Dropdown";
+
+// Set the app element for accessibility
+Modal.setAppElement('#root');
 
 const Card = ({ children, onClick }) => (
   <div
@@ -60,6 +64,7 @@ const JobPost = () => {
   const [jobs, setJobs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedJob, setSelectedJob] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const jobsPerPage = 6;
 
   useEffect(() => {
@@ -152,6 +157,9 @@ const JobPost = () => {
 
   const handleViewMore = (job) => {
     setSelectedJob(job);
+    if (window.innerWidth < 1024) {
+      setIsModalOpen(true);
+    }
   };
 
   const indexOfLastJob = currentPage * jobsPerPage;
@@ -167,7 +175,7 @@ const JobPost = () => {
   return (
     <>
       <Header />
-      <div className="px-24 py-8 text-black">
+      <div className="lg:px-24 md:px-12 px-6 py-8 text-black">
         <h3 className="font-bold text-4xl py-2 rounded-lg">
           Find your <span className="text-blue-900">NEW JOB</span> today
         </h3>
@@ -175,13 +183,13 @@ const JobPost = () => {
           Thousands of jobs in the computer, engineering, and technology sectors are waiting for you.
         </p>
         <Searchbar onSearch={handleSearch} />
-        
+
         <p className="text-center mb-4 font-semibold text-gray-700">Total Jobs: {filteredJobs.length}</p>
-        
+
         <div className="bg-white rounded-lg shadow-md p-6 border-gray-300 border-2 mb-8">
-          
-          <div className="flex flex-wrap items-center gap-8">
+          <div className="flex flex-wrap items-center lg:gap-8">
             <h2 className="text-lg font-bold mb-4">Filters:</h2>
+           <div className="lg:flex gap-4">
             <Dropdown
               label="Role ▼"
               options={["All", ...filterOptions.roles]}
@@ -203,6 +211,7 @@ const JobPost = () => {
               onChange={(value) => handleFilterChange("salary", value)}
               defaultSelected="All"
             />
+            </div>
           </div>
         </div>
 
@@ -270,7 +279,7 @@ const JobPost = () => {
               </Button>
             </div>
           </div>
-          <div className="bg-white rounded-lg shadow-md p-6 border-gray-300 border-2">
+          <div className="bg-white lg:block hidden rounded-lg shadow-md p-6 border-gray-300 border-2">
             {selectedJob ? (
               <>
                 <h2 className="text-lg font-bold mb-4">Job Details:</h2>
@@ -326,6 +335,67 @@ const JobPost = () => {
             )}
           </div>
         </div>
+
+        {/* Modal for small screens */}
+        <Modal
+          isOpen={isModalOpen}
+          onRequestClose={() => setIsModalOpen(false)}
+          contentLabel="Job Details"
+          className="modal-content"
+          overlayClassName="modal-overlay"
+        >
+          {selectedJob && (
+            <div className="px-4 py-6">
+              <button onClick={() => setIsModalOpen(false)} className="float-right text-xl font-bold">&times;</button>
+              <h2 className="text-lg font-bold mb-4">Job Details:</h2>
+              <hr />
+              <div className="px-4 py-4">
+                <div className="flex gap-2">
+                  <img className="h-12" src={Logo1} alt="" />
+                  <CardHeader>
+                    <CardTitle>{selectedJob.jobTitle}</CardTitle>
+                    <CardDescription>{selectedJob.companyName}</CardDescription>
+                  </CardHeader>
+                </div>
+                <CardContent>
+                  <div className="mb-4 flex flex-wrap gap-4 text-gray-900">
+                    <p className="flex items-center gap-2">
+                      <SlLocationPin className="text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]" />
+                      {selectedJob.location}
+                    </p>
+                    <p className="flex items-center gap-2 my-2">
+                      <IoTimeOutline className="text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]" />
+                      {selectedJob.role}
+                    </p>
+                    <p className="flex items-center gap-2 my-2">
+                      <RiMoneyRupeeCircleLine className="text-blue-900 p-1.5 w-7 h-7 rounded-full bg-[#e7f3ff]" />
+                      {selectedJob.salary}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-bold">Job Description:</h4>
+                    <p className="mb-4 text-gray-700">{selectedJob.jobDescription}</p>
+
+                    <h4 className="font-bold">Company Description:</h4>
+                    <p className="mb-4 text-gray-700">{selectedJob.companyDescription}</p>
+                  </div>
+
+                  <div>
+                    <h4 className="font-bold">Skills:</h4>
+                    <p className="mb-4 text-gray-700">{selectedJob.skills}</p>
+                  </div>
+                </CardContent>
+                <CardFooter>
+                  <div className="flex gap-8">
+                    <Button onClick={() => navigate(`/jobapplicationform/${selectedJob.id}`)}>
+                      Apply
+                    </Button>
+                  </div>
+                </CardFooter>
+              </div>
+            </div>
+          )}
+        </Modal>
       </div>
     </>
   );

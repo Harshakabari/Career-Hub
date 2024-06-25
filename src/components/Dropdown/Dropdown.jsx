@@ -13,10 +13,10 @@ const Dropdown = ({ label, options, selectedOptions, onChange }) => {
   };
 
   return (
-    <div className="relative inline-block text-left">
+    <div className="relative inline-block text-left lg:mb-0 mb-4">
       <button
         type="button"
-        className="inline-flex justify-center w-[200px] rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
+        className="inline-flex justify-center w-[250px] rounded-md border border-gray-300 shadow-sm px-4 py-2 lg:ml-0 ml-8  bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
         onClick={handleToggle}
       >
         {label}

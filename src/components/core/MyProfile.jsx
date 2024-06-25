@@ -73,7 +73,7 @@ export default function MyProfile() {
             <RiEditBoxLine />
           </IconBtn>
         </div>
-        <div className="flex max-w-[500px] justify-between">
+        <form className="flex max-w-[500px] justify-between">
           <div className="flex flex-col gap-y-5">
             <div>
               <p className="mb-2 text-sm text-richblack-600">First Name</p>
@@ -108,7 +108,7 @@ export default function MyProfile() {
               </p>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </>
   )
