@@ -5,7 +5,7 @@ import profile3 from "../../assets/Team-member/jay.png";
 import profile4 from "../../assets/Team-member/rajan.png";
 import profile5 from "../../assets/Team-member/janvi.png";
 import profile6 from "../../assets/Team-member/harita.png";
-import profile7 from "../../assets/Team-member/harita.png";
+import profile7 from "../../assets/Team-member/aayushi.png";
 import profile8 from "../../assets/Team-member/bhaumik.png";
 
 function GitlabIcon(props) {
@@ -82,47 +82,47 @@ const teamMembers = [
     name: 'Harsh Akbari', 
     role: 'Full Stack Developer', 
     image: profile2,
-    gitlab: 'https://gitlab.com/harshakbari',
+    gitlab: 'https://github.com/Harshakabari',
     instagram: 'https://instagram.com/harshakbari',
-    linkedin: 'https://linkedin.com/in/harshakbari'
+    linkedin: 'https://www.linkedin.com/in/harshakabari/'
   },
   { 
     name: 'Jay Patel', 
     role: 'Full Stack Developer', 
     image: profile3,
-    gitlab: 'https://gitlab.com/jaypatel',
-    instagram: 'https://instagram.com/jaypatel',
-    linkedin: 'https://linkedin.com/in/jaypatel'
+    gitlab: 'https://github.com/jaypatidar1230',
+    instagram: 'https://www.instagram.com/jay_patidar_1230/',
+    linkedin: 'https://www.linkedin.com/in/jay-patel-5187bb251/'
   },
   { 
     name: 'Rajan Ghelani', 
     role: 'Full Stack Developer', 
     image: profile4,
-    gitlab: 'https://gitlab.com/rajanghelani',
-    instagram: 'https://instagram.com/rajanghelani',
-    linkedin: 'https://linkedin.com/in/rajanghelani'
+    gitlab: 'https://github.com/Rajanghelani29',
+    instagram: 'https://www.instagram.com/rajanghelani_07/',
+    linkedin: 'https://www.linkedin.com/in/rajan-ghelani-0585b0253/'
   },
   { 
     name: 'Janvi Upadhyay', 
     role: 'Front-end Developer', 
     image: profile5,
-    gitlab: 'https://gitlab.com/janviupadhyay',
-    instagram: 'https://instagram.com/janviupadhyay',
-    linkedin: 'https://linkedin.com/in/janviupadhyay'
+    gitlab: 'https://github.com/Janvi0001',
+    instagram: 'https://www.instagram.com/janviupadhyay1806/',
+    linkedin: 'https://www.linkedin.com/in/janvi-upadhyay-49872a263/'
   },
   { 
     name: 'Harita Gothi', 
     role: 'Front-end Developer', 
     image: profile6,
-    gitlab: 'https://gitlab.com/haritagothi',
+    gitlab: 'https://github.com/Harita2410',
     instagram: 'https://instagram.com/haritagothi',
-    linkedin: 'https://linkedin.com/in/haritagothi'
+    linkedin: 'https://www.linkedin.com/in/harita-gothi-1b2b44272/'
   },
   { 
     name: 'Aayushi Banugariya', 
     role: 'Front-end Developer', 
     image: profile7,
-    gitlab: 'https://gitlab.com/aayushibanugariya',
+    gitlab: 'https://github.com/aayushi1708',
     instagram: 'https://instagram.com/aayushibanugariya',
     linkedin: 'https://linkedin.com/in/aayushibanugariya'
   },
@@ -130,9 +130,9 @@ const teamMembers = [
     name: 'Bhaumik Goswami', 
     role: 'Front-end Developer', 
     image: profile8,
-    gitlab: 'https://gitlab.com/bhaumikgoswami',
+    gitlab: 'https://github.com/bhaumikgoswami17',
     instagram: 'https://instagram.com/bhaumikgoswami',
-    linkedin: 'https://linkedin.com/in/bhaumikgoswami'
+    linkedin: 'https://www.linkedin.com/in/bhaumik-goswami-b2178a251/'
   }
 ];
 
