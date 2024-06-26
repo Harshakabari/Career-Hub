@@ -252,7 +252,7 @@ const JobPost = () => {
                     </CardContent>
                     <CardFooter>
                       <div className="flex gap-8">
-                        <Button onClick={() => navigate(`/jobapplicationform/${job.id}`)}>
+                        <Button onClick={() => navigate(`/jobapplicationform/${job._id}`)}>
                           Apply
                         </Button>
                         <Button onClick={() => handleViewMore(job)}>
@@ -326,7 +326,7 @@ const JobPost = () => {
                   </CardContent>
                   <CardFooter>
                     <div className="flex gap-8">
-                      <Button onClick={() => navigate(`/jobapplicationform/${selectedJob.id}`)}>
+                      <Button onClick={() => navigate(`/jobapplicationform/${selectedJob._id}`)}>
                         Apply
                       </Button>
                     </div>
@@ -390,7 +390,7 @@ const JobPost = () => {
                 </CardContent>
                 <CardFooter>
                   <div className="flex gap-8">
-                    <Button onClick={() => navigate(`/jobapplicationform/${selectedJob.id}`)}>
+                    <Button onClick={() => navigate(`/jobapplicationform/${selectedJob._id}`)}>
                       Apply
                     </Button>
                   </div>
