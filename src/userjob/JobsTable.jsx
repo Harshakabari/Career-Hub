@@ -33,7 +33,7 @@ export default function JobTable({ jobs, setJobs }) {
         <Thead>
           <Tr className="flex gap-x-[90px] rounded-t-md border-b border-b-richblack-800 px-6 py-2">
             <Th className="flex-1 text-left text-sm font-medium uppercase text-richblack-100">Job-Title</Th>
-            <Th className="flex-1 -ml-[3rem] text-left text-sm font-medium uppercase text-richblack-100">Salary</Th>
+            <Th className="flex-1 text-left text-sm font-medium uppercase text-richblack-100">Salary</Th>
             <Th className="text-left text-sm font-medium uppercase text-richblack-100">Role</Th>
             <Th className="text-left text-sm font-medium uppercase text-richblack-100">experience</Th>
             <Th className="text-left text-sm font-medium uppercase text-richblack-100">Actions</Th>
@@ -50,7 +50,7 @@ export default function JobTable({ jobs, setJobs }) {
                 <Td className="flex flex-1 gap-x-14">
                   <div>
                   <h3 className='mb-2 w-[220px]'> {job.jobTitle}</h3>
-                  <p className='text-gray-500'>{job.jobDescription}</p>
+                  <p className='text-gray-500 max-w-60 line-clamp-3'>{job.jobDescription}</p>
                   </div>
                   <div className="flex flex-col justify-between">
                     <p className="text-lg font-semibold text-richblack-5">{job.salary}</p>
