@@ -218,7 +218,10 @@ const JobPost = () => {
             />
             <Dropdown
            label={
-               Salary
+                  <div className="flex items-center">
+                   Salary
+                    <AiOutlineCaretDown className="ml-1 text-sm text-richblack-100" />
+                  </div>
               }
               options={["All", ...filterOptions.salaries]}
               selectedOptions={filters.salary}
