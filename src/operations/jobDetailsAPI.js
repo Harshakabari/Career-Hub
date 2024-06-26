@@ -1,5 +1,4 @@
 import { toast } from "react-hot-toast"
-// import { setLoading } from "../slices/profileSlice";
 import { apiConnector } from "../apiConnector"
 import { jobEndpoints } from "../apis"
 

@@ -10,7 +10,7 @@ export const endpoints = {
 }
 
 export const sendemail = {
-  SEND_MAIL: BASE_URL + "/api/sendEmail",
+  SEND_MAIL: BASE_URL + "/sendEmail",
 }
 // PROFILE ENDPOINTS
 export const profileEndpoints = {

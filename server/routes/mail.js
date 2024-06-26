@@ -3,9 +3,9 @@
 const nodemailer = require('nodemailer');
 
 // Function to send email
-async function sendEmail(formData) {
+async function sendEmail(formData,token) {
   try {
-    const { fullName, email, phone, linkedIn, portfolio, Github, education, experience, skills, resume } = formData;
+    const { fullName, email, phone, linkedIn, portfolio, Github, education, experience, skills, resume, email_jobadmin } = formData;
 
     // Configure Nodemailer with your email service provider
     let transporter = nodemailer.createTransport({
@@ -18,8 +18,8 @@ async function sendEmail(formData) {
 
     // Email content
     let mailOptions = {
-     from: `"Career Hub | search your job " <${process.env.MAIL_USER}>`, 
-      to: email,
+      from: `"Career Hub | search your job " <${process.env.MAIL_USER}>`, 
+      to: `${email_jobadmin}`,
       subject: 'New Job Application Submitted',
       html: `
         <p>Hello,</p>

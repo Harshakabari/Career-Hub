@@ -20,17 +20,6 @@ dotenv.config();
 
 // Connecting to database
 database.connect();
-
-app.post('/api/sendEmail', async (req, res) => {
-	try {
-	  const formData = req.body;
-	  const response = await sendEmail(formData);
-	  res.status(200).json(response);
-	} catch (error) {
-	  console.error('Error sending email:', error);
-	  res.status(500).json({ error: 'Failed to send email' });
-	}
-  });
  
 // Middlewares
 app.use(express.json());
@@ -57,6 +46,16 @@ cloudinaryConnect();
 app.use("/api/v1/auth", userRoutes);
 app.use("/api/v1/job", jobRoutes);
 app.use("/api/v1/profile", profileRoutes);
+app.post('/sendEmail', async (req, res) => {
+	try {
+	  const formData = req.body;
+	  const response = await sendEmail(formData);
+	  res.status(200).json(response);
+	} catch (error) {
+	  console.error('Error sending email:', error);
+	  res.status(500).json({ error: 'Failed to send email' });
+	}
+  });
 
 
 // Testing the server
