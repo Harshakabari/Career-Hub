@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useForm, FormProvider, useFormContext, Controller } from "react-hook-form";
-import Modal from "react-modal";
 import { Link } from "react-router-dom";
 import Header from "../components/Header/Header";
 import { addJobDetails } from "../operations/jobDetailsAPI";
@@ -92,14 +91,12 @@ const Page = () => {
   });
 
   const { handleSubmit, reset } = methods;
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const { token } = useSelector((state) => state.auth); // Assuming auth slice contains token
 
   const onSubmit = async (values) => {
     try {
       await addJobDetails(values, token); // Call async function to add job details
       reset(); // Resetting the form after submission
-      setIsModalOpen(true); // Open modal on successful submission
     } catch (error) {
       console.error('Error adding job:', error);
       // Handle error or display error message to user
@@ -140,36 +137,6 @@ const Page = () => {
 
         </div>
       </FormProvider>
-
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={() => setIsModalOpen(false)}
-        className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75"
-        overlayClassName="fixed inset-0 bg-gray-800 bg-opacity-75"
-      >
-        <div className="bg-white p-6 rounded shadow-lg max-w-md mx-auto animate-fade-in">
-          <h2 className="text-2xl font-bold mb-4">Job Posted Successfully</h2>
-          <p className="mb-4">Thank you for posting the job. It has been successfully added.</p>
-          <button onClick={() => setIsModalOpen(false)} className="bg-blue-500 text-white py-2 px-4 rounded">
-            <Link to="/dashboard/my-jobs">Close</Link>
-          </button>
-        </div>
-      </Modal>
-
-      <style jsx>{`
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-
-        .animate-fade-in {
-          animation: fade-in 0.5s ease-in-out;
-        }
-      `}</style>
     </>
   );
 };

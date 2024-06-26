@@ -6,6 +6,7 @@ const userRoutes = require("./routes/user");
 const jobRoutes = require("./routes/job");
 const profileRoutes = require("./routes/profile")
 const fileUpload = require("express-fileupload");
+const contactUsRoute = require("./routes/Contact");
 const { cloudinaryConnect } = require("./Config/cloudinary");
 const cors = require("cors");
 const dotenv = require("dotenv");
@@ -46,6 +47,7 @@ cloudinaryConnect();
 app.use("/api/v1/auth", userRoutes);
 app.use("/api/v1/job", jobRoutes);
 app.use("/api/v1/profile", profileRoutes);
+app.use("/api/v1/reach", contactUsRoute);
 app.post('/sendEmail', async (req, res) => {
 	try {
 	  const formData = req.body;

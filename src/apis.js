@@ -12,6 +12,10 @@ export const endpoints = {
 export const sendemail = {
   SEND_MAIL: BASE_URL + "/sendEmail",
 }
+export const contactusEndpoint = {
+  CONTACT_US_API: BASE_URL + "/reach/contact",
+}
+
 // PROFILE ENDPOINTS
 export const profileEndpoints = {
   GET_USER_DETAILS_API: BASE_URL + "/profile/getUserDetails",
