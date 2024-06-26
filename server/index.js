@@ -10,6 +10,7 @@ const { cloudinaryConnect } = require("./Config/cloudinary");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const cookieParser = require('cookie-parser')
+const { sendEmail } =require( "./routes/mail");
 
 // Setting up port number
 const PORT = process.env.PORT || 4000;
@@ -19,6 +20,17 @@ dotenv.config();
 
 // Connecting to database
 database.connect();
+
+app.post('/api/sendEmail', async (req, res) => {
+	try {
+	  const formData = req.body;
+	  const response = await sendEmail(formData);
+	  res.status(200).json(response);
+	} catch (error) {
+	  console.error('Error sending email:', error);
+	  res.status(500).json({ error: 'Failed to send email' });
+	}
+  });
  
 // Middlewares
 app.use(express.json());

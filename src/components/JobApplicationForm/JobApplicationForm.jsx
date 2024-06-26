@@ -1,28 +1,60 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect,useDispatch } from 'react';
 import Modal from 'react-modal';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { IoIosArrowBack } from "react-icons/io";
+import {
+  getFullDetailsOfJob,
+} from "../../operations/jobDetailsAPI"
+import { endpoints } from '../../apis';
+const {SEND_MAIL}=endpoints;
+import { useSelector } from 'react-redux';
 
-// Set the app element for accessibility
-Modal.setAppElement('#root');
+
+
 
 function JobApplicationForm() {
+  const { token } = useSelector((state) => state.auth);
+  const { id } = useParams();
+
   const [formData, setFormData] = useState({
     fullName: '',
+    email: '', // Added email field
     phone: '',
     linkedIn: '',
     portfolio: '',
     Github: '',
     education: '',
-    experience: [{ title: '', years: '' }], // Initialize with an object
+    experience: [{ title: '', years: '' }],
     skills: '',
     resume: null,
   });
 
   const [errors, setErrors] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (id) {
+      fetchJobDetails(id);
+    }
+  }, [id]);
+
+  const fetchJobDetails = async (id) => {
+    try {
+      const result = await getFullDetailsOfJob(id, token);
+      console.log("bala", result)
+      if (result?.jobDetails) {
+        // Assuming job details contain admin email
+        setFormData(prevState => ({
+          ...prevState,
+          email: result.jobDetails.jobadmin.email // Assuming adminEmail is fetched
+        }));
+      }
+    } catch (error) {
+      console.error('Error fetching job details:', error);
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -64,7 +96,8 @@ function JobApplicationForm() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent default form submission behavior
+  
     if (validate()) {
       try {
         const response = await submitJobApplication(formData);
@@ -76,6 +109,32 @@ function JobApplicationForm() {
     }
   };
 
+  
+  const submitJobApplication = async (formData) => {
+    const dispatch = useDispatch();
+  
+    try {
+      const formDataWithResume = new FormData();
+      for (const key in formData) {
+        if (key === 'resume') {
+          formDataWithResume.append(key, formData[key], formData[key].name);
+        } else if (key === 'experience') {
+          formDataWithResume.append(key, JSON.stringify(formData[key]));
+        } else {
+          formDataWithResume.append(key, formData[key]);
+        }
+      }
+  
+      const response = await dispatch(SEND_MAIL(formDataWithResume));
+      if (!response.ok) {
+        throw new Error('Failed to submit application');
+      }
+      return response.payload; // Assuming response payload is in response.payload
+    } catch (error) {
+      console.error('Error sending email:', error);
+      throw new Error('Failed to send email');
+    }
+  };
   return (
     <>
       <Header />
@@ -83,7 +142,7 @@ function JobApplicationForm() {
         <Link className='flex items-center' to="/job"><IoIosArrowBack />back</Link>
       </button>
       <div className='m-6'>
-        <form onSubmit={handleSubmit} className="space-y-6 p-6 bg-white rounded shadow-lg max-w-3xl mx-auto">
+        <form onSubmit={(e) => handleSubmit(submitJobApplication(e))} className="space-y-6 p-6 bg-white rounded shadow-lg max-w-3xl mx-auto">
           <h1 className="text-2xl font-bold mb-4">Job Application Form</h1>
 
           {/* Basic Information */}
@@ -116,11 +175,11 @@ function JobApplicationForm() {
           <div className="space-y-4">
             <label className="block">
               Job Title
-              <input type="text" name="experience[0].title" value={formData.experience[0]?.title || ''} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
+              <input type="text" name="title" value={formData.title || ''} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
             </label>
             <label className="block">
               Years of Experience
-              <input type="text" name="experience[0].years" value={formData.experience[0]?.years || ''} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
+              <input type="text" name="years" value={formData.years || ''} onChange={handleChange} className="block w-full mt-1 p-2 border rounded" />
             </label>
           </div>
 
@@ -140,7 +199,7 @@ function JobApplicationForm() {
             </label>
           </div>
 
-          <button type="submit" className="block w-full bg-blue-900 hover:bg-blue-800 text-white py-2 rounded">
+          <button type="submit"  className="block w-full bg-blue-900 hover:bg-blue-800 text-white py-2 rounded">
             Submit Application
           </button>
         </form>

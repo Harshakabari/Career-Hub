@@ -11,7 +11,10 @@ exports.getFulljobDetails = async (req, res) => {
     const userId = req.user.id
     const jobDetails = await Job.findOne({
       _id: jobid,
-    })
+    }).populate({
+      path: "jobadmin",
+      select: "email", // Specify the field(s) you want to populate
+    }).exec();
 
     if (!jobDetails) {
       return res.status(400).json({

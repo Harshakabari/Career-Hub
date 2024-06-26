@@ -9,6 +9,9 @@ export const endpoints = {
   RESETPASSWORD_API: BASE_URL + "/auth/reset-password",
 }
 
+export const sendemail = {
+  SEND_MAIL: BASE_URL + "/api/sendEmail",
+}
 // PROFILE ENDPOINTS
 export const profileEndpoints = {
   GET_USER_DETAILS_API: BASE_URL + "/profile/getUserDetails",
