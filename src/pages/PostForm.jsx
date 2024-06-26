@@ -110,14 +110,14 @@ const Page = () => {
     <>
       <Header />
       <FormProvider {...methods}>
-        <div className="pl-24 mt-6">
-      <h2 className="text-3xl py-2 font-semibold ">Post a New Job</h2>
+        <div className="lg:pl-24 pl-4 mt-6">
+      <h2 className="text-3xl py-2 font-semibold">Post a New Job</h2>
       <p className="text-gray-500">Fill out the form below to create a new job posting.</p>
-      <hr className="mt-3 w-[1300px]" />
+      <hr className="mt-3 lg:w-[1300px] w-96" />
       </div>
-        <div className="flex gap-4 px-20">
+        <div className="flex gap-4 lg:px-20 px-4">
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-[75%] px-5 py-5">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 lg:w-[75%] w-full px-5 py-5">
           {fields.map((field) => (
             <FormField key={field.name} {...field} />
           ))}
@@ -127,7 +127,7 @@ const Page = () => {
         </form>
         
 
-<div className=" my-10 hover:shadow-lg duration-700 h-[420px] w-96 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8">
+<div className="lg:block hidden my-10 hover:shadow-lg duration-700 h-[420px] w-96 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8">
     <h5 className="mb-6 text-3xl font-bold text-gray-900 ">Get more updates...</h5>
    
     <form className="grid">
