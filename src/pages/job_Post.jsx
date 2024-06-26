@@ -10,6 +10,7 @@ import { RiMoneyRupeeCircleLine } from "react-icons/ri";
 import { getAlljobs } from "../operations/jobDetailsAPI";
 import Dropdown from "../components/Dropdown/Dropdown";
 import Footer from "../components/Footer/Footer";
+import { AiOutlineCaretDown } from "react-icons/ai"
 
 // Set the app element for accessibility
 Modal.setAppElement('#root');
@@ -192,21 +193,36 @@ const JobPost = () => {
             <h2 className="text-lg font-bold mb-4">Filters:</h2>
            <div className="lg:flex gap-4">
             <Dropdown
-              label="Role ▼"
+                label={
+                  <div className="flex items-center">
+                    Role
+                    <AiOutlineCaretDown className="ml-1 text-sm text-richblack-100" />
+                  </div>
+              }
               options={["All", ...filterOptions.roles]}
               selectedOptions={filters.role}
               onChange={(value) => handleFilterChange("role", value)}
               defaultSelected="All"
             />
             <Dropdown
-              label="Location ▼"
+             label={
+                  <div className="flex items-center">
+                   Location
+                    <AiOutlineCaretDown className="ml-1 text-sm text-richblack-100" />
+                  </div>
+              }
               options={["All", ...filterOptions.locations]}
               selectedOptions={filters.location}
               onChange={(value) => handleFilterChange("location", value)}
               defaultSelected="All"
             />
             <Dropdown
-              label="Salary ▼"
+           label={
+                  <div className="flex items-center">
+                   Salary
+                    <AiOutlineCaretDown className="ml-1 text-sm text-richblack-100" />
+                  </div>
+              }
               options={["All", ...filterOptions.salaries]}
               selectedOptions={filters.salary}
               onChange={(value) => handleFilterChange("salary", value)}
