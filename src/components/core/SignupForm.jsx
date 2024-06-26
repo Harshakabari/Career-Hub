@@ -142,17 +142,17 @@ console.log(signupData,"herer");
               value={password}
               onChange={handleOnChange}
               placeholder="Enter Password"
-              className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md"
+              className="form-style w-full !pr-3  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md"
             />
             <span
               onClick={() => setShowPassword((prev) => !prev)}
               className="absolute right-3 lg:top-[30px] top-[25px] z-[10] cursor-pointer "
             >
-              {showPassword ? (
+              {/* {showPassword ? (
                 <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
               ) : (
                 <AiOutlineEye fontSize={24} fill="#AFB2BF" />
-              )}
+              )} */}
             </span>
           </label>
           <label className="relative">
@@ -166,17 +166,17 @@ console.log(signupData,"herer");
               value={confirmPassword}
               onChange={handleOnChange}
               placeholder="Confirm Password"
-              className="form-style w-full !pr-10  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md"
+              className="form-style w-full !pr-3  py-1 px-2 rounded-md text-gray-600 outline-none shadow-md"
             />
             <span
               onClick={() => setShowConfirmPassword((prev) => !prev)}
               className="absolute right-3 top-[63px] md:top-[30px] lg:top-[30px] z-[10] cursor-pointer "
             >
-              {showConfirmPassword ? (
+              {/* {showConfirmPassword ? (
                 <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
               ) : (
                 <AiOutlineEye fontSize={24} fill="#AFB2BF" />
-              )}
+              )} */}
             </span>
           </label>
         </div>

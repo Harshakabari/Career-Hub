@@ -19,7 +19,7 @@ export default function DeleteAccount() {
 
   return (
     <>
-      <div className="my-10 flex flex-row gap-x-5 rounded-md bg-red-700 bg-opacity-30 p-8 px-12">
+      <div className="my-10 flex flex-row gap-x-5 rounded-md bg-red-700 bg-opacity-30 p-8 lg:px-12 px-4">
         <div className="flex aspect-square h-14 w-14 items-center justify-center rounded-full bg-red-700">
           <FiTrash2 className="text-3xl text-pink-200" />
         </div>

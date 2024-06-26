@@ -1,5 +1,5 @@
 import React from "react";
-import jobdesc from "../assets/mainbg.jpg";
+import jobdesc from "../assets/mainbg.png";
 import cardimg1 from "../assets/points/happy.svg";
 import cardimg2 from "../assets/points/life_balanc.svg";
 import cardimg3 from "../assets/points/location.svg";
