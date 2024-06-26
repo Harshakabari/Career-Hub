@@ -115,7 +115,7 @@ const teamMembers = [
     role: 'Front-end Developer', 
     image: profile6,
     gitlab: 'https://github.com/Harita2410',
-    instagram: 'https://instagram.com/haritagothi',
+    instagram: 'https://www.instagram.com/harita_1209/',
     linkedin: 'https://www.linkedin.com/in/harita-gothi-1b2b44272/'
   },
   { 
@@ -131,7 +131,7 @@ const teamMembers = [
     role: 'Front-end Developer', 
     image: profile8,
     gitlab: 'https://github.com/bhaumikgoswami17',
-    instagram: 'https://instagram.com/bhaumikgoswami',
+    instagram: 'https://www.instagram.com/goswami_bhaumik/',
     linkedin: 'https://www.linkedin.com/in/bhaumik-goswami-b2178a251/'
   }
 ];
