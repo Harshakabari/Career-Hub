@@ -8,7 +8,7 @@ router.post("/createjob",auth,isRecruiter, createjob)
 router.put("/editjob/:jobid",auth,isRecruiter, editjob)
 router.get("/getAlljobs", getAlljobs)
 router.delete("/deletejob",auth,isRecruiter, deletejob)
-router.post("/getFulljobDetails",auth, isRecruiter, getFulljobDetails)
+router.post("/getFulljobDetails",auth,  getFulljobDetails)
 router.get("/getuserjobs",auth, getuserjobs)
 
 

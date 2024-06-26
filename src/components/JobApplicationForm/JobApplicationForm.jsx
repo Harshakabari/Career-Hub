@@ -5,9 +5,10 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { IoIosArrowBack } from 'react-icons/io';
 import { getFullDetailsOfJob } from '../../operations/jobDetailsAPI';
-import { submitJobApplication } from '../../operations/mailAPI.js';
-import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';  
 import { useForm } from 'react-hook-form';
+import {sendemailendpoint} from "../../apis"
+import { apiConnector } from '../../apiConnector';
 
 function JobApplicationForm() {
   const { token } = useSelector((state) => state.auth);
@@ -34,14 +35,13 @@ function JobApplicationForm() {
     }
   };
   const onSubmit = async (formData) => {
-    console.log('Form Data:', formData);
-  
     try {
-      await submitJobApplication(formData, token);
-      setIsModalOpen(true);
+      // Perform any necessary actions here
+      console.log("Form Data: ", formData);
+      const res = await apiConnector("POST", sendemailendpoint.SEND_MAIL, formData ,token);
+      console.log("Email Res - ", res); // Optionally handle response`
     } catch (error) {
-      console.error('Error submitting form:', error);
-      // Handle error state or display a message to the user
+      console.error("ERROR MESSAGE - ", error.message);
     }
   };
 

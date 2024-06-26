@@ -9,8 +9,8 @@ export const endpoints = {
   RESETPASSWORD_API: BASE_URL + "/auth/reset-password",
 }
 
-export const sendemail = {
-  SEND_MAIL: BASE_URL + "/sendEmail",
+export const sendemailendpoint = {
+  SEND_MAIL: BASE_URL + "/send/mail",
 }
 export const contactusEndpoint = {
   CONTACT_US_API: BASE_URL + "/reach/contact",
