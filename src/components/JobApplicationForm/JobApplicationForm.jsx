@@ -14,7 +14,7 @@ function JobApplicationForm() {
   const { token } = useSelector((state) => state.auth);
   const { id } = useParams();
 
-  const { register, handleSubmit, setValue, formState: { errors } } = useForm();
+  const { register, handleSubmit, setValue, reset ,formState: { errors } } = useForm();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -40,6 +40,7 @@ function JobApplicationForm() {
       console.log("Form Data: ", formData);
       const res = await apiConnector("POST", sendemailendpoint.SEND_MAIL, formData ,token);
       console.log("Email Res - ", res); // Optionally handle response`
+      reset()
     } catch (error) {
       console.error("ERROR MESSAGE - ", error.message);
     }
